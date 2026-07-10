@@ -55,4 +55,54 @@
       requestAnimationFrame(function () { col.style.height = pct + '%'; });
     });
   });
+
+  // telemetry line-chart hover tooltip (monitoring page)
+  (function () {
+    var host = document.querySelector('.telemetry');
+    if (!host) return;
+    var dataEl = host.querySelector('.tele-data');
+    var svg = host.querySelector('svg');
+    var tip = host.querySelector('.tele-tip');
+    var cur = host.querySelector('.tele-cursor');
+    if (!dataEl || !svg || !tip || !cur) return;
+    var D;
+    try { D = JSON.parse(dataEl.textContent); } catch (e) { return; }
+    var cross = cur.querySelector('.tele-cross');
+    var dots = cur.querySelectorAll('circle');
+    var VB = 740;
+    function show(clientX) {
+      var r = svg.getBoundingClientRect();
+      var ux = (clientX - r.left) / r.width * VB;
+      if (ux < 48) ux = 48;
+      if (ux > 712) ux = 712;
+      cur.style.display = '';
+      cross.setAttribute('x1', ux);
+      cross.setAttribute('x2', ux);
+      var rows = '', best = null, bestd = 1e18;
+      D.series.forEach(function (s, i) {
+        var pts = s.pts, k = 0, kd = 1e18;
+        for (var j = 0; j < pts.length; j++) {
+          var dd = Math.abs(pts[j][0] - ux);
+          if (dd < kd) { kd = dd; k = j; }
+        }
+        var p = pts[k], c = dots[i];
+        if (c) {
+          c.setAttribute('cx', p[0]); c.setAttribute('cy', p[1]);
+          c.setAttribute('fill', s.color); c.style.display = '';
+        }
+        rows += '<div class="r"><i style="background:' + s.color + '"></i><span>' + s.name + '</span><b>' + p[3].toFixed(1) + '℃</b></div>';
+        if (kd < bestd) { bestd = kd; best = p; }
+      });
+      tip.innerHTML = '<div class="h">' + best[2] + '</div>' + rows;
+      tip.hidden = false;
+      var ex = (ux / VB) * r.width;
+      var left = ex + 14;
+      if (left + tip.offsetWidth > r.width) left = ex - tip.offsetWidth - 14;
+      if (left < 4) left = 4;
+      tip.style.left = left + 'px';
+    }
+    function hide() { cur.style.display = 'none'; tip.hidden = true; }
+    svg.addEventListener('pointermove', function (e) { show(e.clientX); });
+    svg.addEventListener('pointerleave', hide);
+  })();
 })();

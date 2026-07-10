@@ -602,6 +602,20 @@ table.data tr.cold td{ color:#1c6f8c; font-weight:700; }
   padding:2px 0 2px 12px; margin-bottom:6px; }
 .layer-tab.influence{ color:var(--brass-hi); border-left-color:var(--brass); }
 
+/* telemetry hover tooltip */
+.tele-cross{ stroke:var(--cyan-hi); stroke-width:1; stroke-dasharray:3 3; opacity:.75; }
+.tele-cursor circle{ stroke:#0b1512; stroke-width:1.5; }
+.tele-tip{ position:absolute; top:8px; left:8px; pointer-events:none;
+  background:rgba(8,16,13,.95); border:1px solid var(--brass-dim); border-radius:8px;
+  padding:8px 10px; font-family:var(--mono); font-size:.72rem; color:var(--fg); z-index:6;
+  box-shadow:0 8px 22px rgba(0,0,0,.55); min-width:150px; max-width:88%; }
+.tele-tip[hidden]{ display:none; }
+.tele-tip .h{ color:var(--cyan-hi); margin-bottom:5px; letter-spacing:.04em; }
+.tele-tip .r{ display:flex; align-items:center; gap:7px; line-height:1.8; white-space:nowrap; }
+.tele-tip .r i{ width:12px; height:3px; border-radius:2px; display:inline-block; flex:none; }
+.tele-tip .r span{ overflow:hidden; text-overflow:ellipsis; }
+.tele-tip .r b{ color:var(--cyan-hi); margin-left:auto; font-weight:400; padding-left:10px; }
+
 /* utilities */
 .mt0{margin-top:0}.mb0{margin-bottom:0}
 .stack>*+*{ margin-top:18px; }
