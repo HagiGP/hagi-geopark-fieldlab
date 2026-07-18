@@ -4,11 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>笠山ゴツゴツ溶岩ラボ｜萩ジオパーク・フィールドラボ</title>
-<meta name="description" content="笠山ゴツゴツ溶岩ラボのハブ。1万年前の溶岩がつくる磯の生きものを記録する調査プログラム。成果物「笠山・磯ずかん」と、回ごとの調査報告を公開しています。">
+<meta name="description" content="1万年前の溶岩がつくる笠山・虎ヶ崎の磯を調査するラボ。調査地・環境の分類（3ゾーン）・これまでに見つかった生きもの23種を、調査ごとに集約して掲載します。">
 <link rel="icon" href="../../assets/img/logo_hggp.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Old+Mincho:wght@600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/css/style.css">
 </head>
 <body>
@@ -35,47 +36,118 @@
     <div class="wrap">
       <div class="lab-hero__tag">笠山ゴツゴツ溶岩ラボ</div>
       <h1 class="lab-hero__title">1万年前の溶岩がつくる磯</h1>
-      <p class="lab-hero__lead">笠山の噴火が生んだ、黒くゴツゴツした溶岩の磯。そのすき間に隠れる命を記録し、
-      「笠山・磯ずかん」を育てていくラボです。</p>
     </div>
   </div>
 </div>
 
-
-<!-- 成果物 -->
-<section class="lab-section">
+<!-- 調査の目的 -->
+<section class="lab-section" style="padding-bottom:0">
   <div class="wrap">
-    <div class="section-head"><span class="n">DELIVERABLE</span><h2>このラボの成果物</h2></div>
-    <a class="deliver-card reveal" href="zukan.html">
-      <div class="deliver-card__ph"><img src="../../assets/img/zukan/yougan_sp_hizaragai.jpg" alt="笠山・磯ずかん"></div>
-      <div class="deliver-card__body">
-        <div class="deliver-card__kicker">環境×生きもの ｜ 累積・常に最新</div>
-        <div class="deliver-card__title">笠山・磯ずかん</div>
-        <div class="status">
-          <div class="s"><b>23<span style="font-size:.9rem"> 種</span></b><span>現在の収録数</span></div>
-          <div class="s"><b>3<span style="font-size:.9rem"> ゾーン</span></b><span>磯の環境</span></div>
-          <div class="s"><b>2025.8.3</b><span>最終更新</span></div>
-        </div>
-        <span class="deliver-card__go">図鑑を見る ›</span>
-      </div>
-    </a>
+    <div class="section-head"><span class="n">MISSION</span><h2>調査の目的</h2></div>
+    <p class="sec-note lead">笠山の海岸には溶岩の磯が広がり、そこに生える海そうや貝類をとる漁業がさかんです。しかし、ほかにどんな生き物がいるのかは、実はよくわかっていません。変わり続ける磯の今のようすを調べて記録し、これからの変化を見ていくための土台とします。<span class="src">調査レポート #01 より</span></p>
   </div>
 </section>
 
-<!-- 調査報告一覧 -->
+<!-- 調査地 -->
 <section class="lab-section">
   <div class="wrap">
-    <div class="section-head"><span class="n">REPORTS</span><h2>調査報告</h2></div>
+    <div class="section-head"><span class="n">FIELD</span><h2>調査地</h2></div>
+    <p class="sec-note">虎ヶ崎は、笠山の北側にある岬です。笠山は約1万年前のふん火でできた火山で、溶岩が流れて冷え固まってできています。</p>
+
+    <div class="chartmap reveal" data-center="131.39930,34.45920" data-zoom="16.2"></div>
+    <div class="chartmap__note">
+      <span>笠山・虎ヶ崎（山口県萩市椿東）／ 34.459N 131.399E</span>
+      <span><b>出典</b> 地理院タイル（ベクトル）を加工して作成</span>
+    </div>
+
+    <div class="field-photos reveal">
+      <figure class="field-photos__aerial"><img src="../../assets/img/zukan/yougan_survey_area.jpg" alt="虎ヶ崎の調査範囲（国土地理院 2008年空中写真）" data-zoom></figure>
+      <div class="field-photos__tides">
+        <figure><img src="../../assets/img/zukan/yougan_tide_high.jpg" alt="満ちているようす 2025年7月25日 7時頃 潮位72cm" data-zoom></figure>
+        <figure><img src="../../assets/img/zukan/yougan_tide_low.jpg" alt="引いているようす 2025年7月22日 18時頃 潮位36cm" data-zoom></figure>
+        <p class="field-photos__credit">撮影：伊達千絵</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="rivets"><i></i><i></i><i></i></div></div>
+
+<!-- 環境の分類 -->
+<section class="lab-section">
+  <div class="wrap">
+    <div class="section-head"><span class="n">ZONES</span><h2>環境の分類</h2></div>
+    <p class="sec-note">陸上から磯のようす（地形や岩石の状態、水位）を観察し、そのようすをもとに3つのゾーンに分けて名づけました。</p>
+
+    <figure class="wire-fig reveal" style="margin:0 0 18px">
+      <img src="../../assets/img/diagram/yougan_section.png" alt="溶岩の磯の断面と3つのゾーン（水の中→水の外）">
+    </figure>
+
+    <div class="zones reveal" style="--zc:3">
+      <div class="zone z-buku"><h4>ブクブクゾーン</h4><div class="z-sub">水の中（潮下帯下部）</div><img src="../../assets/img/zukan/yougan_zone_bukubuku.jpg" alt="ブクブクゾーン" data-zoom><ul><li>くだけた岩が海底に積み重なる</li><li>岩の表面が白い</li></ul></div>
+      <div class="zone z-chap"><h4>チャプチャプゾーン</h4><div class="z-sub">一部が水の中（潮間帯中部）</div><img src="../../assets/img/zukan/yougan_zone_chapchap.jpg" alt="チャプチャプゾーン" data-zoom><ul><li>数十cm〜1mの黒い岩</li><li>満潮で水没、干潮で干上がる</li></ul></div>
+      <div class="zone z-gotsu"><h4>ゴツゴツゾーン</h4><div class="z-sub">水の外（潮上帯〜潮間帯上部）</div><img src="../../assets/img/zukan/yougan_zone_gotsugotsu.jpg" alt="ゴツゴツゾーン" data-zoom><ul><li>10cm〜1mの黒い岩が堆積</li><li>1日のほとんどが水の外</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="rivets"><i></i><i></i><i></i></div></div>
+
+<!-- これまでに見つかった生き物 -->
+<section class="lab-section">
+  <div class="wrap">
+    <div class="section-head"><span class="n">SPECIES</span><h2>これまでに見つかった生き物<span class="head-count">23種 ／ 2025.8.3</span></h2></div>
+    <p class="sec-note">3つのゾーンで生き物を採集して記録しました。第1回は計23種67個体（ゴツゴツ 8種／チャプチャプ 19種／ブクブク 1種）。カードをタップすると、くわしい情報が見られます。</p>
+
+    <div class="zonefilter reveal" data-target="#specieslist">
+      <button data-zone="all" aria-pressed="true">すべて</button>
+      <button data-zone="gotsu">ゴツゴツゾーン</button>
+      <button data-zone="chap">チャプチャプゾーン</button>
+      <button data-zone="buku">ブクブクゾーン</button>
+    </div>
+
+    <div class="zukan reveal" id="specieslist">
+      <article class="sp" data-zone="gotsu chap" tabindex="0" role="button" data-jp="ヒザラガイ" data-kanji="膝皿貝" data-sci="Acanthopleura japonica" data-tax="軟体動物門：多板綱：クサズリガイ目：クサズリガイ科" data-size="体長 35〜40mm" data-env="水の上〜一部が水の中" data-zones="ゴツゴツゾーン・チャプチャプゾーン" data-first="第1回（2025.8.3）" data-img="../../assets/img/zukan/yougan_sp_hizaragai.jpg"><div class="sp__ph"><img src="../../assets/img/zukan/yougan_sp_hizaragai.jpg" alt="ヒザラガイ" loading="lazy"></div><div class="sp__body"><div class="sp__tags"><span class="sp__zone z-gotsu">ゴツゴツゾーン</span><span class="sp__zone z-chap">チャプチャプゾーン</span></div><div class="sp__jp">ヒザラガイ<span class="sp__kanji">膝皿貝</span></div><div class="sp__sci">Acanthopleura japonica</div></div></article>
+      <article class="sp" data-zone="gotsu" tabindex="0" role="button" data-jp="ベッコウガサ" data-kanji="鼈甲笠" data-sci="Cellana grata" data-tax="軟体動物門：腹足綱：カサガイ目：ヨメガカサ科" data-size="殻長 24mm" data-env="水の上" data-zones="ゴツゴツゾーン" data-first="第1回（2025.8.3）" data-img="../../assets/img/zukan/yougan_sp_bekkougasa.jpg"><div class="sp__ph"><img src="../../assets/img/zukan/yougan_sp_bekkougasa.jpg" alt="ベッコウガサ" loading="lazy"></div><div class="sp__body"><div class="sp__tags"><span class="sp__zone z-gotsu">ゴツゴツゾーン</span></div><div class="sp__jp">ベッコウガサ<span class="sp__kanji">鼈甲笠</span></div><div class="sp__sci">Cellana grata</div></div></article>
+      <article class="sp" data-zone="gotsu chap" tabindex="0" role="button" data-jp="アマガイ" data-kanji="蜑貝" data-sci="Nerita japonica" data-tax="軟体動物門：腹足綱：アマオブネ目：アマオブネ科" data-size="殻長 10〜15mm" data-env="水の上〜一部が水の中" data-zones="ゴツゴツゾーン・チャプチャプゾーン" data-first="第1回（2025.8.3）" data-img="../../assets/img/zukan/yougan_sp_amagai.jpg"><div class="sp__ph"><img src="../../assets/img/zukan/yougan_sp_amagai.jpg" alt="アマガイ" loading="lazy"></div><div class="sp__body"><div class="sp__tags"><span class="sp__zone z-gotsu">ゴツゴツゾーン</span><span class="sp__zone z-chap">チャプチャプゾーン</span></div><div class="sp__jp">アマガイ<span class="sp__kanji">蜑貝</span></div><div class="sp__sci">Nerita japonica</div></div></article>
+      <article class="sp" data-zone="gotsu" tabindex="0" role="button" data-jp="カメノテ" data-kanji="亀の手" data-sci="Capitulum mitella" data-tax="節足動物門：顎脚綱：有柄目：ミョウガガイ科" data-size="体幅 25mm" data-env="水の上" data-zones="ゴツゴツゾーン" data-first="第1回（2025.8.3）" data-img="../../assets/img/zukan/yougan_sp_kamenote.jpg"><div class="sp__ph"><img src="../../assets/img/zukan/yougan_sp_kamenote.jpg" alt="カメノテ" loading="lazy"></div><div class="sp__body"><div class="sp__tags"><span class="sp__zone z-gotsu">ゴツゴツゾーン</span></div><div class="sp__jp">カメノテ<span class="sp__kanji">亀の手</span></div><div class="sp__sci">Capitulum mitella</div></div></article>
+      <article class="sp" data-zone="gotsu chap" tabindex="0" role="button" data-jp="ホンヤドカリ" data-kanji="本宿借" data-sci="Pagurus filholi" data-tax="節足動物門：軟甲綱：十脚目：ホンヤドカリ科" data-size="甲幅 約2〜5mm" data-env="水の上〜一部が水の中" data-zones="ゴツゴツゾーン・チャプチャプゾーン" data-first="第1回（2025.8.3）" data-img="../../assets/img/zukan/yougan_sp_honyadokari.jpg"><div class="sp__ph"><img src="../../assets/img/zukan/yougan_sp_honyadokari.jpg" alt="ホンヤドカリ" loading="lazy"></div><div class="sp__body"><div class="sp__tags"><span class="sp__zone z-gotsu">ゴツゴツゾーン</span><span class="sp__zone z-chap">チャプチャプゾーン</span></div><div class="sp__jp">ホンヤドカリ<span class="sp__kanji">本宿借</span></div><div class="sp__sci">Pagurus filholi</div></div></article>
+      <article class="sp" data-zone="gotsu" tabindex="0" role="button" data-jp="イワガニ" data-kanji="岩蟹" data-sci="Pachygrapsus crassipes" data-tax="節足動物門：軟甲綱：十脚目：イワガニ科" data-size="甲幅 18〜26mm" data-env="水の上" data-zones="ゴツゴツゾーン" data-first="第1回（2025.8.3）" data-img="../../assets/img/zukan/yougan_sp_iwagani.jpg"><div class="sp__ph"><img src="../../assets/img/zukan/yougan_sp_iwagani.jpg" alt="イワガニ" loading="lazy"></div><div class="sp__body"><div class="sp__tags"><span class="sp__zone z-gotsu">ゴツゴツゾーン</span></div><div class="sp__jp">イワガニ<span class="sp__kanji">岩蟹</span></div><div class="sp__sci">Pachygrapsus crassipes</div></div></article>
+      <article class="sp" data-zone="gotsu" tabindex="0" role="button" data-jp="アカイソガニ" data-kanji="赤磯蟹" data-sci="Cyclograpsus intermedius" data-tax="節足動物門：軟甲綱：十脚目：イワガニ科" data-size="甲幅 30mm" data-env="水の上" data-zones="ゴツゴツゾーン" data-first="第1回（2025.8.3）" data-img="../../assets/img/zukan/yougan_sp_akaisogani.jpg"><div class="sp__ph"><img src="../../assets/img/zukan/yougan_sp_akaisogani.jpg" alt="アカイソガニ" loading="lazy"></div><div class="sp__body"><div class="sp__tags"><span class="sp__zone z-gotsu">ゴツゴツゾーン</span></div><div class="sp__jp">アカイソガニ<span class="sp__kanji">赤磯蟹</span></div><div class="sp__sci">Cyclograpsus intermedius</div></div></article>
+      <article class="sp" data-zone="gotsu" tabindex="0" role="button" data-jp="ムラサキウニ（殻）" data-kanji="紫海胆" data-sci="Heliocidaris crassispina" data-tax="棘皮動物門：ウニ綱：ホンウニ目：ナガウニ科" data-size="殻幅 48mm" data-env="水の上" data-zones="ゴツゴツゾーン" data-first="第1回（2025.8.3）" data-img="../../assets/img/zukan/yougan_sp_murasakiuni_shell.jpg"><div class="sp__ph"><img src="../../assets/img/zukan/yougan_sp_murasakiuni_shell.jpg" alt="ムラサキウニ（殻）" loading="lazy"></div><div class="sp__body"><div class="sp__tags"><span class="sp__zone z-gotsu">ゴツゴツゾーン</span></div><div class="sp__jp">ムラサキウニ（殻）<span class="sp__kanji">紫海胆</span></div><div class="sp__sci">Heliocidaris crassispina</div></div></article>
+      <article class="sp" data-zone="chap buku" tabindex="0" role="button" data-jp="ムラサキウニ" data-kanji="紫海胆" data-sci="Heliocidaris crassispina" data-tax="棘皮動物門：ウニ綱：ホンウニ目：ナガウニ科" data-size="殻幅 26〜82mm" data-env="一部が水の中〜水の中" data-zones="チャプチャプゾーン・ブクブクゾーン" data-first="第1回（2025.8.3）" data-img="../../assets/img/zukan/yougan_sp_murasakiuni.jpg"><div class="sp__ph"><img src="../../assets/img/zukan/yougan_sp_murasakiuni.jpg" alt="ムラサキウニ" loading="lazy"></div><div class="sp__body"><div class="sp__tags"><span class="sp__zone z-chap">チャプチャプゾーン</span><span class="sp__zone z-buku">ブクブクゾーン</span></div><div class="sp__jp">ムラサキウニ<span class="sp__kanji">紫海胆</span></div><div class="sp__sci">Heliocidaris crassispina</div></div></article>
+      <article class="sp" data-zone="chap" tabindex="0" role="button" data-jp="マツバガイ" data-kanji="松葉貝" data-sci="Cellana nigrolineata" data-tax="軟体動物門：腹足綱：カサガイ目：ヨメガカサ科" data-size="殻長 20mm" data-env="一部が水の中" data-zones="チャプチャプゾーン" data-first="第1回（2025.8.3）" data-img="../../assets/img/zukan/yougan_sp_matsubagai.jpg"><div class="sp__ph"><img src="../../assets/img/zukan/yougan_sp_matsubagai.jpg" alt="マツバガイ" loading="lazy"></div><div class="sp__body"><div class="sp__tags"><span class="sp__zone z-chap">チャプチャプゾーン</span></div><div class="sp__jp">マツバガイ<span class="sp__kanji">松葉貝</span></div><div class="sp__sci">Cellana nigrolineata</div></div></article>
+      <article class="sp" data-zone="chap" tabindex="0" role="button" data-jp="ウノアシ" data-kanji="鵜の足" data-sci="Patelloida saccharina" data-tax="軟体動物門：腹足綱：カサガイ目：ユキノカサ科" data-size="殻長 24mm" data-env="一部が水の中" data-zones="チャプチャプゾーン" data-first="第1回（2025.8.3）" data-img="../../assets/img/zukan/yougan_sp_unoashi.jpg"><div class="sp__ph"><img src="../../assets/img/zukan/yougan_sp_unoashi.jpg" alt="ウノアシ" loading="lazy"></div><div class="sp__body"><div class="sp__tags"><span class="sp__zone z-chap">チャプチャプゾーン</span></div><div class="sp__jp">ウノアシ<span class="sp__kanji">鵜の足</span></div><div class="sp__sci">Patelloida saccharina</div></div></article>
+      <article class="sp" data-zone="chap" tabindex="0" role="button" data-jp="コウダカアオガイ" data-kanji="甲高青貝" data-sci="Nipponacmea concinna" data-tax="軟体動物門：腹足綱：カサガイ目：ユキノカサ科" data-size="殻長 13mm" data-env="一部が水の中" data-zones="チャプチャプゾーン" data-first="第1回（2025.8.3）" data-img="../../assets/img/zukan/yougan_sp_koudakaaogai.jpg"><div class="sp__ph"><img src="../../assets/img/zukan/yougan_sp_koudakaaogai.jpg" alt="コウダカアオガイ" loading="lazy"></div><div class="sp__body"><div class="sp__tags"><span class="sp__zone z-chap">チャプチャプゾーン</span></div><div class="sp__jp">コウダカアオガイ<span class="sp__kanji">甲高青貝</span></div><div class="sp__sci">Nipponacmea concinna</div></div></article>
+      <article class="sp" data-zone="chap" tabindex="0" role="button" data-jp="ヒメクボガイ" data-kanji="姫窪貝" data-sci="Omphalius nigerrimus" data-tax="軟体動物門：腹足綱：古腹足目：ニシキウズ科" data-size="殻幅 19〜23mm" data-env="一部が水の中" data-zones="チャプチャプゾーン" data-first="第1回（2025.8.3）" data-img="../../assets/img/zukan/yougan_sp_himekubogai.jpg"><div class="sp__ph"><img src="../../assets/img/zukan/yougan_sp_himekubogai.jpg" alt="ヒメクボガイ" loading="lazy"></div><div class="sp__body"><div class="sp__tags"><span class="sp__zone z-chap">チャプチャプゾーン</span></div><div class="sp__jp">ヒメクボガイ<span class="sp__kanji">姫窪貝</span></div><div class="sp__sci">Omphalius nigerrimus</div></div></article>
+      <article class="sp" data-zone="chap" tabindex="0" role="button" data-jp="イシダタミ" data-kanji="石畳貝" data-sci="Monodonta confusa" data-tax="軟体動物門：腹足綱：古腹足目：ニシキウズ科" data-size="殻幅 15〜19mm" data-env="一部が水の中" data-zones="チャプチャプゾーン" data-first="第1回（2025.8.3）" data-img="../../assets/img/zukan/yougan_sp_ishidatami.jpg"><div class="sp__ph"><img src="../../assets/img/zukan/yougan_sp_ishidatami.jpg" alt="イシダタミ" loading="lazy"></div><div class="sp__body"><div class="sp__tags"><span class="sp__zone z-chap">チャプチャプゾーン</span></div><div class="sp__jp">イシダタミ<span class="sp__kanji">石畳貝</span></div><div class="sp__sci">Monodonta confusa</div></div></article>
+      <article class="sp" data-zone="chap" tabindex="0" role="button" data-jp="クロヅケガイ" data-kanji="黒漬貝" data-sci="Monodonta neritoides" data-tax="軟体動物門：腹足綱：古腹足目：ニシキウズ科" data-size="殻幅 15mm" data-env="一部が水の中" data-zones="チャプチャプゾーン" data-first="第1回（2025.8.3）" data-img="../../assets/img/zukan/yougan_sp_kurozukegai.jpg"><div class="sp__ph"><img src="../../assets/img/zukan/yougan_sp_kurozukegai.jpg" alt="クロヅケガイ" loading="lazy"></div><div class="sp__body"><div class="sp__tags"><span class="sp__zone z-chap">チャプチャプゾーン</span></div><div class="sp__jp">クロヅケガイ<span class="sp__kanji">黒漬貝</span></div><div class="sp__sci">Monodonta neritoides</div></div></article>
+      <article class="sp" data-zone="chap" tabindex="0" role="button" data-jp="スガイ" data-kanji="酢貝" data-sci="Lunella coreensis" data-tax="軟体動物門：腹足綱：古腹足目：サザエ科" data-size="殻幅 24mm" data-env="一部が水の中" data-zones="チャプチャプゾーン" data-first="第1回（2025.8.3）" data-img="../../assets/img/zukan/yougan_sp_sugai.jpg"><div class="sp__ph"><img src="../../assets/img/zukan/yougan_sp_sugai.jpg" alt="スガイ" loading="lazy"></div><div class="sp__body"><div class="sp__tags"><span class="sp__zone z-chap">チャプチャプゾーン</span></div><div class="sp__jp">スガイ<span class="sp__kanji">酢貝</span></div><div class="sp__sci">Lunella coreensis</div></div></article>
+      <article class="sp" data-zone="chap" tabindex="0" role="button" data-jp="アマオブネ" data-kanji="蜑小舟" data-sci="Nerita albicilla" data-tax="軟体動物門：腹足綱：アマオブネ目：アマオブネ科" data-size="殻長 19〜22mm" data-env="一部が水の中" data-zones="チャプチャプゾーン" data-first="第1回（2025.8.3）" data-img="../../assets/img/zukan/yougan_sp_amaobune.jpg"><div class="sp__ph"><img src="../../assets/img/zukan/yougan_sp_amaobune.jpg" alt="アマオブネ" loading="lazy"></div><div class="sp__body"><div class="sp__tags"><span class="sp__zone z-chap">チャプチャプゾーン</span></div><div class="sp__jp">アマオブネ<span class="sp__kanji">蜑小舟</span></div><div class="sp__sci">Nerita albicilla</div></div></article>
+      <article class="sp" data-zone="chap" tabindex="0" role="button" data-jp="コオロギガイ" data-kanji="蟋蟀貝" data-sci="Cerithium dialeucum" data-tax="軟体動物門：腹足綱：新生腹足目：オニノツノガイ科" data-size="殻高 28mm" data-env="一部が水の中" data-zones="チャプチャプゾーン" data-first="第1回（2025.8.3）" data-img="../../assets/img/zukan/yougan_sp_koorogigai.jpg"><div class="sp__ph"><img src="../../assets/img/zukan/yougan_sp_koorogigai.jpg" alt="コオロギガイ" loading="lazy"></div><div class="sp__body"><div class="sp__tags"><span class="sp__zone z-chap">チャプチャプゾーン</span></div><div class="sp__jp">コオロギガイ<span class="sp__kanji">蟋蟀貝</span></div><div class="sp__sci">Cerithium dialeucum</div></div></article>
+      <article class="sp" data-zone="chap" tabindex="0" role="button" data-jp="イボニシ" data-kanji="疣辛螺" data-sci="Thais clavigera" data-tax="軟体動物門：腹足綱：新生腹足目：アッキガイ科" data-size="殻高 29mm" data-env="一部が水の中" data-zones="チャプチャプゾーン" data-first="第1回（2025.8.3）" data-img="../../assets/img/zukan/yougan_sp_ibonishi.jpg"><div class="sp__ph"><img src="../../assets/img/zukan/yougan_sp_ibonishi.jpg" alt="イボニシ" loading="lazy"></div><div class="sp__body"><div class="sp__tags"><span class="sp__zone z-chap">チャプチャプゾーン</span></div><div class="sp__jp">イボニシ<span class="sp__kanji">疣辛螺</span></div><div class="sp__sci">Thais clavigera</div></div></article>
+      <article class="sp" data-zone="chap" tabindex="0" role="button" data-jp="イソニナ" data-kanji="磯蜷" data-sci="Japeuthria ferrea" data-tax="軟体動物門：腹足綱：新生腹足目：エゾバイ科" data-size="殻高 29〜40mm" data-env="一部が水の中" data-zones="チャプチャプゾーン" data-first="第1回（2025.8.3）" data-img="../../assets/img/zukan/yougan_sp_isonina.jpg"><div class="sp__ph"><img src="../../assets/img/zukan/yougan_sp_isonina.jpg" alt="イソニナ" loading="lazy"></div><div class="sp__body"><div class="sp__tags"><span class="sp__zone z-chap">チャプチャプゾーン</span></div><div class="sp__jp">イソニナ<span class="sp__kanji">磯蜷</span></div><div class="sp__sci">Japeuthria ferrea</div></div></article>
+      <article class="sp" data-zone="chap" tabindex="0" role="button" data-jp="イナミガイ（殻）" data-kanji="いなみ貝" data-sci="Gafrarium dispar" data-tax="軟体動物門：二枚貝綱：マルスダレ目：マルスダレ科" data-size="殻長 25mm" data-env="一部が水の中" data-zones="チャプチャプゾーン" data-first="第1回（2025.8.3）" data-img="../../assets/img/zukan/yougan_sp_inamigai.jpg"><div class="sp__ph"><img src="../../assets/img/zukan/yougan_sp_inamigai.jpg" alt="イナミガイ（殻）" loading="lazy"></div><div class="sp__body"><div class="sp__tags"><span class="sp__zone z-chap">チャプチャプゾーン</span></div><div class="sp__jp">イナミガイ（殻）<span class="sp__kanji">いなみ貝</span></div><div class="sp__sci">Gafrarium dispar</div></div></article>
+      <article class="sp" data-zone="chap" tabindex="0" role="button" data-jp="イソヨコバサミ" data-kanji="磯横鋏" data-sci="Clibanarius virescens" data-tax="節足動物門：軟甲綱：十脚目：ヤドカリ科" data-size="甲幅 2〜30mm" data-env="一部が水の中" data-zones="チャプチャプゾーン" data-first="第1回（2025.8.3）" data-img="../../assets/img/zukan/yougan_sp_isoyokobasami.jpg"><div class="sp__ph"><img src="../../assets/img/zukan/yougan_sp_isoyokobasami.jpg" alt="イソヨコバサミ" loading="lazy"></div><div class="sp__body"><div class="sp__tags"><span class="sp__zone z-chap">チャプチャプゾーン</span></div><div class="sp__jp">イソヨコバサミ<span class="sp__kanji">磯横鋏</span></div><div class="sp__sci">Clibanarius virescens</div></div></article>
+      <article class="sp" data-zone="chap" tabindex="0" role="button" data-jp="ドロメ" data-kanji="泥目" data-sci="Chaenogobius gulosus" data-tax="脊索動物門：硬骨魚綱：スズキ目：ハゼ科" data-size="体長 38〜48mm" data-env="一部が水の中" data-zones="チャプチャプゾーン" data-first="第1回（2025.8.3）" data-img="../../assets/img/zukan/yougan_sp_dorome.jpg"><div class="sp__ph"><img src="../../assets/img/zukan/yougan_sp_dorome.jpg" alt="ドロメ" loading="lazy"></div><div class="sp__body"><div class="sp__tags"><span class="sp__zone z-chap">チャプチャプゾーン</span></div><div class="sp__jp">ドロメ<span class="sp__kanji">泥目</span></div><div class="sp__sci">Chaenogobius gulosus</div></div></article>
+      <article class="sp" data-zone="chap" tabindex="0" role="button" data-jp="アナハゼ" data-kanji="穴鯊" data-sci="Pseudoblennius percoides" data-tax="脊索動物門：硬骨魚綱：スズキ目：カジカ科" data-size="体長 117mm" data-env="一部が水の中" data-zones="チャプチャプゾーン" data-first="第1回（2025.8.3）" data-img="../../assets/img/zukan/yougan_sp_anahaze.jpg"><div class="sp__ph"><img src="../../assets/img/zukan/yougan_sp_anahaze.jpg" alt="アナハゼ" loading="lazy"></div><div class="sp__body"><div class="sp__tags"><span class="sp__zone z-chap">チャプチャプゾーン</span></div><div class="sp__jp">アナハゼ<span class="sp__kanji">穴鯊</span></div><div class="sp__sci">Pseudoblennius percoides</div></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- 調査の記録 -->
+<section class="lab-section">
+  <div class="wrap">
+    <div class="section-head"><span class="n">REPORTS</span><h2>調査の記録</h2></div>
     <div class="report-list reveal">
       <a class="report-item" href="report-01.html">
         <div class="report-item__no">#01</div>
         <div class="report-item__body">
-          <div class="report-item__t">第1回 調査レポート</div>
-          <div class="report-item__d">2025年8月3日（日）／ 笠山・虎ヶ崎 ／ 3ゾーンで23種67個体を採集</div>
+          <div class="report-item__t">第1回</div>
+          <div class="report-item__d">2025.8.3 ／ 笠山・虎ヶ崎 ／ 23種67個体</div>
         </div>
         <div class="report-item__go">›</div>
       </a>
-      <div class="report-upcoming">第2回以降の調査報告は、実施ごとにここへ追加されます。</div>
     </div>
     <p style="margin-top:28px"><a class="backlink" href="../../index.html#labs">‹ 3つのラボにもどる</a></p>
   </div>
@@ -88,6 +160,23 @@
   </div>
 </footer>
 
+<div class="sp-detail" id="spDetail" hidden>
+  <div class="sp-detail__box">
+    <button class="sp-detail__x" aria-label="閉じる">&times;</button>
+    <div class="sp-detail__ph"><img alt=""></div>
+    <div class="sp-detail__info">
+      <div class="sp-detail__tags"></div>
+      <div class="sp-detail__jp"></div>
+      <div class="sp-detail__sci"></div>
+      <div class="sp-detail__tax"></div>
+      <dl class="sp-detail__dl"></dl>
+    </div>
+  </div>
+</div>
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="../../assets/js/chartmap.js"></script>
+<script src="../../assets/js/filter.js"></script>
+<script src="../../assets/js/species.js"></script>
 <script src="../../assets/js/main.js"></script>
 </body>
 </html>

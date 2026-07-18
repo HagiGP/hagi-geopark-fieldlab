@@ -3,7 +3,7 @@
    二層構造: 暗い緑青のスチームパンク外殻 × 明るい野帳のデータ面
    ========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap');
 
 :root{
   /* shell (dark, atmosphere) */
@@ -38,7 +38,8 @@
   --radius: 14px;
   --shadow: 0 18px 44px rgba(0,0,0,.45);
 
-  --serif: "Zen Old Mincho", "Noto Serif JP", serif;
+  /* 明朝は使わない（固い印象になるため全面禁止）。見出しもゴシックで統一 */
+  --serif: "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
   --sans:  "Noto Sans JP", system-ui, sans-serif;
   --mono:  "Share Tech Mono", "Noto Sans JP", monospace;
 
@@ -248,7 +249,7 @@ h1,h2,h3,h4{ font-family:var(--serif); font-weight:700; line-height:1.4; }
 .panel-sub{ color:var(--paper-sub); font-size:.82rem; letter-spacing:.04em; }
 .lab-section{ padding:34px 0; }
 .lab-section > .wrap > .panel{ margin-top:0; }
-.section-head{ margin-bottom:18px; }
+.section-head{ margin-bottom:18px; text-align:center; }
 .section-head .n{ font-family:var(--serif); color:var(--brass); font-size:.8rem; letter-spacing:.2em; }
 .section-head h2{ color:var(--fg); font-size:clamp(1.3rem,3.4vw,1.9rem); margin:4px 0 0; }
 
@@ -283,14 +284,14 @@ h1,h2,h3,h4{ font-family:var(--serif); font-weight:700; line-height:1.4; }
 .zone h4{ margin:0 0 2px; font-size:1.05rem; }
 .zone .z-sub{ font-size:.72rem; opacity:.9; }
 .zone ul{ margin:8px 0 0; padding-left:18px; font-size:.8rem; line-height:1.6; }
-.zone img{ border-radius:8px; margin-top:10px; aspect-ratio:1/1; object-fit:cover; width:100%; }
+.zone img{ border-radius:8px; margin-top:10px; height:104px; object-fit:cover; width:100%; }
 .z-sara{ background:linear-gradient(160deg,#c98b3a,#a96e28); }
 .z-kata{ background:linear-gradient(160deg,#cf5b3a,#a83f26); }
 .z-shaba{ background:linear-gradient(160deg,#e0902f,#b96f1e); }
 .z-boko{ background:linear-gradient(160deg,#2f8fb0,#1f6f8c); }
-.z-gotsu{ background:linear-gradient(160deg,#7a4a2a,#5a3420); }
-.z-chap{ background:linear-gradient(160deg,#d1732a,#a8531d); }
-.z-buku{ background:linear-gradient(160deg,#2b6f97,#1c4f6e); }
+.z-gotsu{ background:linear-gradient(160deg,#c08a2e,#9c6f24); }
+.z-chap{ background:linear-gradient(160deg,#2f8d78,#246e5e); }
+.z-buku{ background:linear-gradient(160deg,#3f7fa8,#2f6486); }
 
 /* ================= data table ================= */
 .table-scroll{ overflow-x:auto; -webkit-overflow-scrolling:touch; border-radius:10px; }
@@ -321,9 +322,8 @@ table.data tr.cold td{ color:#1c6f8c; font-weight:700; }
 .lg-norm{ background:#9a9385; }
 
 /* ================= zukan (species) ================= */
-.zukan{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-@media (max-width:820px){ .zukan{ grid-template-columns:repeat(2,1fr); } }
-@media (max-width:520px){ .zukan{ grid-template-columns:1fr; } }
+.zukan{ display:grid; grid-template-columns:repeat(auto-fill,minmax(196px,1fr)); gap:12px; }
+@media (max-width:480px){ .zukan{ grid-template-columns:repeat(2,1fr); } }
 .sp{
   background:var(--paper); border-radius:12px; overflow:hidden;
   border:1px solid #cbb98d; box-shadow:var(--shadow); display:flex; flex-direction:column;
@@ -620,3 +620,110 @@ table.data tr.cold td{ color:#1c6f8c; font-weight:700; }
 .mt0{margin-top:0}.mb0{margin-bottom:0}
 .stack>*+*{ margin-top:18px; }
 .stack-lg>*+*{ margin-top:44px; }
+
+/* =========================================================
+   追加コンポーネント（海図マップ / 断面図 / ゾーン絞り込み）
+   既存デザインには手を入れず、新規部品のみ
+   ========================================================= */
+.chartmap{ position:relative; border-radius:14px; overflow:hidden; border:1px solid var(--paper-line);
+  box-shadow:0 0 0 3px rgba(20,30,25,.55), var(--shadow); }
+.chartmap__canvas{ height:clamp(320px,52vw,540px); background:var(--paper); }
+.chartmap__deco{ position:absolute; inset:0; pointer-events:none; z-index:2; opacity:.5; }
+.chartmap__paper{ position:absolute; inset:0; pointer-events:none; z-index:3; mix-blend-mode:multiply; opacity:.5;
+  background:radial-gradient(120% 90% at 50% 45%,transparent 55%,rgba(120,95,45,.28) 100%),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E"); }
+.chartmap__frame{ position:absolute; inset:0; pointer-events:none; z-index:4;
+  border:10px solid var(--paper-2);
+  box-shadow:inset 0 0 0 1px var(--paper-ink), inset 0 0 0 11px var(--paper-2), inset 0 0 0 12px var(--paper-ink); }
+.chartmap__frame::before{ content:""; position:absolute; inset:-10px;
+  background:
+    repeating-linear-gradient(90deg,var(--paper-ink) 0 1px,transparent 1px 24px) top/100% 5px no-repeat,
+    repeating-linear-gradient(90deg,var(--paper-ink) 0 1px,transparent 1px 24px) bottom/100% 5px no-repeat,
+    repeating-linear-gradient(0deg,var(--paper-ink) 0 1px,transparent 1px 24px) left/5px 100% no-repeat,
+    repeating-linear-gradient(0deg,var(--paper-ink) 0 1px,transparent 1px 24px) right/5px 100% no-repeat;
+  opacity:.5; }
+.chartmap .maplibregl-ctrl-top-left,.chartmap .maplibregl-ctrl-top-right,
+.chartmap .maplibregl-ctrl-bottom-left,.chartmap .maplibregl-ctrl-bottom-right{ padding:16px; z-index:5; }
+.chartmap .maplibregl-ctrl-scale{ border-color:var(--paper-ink); color:var(--paper-ink);
+  background:rgba(244,236,214,.86); font-family:var(--mono); }
+.chartmap__note{ font-size:.78rem; color:var(--fg-dim); margin:9px auto 0; max-width:720px; display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; }
+.chartmap__note b{ color:var(--brass); }
+
+/* 断面図（ワイヤーフレーム） */
+.wire-fig{ margin:0; border:1px solid var(--line); border-radius:14px; overflow:hidden; background:var(--ink); }
+.wire-fig img{ display:block; width:100%; height:auto; }
+.wire-fig figcaption{ font-size:.8rem; color:var(--fg-dim); padding:10px 14px; text-align:center; }
+
+/* ゾーン絞り込みボタン */
+.zonefilter{ display:flex; gap:8px; flex-wrap:wrap; margin:0 0 20px; }
+.zonefilter button{ font-family:var(--mono); font-size:.78rem; letter-spacing:.04em;
+  background:var(--panel); color:var(--fg-dim); border:1px solid var(--line);
+  border-radius:22px; padding:7px 16px; cursor:pointer; transition:.2s; }
+.zonefilter button:hover{ color:var(--fg); }
+.zonefilter button[aria-pressed="true"]{ color:#0c1613; font-weight:700; }
+.zonefilter button[data-zone="all"][aria-pressed="true"]{ background:var(--brass); border-color:var(--brass); }
+.zonefilter button[data-zone="gotsu"][aria-pressed="true"]{ background:#d7a744; border-color:#d7a744; }
+.zonefilter button[data-zone="chap"][aria-pressed="true"]{ background:#56c9ad; border-color:#56c9ad; }
+.zonefilter button[data-zone="buku"][aria-pressed="true"]{ background:#4aa6d8; border-color:#4aa6d8; }
+
+/* 生き物カードのゾーンタグ */
+.sp__zone{ display:inline-block; font-size:.64rem; font-weight:700; color:#fff;
+  padding:2px 9px; border-radius:20px; margin-bottom:6px; letter-spacing:.04em; }
+.sp__zone.z-gotsu{ background:#c08a2e; } .sp__zone.z-chap{ background:#2f8d78; } .sp__zone.z-buku{ background:#3f7fa8; }
+
+/* 見出し脇の小さなデータ表示（文章の代わり） */
+.head-count{ font-family:var(--mono); font-size:.72rem; letter-spacing:.06em; color:var(--brass);
+  margin-left:12px; vertical-align:middle; font-weight:400; }
+
+/* 生き物カード：面はタグ＋和名＋学名のみ。タップで詳細 */
+.sp{ cursor:pointer; }
+.sp:focus-visible{ outline:2px solid var(--brass); outline-offset:2px; }
+.sp__tags{ display:flex; flex-wrap:wrap; gap:4px; margin-bottom:6px; }
+.sp__zone{ display:inline-block; font-size:.62rem; font-weight:700; color:#fff;
+  padding:2px 8px; border-radius:20px; letter-spacing:.02em; }
+.sp__zone.z-gotsu{ background:#c08a2e; } .sp__zone.z-chap{ background:#2f8d78; } .sp__zone.z-buku{ background:#3f7fa8; }
+.sp__body{ padding:11px 12px 13px; }
+.sp__sci{ font-style:italic; font-size:.76rem; color:#7a5a2a; margin-top:3px; }
+
+/* 詳細モーダル */
+.sp-detail{ position:fixed; inset:0; z-index:200; display:flex; align-items:center; justify-content:center;
+  background:rgba(6,10,8,.82); padding:20px; }
+.sp-detail[hidden]{ display:none; }
+.sp-detail__box{ position:relative; background:var(--paper); color:var(--paper-ink);
+  border-radius:14px; max-width:520px; width:100%; max-height:90vh; overflow:auto;
+  box-shadow:0 24px 60px rgba(0,0,0,.6); border:1px solid var(--paper-line); }
+.sp-detail__x{ position:absolute; top:8px; right:10px; z-index:2; background:rgba(0,0,0,.45); color:#fff;
+  border:0; width:34px; height:34px; border-radius:50%; font-size:22px; line-height:1; cursor:pointer; }
+.sp-detail__ph{ background:#0d1a15; }
+.sp-detail__ph img{ width:100%; max-height:46vh; object-fit:contain; display:block; }
+.sp-detail__info{ padding:18px 20px 22px; }
+.sp-detail__tags{ display:flex; flex-wrap:wrap; gap:5px; margin-bottom:8px; }
+.sp-detail__jp{ font-family:var(--serif); font-weight:700; font-size:1.5rem; color:#2a2418; line-height:1.3; }
+.sp-detail__jp .sp__kanji{ font-size:.8rem; color:var(--paper-sub); letter-spacing:.14em; margin-left:4px; }
+.sp-detail__sci{ font-style:italic; font-size:.9rem; color:#7a5a2a; margin:2px 0 4px; }
+.sp-detail__tax{ font-size:.74rem; color:var(--paper-sub); border-top:1px dashed var(--paper-line);
+  padding-top:8px; margin-top:6px; line-height:1.6; }
+.sp-detail__dl{ display:grid; grid-template-columns:auto 1fr; gap:6px 14px; margin:12px 0 0; font-size:.9rem; }
+.sp-detail__dl dt{ color:#6a5f47; font-weight:700; }
+.sp-detail__dl dd{ margin:0; color:#38311f; }
+
+/* 海図マップ：4:3 に固定し、横に広がりすぎないよう中央寄せ */
+.chartmap{ max-width:720px; margin-inline:auto; aspect-ratio:4/3; }
+.chartmap__canvas{ position:absolute; inset:0; width:100%; height:100%; }
+
+/* 調査地の写真配置：空中写真＝左、満潮＝右上、干潮＝右下 */
+.field-photos{ display:grid; grid-template-columns:minmax(0,0.82fr) minmax(0,1fr);
+  gap:16px; align-items:start; max-width:820px; margin:22px auto 0; }
+.field-photos figure{ margin:0; }
+.field-photos img{ width:100%; height:auto; border-radius:10px;
+  border:1px solid var(--line); display:block; }
+.field-photos__tides{ display:grid; gap:16px; align-content:start; }
+@media (max-width:640px){ .field-photos{ grid-template-columns:1fr; max-width:420px; } }
+
+/* 満潮・干潮の撮影クレジット */
+.field-photos__credit{ margin:0; text-align:right; font-size:.76rem; color:var(--fg-dim); }
+
+/* 調査レポートからの抜粋文（各項目の説明）。中央寄せ */
+.sec-note{ color:var(--fg); max-width:64ch; margin:0 auto 18px; font-size:.98rem; line-height:1.9; text-align:center; }
+.sec-note.lead{ font-size:1.04rem; color:#f0ead9; }
+.sec-note .src{ display:block; margin-top:6px; font-size:.74rem; color:var(--fg-dim); font-family:var(--mono); letter-spacing:.04em; }
