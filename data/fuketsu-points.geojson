@@ -4,43 +4,533 @@
   "source": "fuketsu_map_points.jpg 手ひろい復元",
   "note": "2025-08-09 越ヶ浜 風穴ラボ第1回。JPEGを地理院地図に重ねて手で拾った復元座標。要現地確認。",
   "corners": [
-   [131.4061637394209, 34.45266619880415],
-   [131.41168908999123, 34.45271928037995],
-   [131.41169981882842, 34.44578300204587],
-   [131.4061208240775, 34.44578300204587]
-  ]
+   [
+    131.4061637394209,
+    34.45266619880415
+   ],
+   [
+    131.41168908999123,
+    34.45271928037995
+   ],
+   [
+    131.41169981882842,
+    34.44578300204587
+   ],
+   [
+    131.4061208240775,
+    34.44578300204587
+   ]
+  ],
+  "temp_date": "2025-08-09",
+  "temp_note": "第1回外気温測定（℃）。fuketsu=true は風穴/ヒヤシがある地点。山本家倉庫12.8℃は座標未取得のため未収録。"
  },
  "features": [
-  {"type":"Feature","properties":{"id":"N-01","type":"temp","note":"復元座標（要現地確認）"},"geometry":{"type":"Point","coordinates":[131.409331,34.451008]}},
-  {"type":"Feature","properties":{"id":"N-02","type":"temp","note":"復元座標（要現地確認）"},"geometry":{"type":"Point","coordinates":[131.40912,34.451046]}},
-  {"type":"Feature","properties":{"id":"N-03","type":"temp","note":"復元座標（要現地確認）"},"geometry":{"type":"Point","coordinates":[131.409059,34.45092]}},
-  {"type":"Feature","properties":{"id":"N-04","type":"temp","note":"復元座標（要現地確認）"},"geometry":{"type":"Point","coordinates":[131.409094,34.450742]}},
-  {"type":"Feature","properties":{"id":"N-05","type":"temp","note":"復元座標（要現地確認）"},"geometry":{"type":"Point","coordinates":[131.409087,34.450571]}},
-  {"type":"Feature","properties":{"id":"N-06","type":"temp","note":"復元座標（要現地確認）"},"geometry":{"type":"Point","coordinates":[131.409215,34.450439]}},
-  {"type":"Feature","properties":{"id":"N-07","type":"temp","note":"復元座標（要現地確認）"},"geometry":{"type":"Point","coordinates":[131.409336,34.450295]}},
-  {"type":"Feature","properties":{"id":"N-08","type":"temp","note":"復元座標（要現地確認）"},"geometry":{"type":"Point","coordinates":[131.409275,34.450129]}},
-  {"type":"Feature","properties":{"id":"N-09","type":"temp","note":"復元座標（要現地確認）"},"geometry":{"type":"Point","coordinates":[131.409443,34.45002]}},
-  {"type":"Feature","properties":{"id":"S-01","type":"temp","note":"復元座標（要現地確認）"},"geometry":{"type":"Point","coordinates":[131.408784,34.448176]}},
-  {"type":"Feature","properties":{"id":"S-02","type":"temp","note":"復元座標（要現地確認）"},"geometry":{"type":"Point","coordinates":[131.408814,34.44802]}},
-  {"type":"Feature","properties":{"id":"S-03","type":"temp","note":"復元座標（要現地確認）"},"geometry":{"type":"Point","coordinates":[131.408978,34.447959]}},
-  {"type":"Feature","properties":{"id":"S-04","type":"temp","note":"復元座標（要現地確認）"},"geometry":{"type":"Point","coordinates":[131.408779,34.447885]}},
-  {"type":"Feature","properties":{"id":"S-05","type":"temp","note":"復元座標（要現地確認）"},"geometry":{"type":"Point","coordinates":[131.408604,34.447816]}},
-  {"type":"Feature","properties":{"id":"S-06","type":"temp","note":"復元座標（要現地確認）"},"geometry":{"type":"Point","coordinates":[131.408762,34.447712]}},
-  {"type":"Feature","properties":{"id":"S-07","type":"temp","note":"復元座標（要現地確認）"},"geometry":{"type":"Point","coordinates":[131.408454,34.447329]}},
-  {"type":"Feature","properties":{"id":"S-08","type":"temp","note":"復元座標（要現地確認）"},"geometry":{"type":"Point","coordinates":[131.408288,34.447236]}},
-  {"type":"Feature","properties":{"id":"S-09","type":"temp","note":"復元座標（要現地確認）"},"geometry":{"type":"Point","coordinates":[131.408152,34.447115]}},
-  {"type":"Feature","properties":{"id":"S-10","type":"temp","note":"復元座標（要現地確認）"},"geometry":{"type":"Point","coordinates":[131.408141,34.447259]}},
-  {"type":"Feature","properties":{"id":"S-11","type":"temp","note":"復元座標（要現地確認）"},"geometry":{"type":"Point","coordinates":[131.408004,34.447385]}},
-  {"type":"Feature","properties":{"id":"ヒヤシ1","type":"hiyashi","note":"復元座標（要現地確認）"},"geometry":{"type":"Point","coordinates":[131.409362,34.451009]}},
-  {"type":"Feature","properties":{"id":"ヒヤシ2","type":"hiyashi","note":"復元座標（要現地確認）"},"geometry":{"type":"Point","coordinates":[131.409029,34.45096]}},
-  {"type":"Feature","properties":{"id":"ヒヤシ3","type":"hiyashi","note":"復元座標（要現地確認）"},"geometry":{"type":"Point","coordinates":[131.40938,34.450233]}},
-  {"type":"Feature","properties":{"id":"ヒヤシ4","type":"hiyashi","note":"復元座標（要現地確認）"},"geometry":{"type":"Point","coordinates":[131.408278,34.4501]}},
-  {"type":"Feature","properties":{"id":"ヒヤシ5","type":"hiyashi","note":"復元座標（要現地確認）"},"geometry":{"type":"Point","coordinates":[131.408273,34.448912]}},
-  {"type":"Feature","properties":{"id":"ヒヤシ6","type":"hiyashi","note":"復元座標（要現地確認）"},"geometry":{"type":"Point","coordinates":[131.408475,34.448678]}},
-  {"type":"Feature","properties":{"id":"ヒヤシ7","type":"hiyashi","note":"復元座標（要現地確認）"},"geometry":{"type":"Point","coordinates":[131.408759,34.448127]}},
-  {"type":"Feature","properties":{"id":"ヒヤシ8","type":"hiyashi","note":"復元座標（要現地確認）"},"geometry":{"type":"Point","coordinates":[131.408571,34.447828]}},
-  {"type":"Feature","properties":{"id":"ヒヤシ9","type":"hiyashi","note":"復元座標（要現地確認）"},"geometry":{"type":"Point","coordinates":[131.408149,34.447224]}},
-  {"type":"Feature","properties":{"id":"ヒヤシ10","type":"hiyashi","note":"復元座標（要現地確認）"},"geometry":{"type":"Point","coordinates":[131.408106,34.446739]}},
-  {"type":"Feature","properties":{"id":"厳島神社奥の風穴","type":"star","note":"復元座標（要現地確認）"},"geometry":{"type":"Point","coordinates":[131.407364,34.449961]}}
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "N-01",
+    "type": "temp",
+    "note": "復元座標（要現地確認）",
+    "temp": 27.5,
+    "fuketsu": true
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     131.409331,
+     34.451008
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "N-02",
+    "type": "temp",
+    "note": "復元座標（要現地確認）",
+    "temp": 30.5,
+    "fuketsu": false
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     131.40912,
+     34.451046
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "N-03",
+    "type": "temp",
+    "note": "復元座標（要現地確認）",
+    "temp": 29.8,
+    "fuketsu": true
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     131.409059,
+     34.45092
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "N-04",
+    "type": "temp",
+    "note": "復元座標（要現地確認）",
+    "temp": 29.8,
+    "fuketsu": false
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     131.409094,
+     34.450742
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "N-05",
+    "type": "temp",
+    "note": "復元座標（要現地確認）",
+    "temp": 32.2,
+    "fuketsu": false
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     131.409087,
+     34.450571
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "N-06",
+    "type": "temp",
+    "note": "復元座標（要現地確認）",
+    "temp": 29.5,
+    "fuketsu": false
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     131.409215,
+     34.450439
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "N-07",
+    "type": "temp",
+    "note": "復元座標（要現地確認）",
+    "temp": 29.5,
+    "fuketsu": true
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     131.409336,
+     34.450295
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "N-08",
+    "type": "temp",
+    "note": "復元座標（要現地確認）",
+    "temp": 30.9,
+    "fuketsu": false
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     131.409275,
+     34.450129
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "N-09",
+    "type": "temp",
+    "note": "復元座標（要現地確認）",
+    "temp": 31.0,
+    "fuketsu": false
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     131.409443,
+     34.45002
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "S-01",
+    "type": "temp",
+    "note": "復元座標（要現地確認）",
+    "temp": 26.0,
+    "fuketsu": true
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     131.408784,
+     34.448176
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "S-02",
+    "type": "temp",
+    "note": "復元座標（要現地確認）",
+    "temp": 25.0,
+    "fuketsu": true
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     131.408814,
+     34.44802
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "S-03",
+    "type": "temp",
+    "note": "復元座標（要現地確認）",
+    "temp": 33.0,
+    "fuketsu": false
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     131.408978,
+     34.447959
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "S-04",
+    "type": "temp",
+    "note": "復元座標（要現地確認）",
+    "temp": 30.0,
+    "fuketsu": false
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     131.408779,
+     34.447885
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "S-05",
+    "type": "temp",
+    "note": "復元座標（要現地確認）",
+    "temp": 21.0,
+    "fuketsu": true
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     131.408604,
+     34.447816
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "S-06",
+    "type": "temp",
+    "note": "復元座標（要現地確認）",
+    "temp": 29.0,
+    "fuketsu": false
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     131.408762,
+     34.447712
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "S-07",
+    "type": "temp",
+    "note": "復元座標（要現地確認）",
+    "temp": 33.0,
+    "fuketsu": false
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     131.408454,
+     34.447329
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "S-08",
+    "type": "temp",
+    "note": "復元座標（要現地確認）",
+    "temp": 30.0,
+    "fuketsu": false
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     131.408288,
+     34.447236
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "S-09",
+    "type": "temp",
+    "note": "復元座標（要現地確認）",
+    "temp": 32.0,
+    "fuketsu": false
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     131.408152,
+     34.447115
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "S-10",
+    "type": "temp",
+    "note": "復元座標（要現地確認）",
+    "temp": 22.0,
+    "fuketsu": true
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     131.408141,
+     34.447259
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "S-11",
+    "type": "temp",
+    "note": "復元座標（要現地確認）",
+    "temp": 29.5,
+    "fuketsu": false
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     131.408004,
+     34.447385
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "ヒヤシ1",
+    "type": "hiyashi",
+    "note": "復元座標（要現地確認）"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     131.409362,
+     34.451009
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "ヒヤシ2",
+    "type": "hiyashi",
+    "note": "復元座標（要現地確認）"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     131.409029,
+     34.45096
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "ヒヤシ3",
+    "type": "hiyashi",
+    "note": "復元座標（要現地確認）"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     131.40938,
+     34.450233
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "ヒヤシ4",
+    "type": "hiyashi",
+    "note": "復元座標（要現地確認）"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     131.408278,
+     34.4501
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "ヒヤシ5",
+    "type": "hiyashi",
+    "note": "復元座標（要現地確認）"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     131.408273,
+     34.448912
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "ヒヤシ6",
+    "type": "hiyashi",
+    "note": "復元座標（要現地確認）"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     131.408475,
+     34.448678
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "ヒヤシ7",
+    "type": "hiyashi",
+    "note": "復元座標（要現地確認）"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     131.408759,
+     34.448127
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "ヒヤシ8",
+    "type": "hiyashi",
+    "note": "復元座標（要現地確認）"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     131.408571,
+     34.447828
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "ヒヤシ9",
+    "type": "hiyashi",
+    "note": "復元座標（要現地確認）"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     131.408149,
+     34.447224
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "ヒヤシ10",
+    "type": "hiyashi",
+    "note": "復元座標（要現地確認）"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     131.408106,
+     34.446739
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "厳島神社奥の風穴",
+    "type": "star",
+    "note": "復元座標（要現地確認）",
+    "temp": 15.0,
+    "fuketsu": true
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     131.407364,
+     34.449961
+    ]
+   }
+  }
  ]
 }
