@@ -11,7 +11,12 @@
             bldg:'#e3d4ab', bldgLine:'#a4906180', road:'#fffaee', roadLine:'#b09d70' };
   const ft=(...c)=>["in",["get","ftCode"],["literal",c]];
 
-  function style(){ return { version:8,
+  const PIN={ temp:'#f4cf6b', hiyashi:'#4aa6ff', logger:'#c30d23', star:'#ff8a3d' };
+  // 温度色分けランプ（青=冷 → 黄 → 橙=暖）。data-mode="heat" のとき使用
+  const HEAT=['interpolate',['linear'],['get','temp'],
+    15,'#2f6fb0', 21,'#3aa0c4', 25,'#66c6a0', 29,'#e2b84a', 33,'#d5651a'];
+
+  function style(el){ const s={ version:8,
     sources:{ gsi:{ type:'vector', tiles:[GSI], minzoom:4, maxzoom:16, attribution:ATTR } },
     layers:[
       { id:'bg', type:'background', paint:{'background-color':C.paper} },
@@ -36,6 +41,53 @@
       { id:'coast', type:'line', source:'gsi','source-layer':'coastline', filter:ft(55101,5101),
         paint:{'line-color':C.ink,'line-width':1.3} },
     ]};
+    // 調査地点（geojson）をスタイルに直接含める。load イベント待ちにしない（描画の取りこぼし防止）
+    const url=el&&el.dataset.points;
+    if(url){
+      s.glyphs='https://glyphs.geolonia.com/{fontstack}/{range}.pbf';
+      s.sources.pts={ type:'geojson', data:url };
+      // 地点名ラベル（温度計・ロガー）。重なったら自動で間引く
+      const labelLayer={ id:'pt-label', type:'symbol', source:'pts',
+        filter:['any',['==',['get','type'],'temp'],['==',['get','type'],'logger']],
+        layout:{ 'text-field':['coalesce',['get','label'],['get','id']],
+          'text-font':['Noto Sans Regular'], 'text-size':10.5,
+          'text-offset':[0,-1.0], 'text-anchor':'bottom', 'text-allow-overlap':false, 'text-optional':true },
+        paint:{ 'text-color':'#2a2418', 'text-halo-color':'#f4ecd6', 'text-halo-width':1.6 } };
+      const tempDot={ id:'pt-temp', type:'circle', source:'pts', filter:['==',['get','type'],'temp'], paint:{
+        'circle-radius':2.7, 'circle-color':PIN.temp,
+        'circle-stroke-color':'#0c1613','circle-stroke-width':1.2 } };
+      if(el.dataset.only==='frameOfHeat'){
+        // 調査地マップ：外気温マップの初期表示範囲を四角枠で示す（範囲は init で外気温マップの実寸から設定）
+        s.sources.vframe={ type:'geojson', data:{ type:'FeatureCollection', features:[] } };
+        s.layers.push({ id:'pt-vframe', type:'line', source:'vframe',
+          paint:{ 'line-color':'#b5641e', 'line-width':2.2, 'line-dasharray':[3,2], 'line-opacity':0.95 } });
+      } else if(el.dataset.mode==='heat'){
+        // 温度を持つ地点を、小さめ・輪郭を軽くぼかし・透明度高めで描く。隣り合う色がにじんでつながる
+        s.layers.push({ id:'pt-heat', type:'circle', source:'pts', filter:['has','temp'], paint:{
+          'circle-radius':['interpolate',['linear'],['zoom'],14,11,17,24],
+          'circle-color':HEAT,
+          'circle-blur':0.6,
+          'circle-opacity':0.5 } });
+        // 温度計の点（小さめ）と地点名も表示
+        s.layers.push(tempDot);
+        s.layers.push(labelLayer);
+      } else {
+        // ヒヤシ：冷気がぼんやり広がる感じ（輪郭を少しぼかした青い光）。厳島神社奥も他と同じ扱い。最下層
+        s.layers.push({ id:'pt-hiyashi', type:'circle', source:'pts', filter:['==',['get','type'],'hiyashi'], paint:{
+          'circle-radius':['interpolate',['linear'],['zoom'],14,11,17,22],
+          'circle-color':PIN.hiyashi,
+          'circle-blur':0.55,
+          'circle-opacity':0.6 } });
+        // 温度計：くっきりした小さな点。ヒヤシより上に重ねる
+        s.layers.push(tempDot);
+        // ロガー：赤い点（受け皿。type=logger の地点を geojson に足すと表示）。最上
+        s.layers.push({ id:'pt-logger', type:'circle', source:'pts', filter:['==',['get','type'],'logger'], paint:{
+          'circle-radius':4.5, 'circle-color':PIN.logger,
+          'circle-stroke-color':'#f4ecd6','circle-stroke-width':1.6 } });
+        s.layers.push(labelLayer);
+      }
+    }
+    return s;
   }
 
   // コンパスローズ＋方位線を SVG で重ねる
@@ -59,8 +111,6 @@
     svg.innerHTML=s; el.appendChild(svg);
   }
 
-  const PIN={ temp:'#f4cf6b', hiyashi:'#4aa6ff', logger:'#c30d23', star:'#ff8a3d' };
-
   function init(el){
     const [lng,lat]=(el.dataset.center||'131.4,34.45').split(',').map(Number);
     const zoom=+(el.dataset.zoom||15.5);
@@ -69,30 +119,33 @@
     const frame=document.createElement('div'); frame.className='chartmap__frame'; el.appendChild(frame);
     const paper=document.createElement('div'); paper.className='chartmap__paper'; el.appendChild(paper);
 
-    const map=new maplibregl.Map({ container:mapDiv, style:style(),
+    const map=new maplibregl.Map({ container:mapDiv, style:style(el),
       center:[lng,lat], zoom, minZoom:12, maxZoom:18, attributionControl:{compact:true} });
     map.addControl(new maplibregl.ScaleControl({maxWidth:120,unit:'metric'}),'bottom-left');
     map.addControl(new maplibregl.NavigationControl({showCompass:false}),'top-right');
 
-    function addPoints(){
-      const url=el.dataset.points; if(!url || map.getSource('pts')) return;
-      fetch(url).then(r=>r.json()).then(gj=>{
-        if(map.getSource('pts'))return;
-        map.addSource('pts',{type:'geojson',data:gj});
-        map.addLayer({id:'pt',type:'circle',source:'pts',paint:{
-          'circle-radius':['match',['get','type'],'star',8,6],
-          'circle-color':['match',['get','type'],'temp',PIN.temp,'hiyashi',PIN.hiyashi,'logger',PIN.logger,'star',PIN.star,'#f00'],
-          'circle-stroke-color':'#0c1613','circle-stroke-width':1.6,'circle-opacity':0.95}});
-      }).catch(e=>console.warn('points 読込失敗',e));
-    }
-    map.on('load',addPoints);
-    const iv=setInterval(()=>{ if(map.isStyleLoaded()){ addPoints(); clearInterval(iv); } },300);
     // aspect-ratio でコンテナ高さが確定した後にサイズを合わせる
     requestAnimationFrame(()=>map.resize());
     if(window.ResizeObserver){ new ResizeObserver(()=>map.resize()).observe(mapDiv); }
     el._map=map;
   }
 
-  function boot(){ document.querySelectorAll('.chartmap').forEach(init); }
+  // 「調査地」マップの四角枠に、外気温マップの初期表示範囲（矩形）を流し込む
+  function linkHeatFrame(){
+    const heatEl=document.querySelector('.chartmap[data-mode="heat"]');
+    const fieldEl=document.querySelector('.chartmap[data-only="frameOfHeat"]');
+    if(!heatEl||!fieldEl||!heatEl._map||!fieldEl._map) return;
+    const apply=()=>{
+      const src=fieldEl._map.getSource('vframe'); if(!src) return;
+      const b=heatEl._map.getBounds();
+      const W=b.getWest(),E=b.getEast(),S=b.getSouth(),N=b.getNorth();
+      src.setData({ type:'Feature', properties:{}, geometry:{ type:'Polygon',
+        coordinates:[[[W,N],[E,N],[E,S],[W,S],[W,N]]] } });
+    };
+    requestAnimationFrame(()=>{ heatEl._map.resize(); fieldEl._map.resize(); apply(); });
+    heatEl._map.once('idle', apply);
+  }
+
+  function boot(){ document.querySelectorAll('.chartmap').forEach(init); linkHeatFrame(); }
   if(document.readyState!=='loading') boot(); else document.addEventListener('DOMContentLoaded',boot);
 })();

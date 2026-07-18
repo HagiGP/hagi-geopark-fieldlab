@@ -32,7 +32,8 @@
     "type": "temp",
     "note": "復元座標（要現地確認）",
     "temp": 27.5,
-    "fuketsu": true
+    "fuketsu": true,
+    "label": "N-01"
    },
    "geometry": {
     "type": "Point",
@@ -49,7 +50,8 @@
     "type": "temp",
     "note": "復元座標（要現地確認）",
     "temp": 30.5,
-    "fuketsu": false
+    "fuketsu": false,
+    "label": "N-02"
    },
    "geometry": {
     "type": "Point",
@@ -66,7 +68,8 @@
     "type": "temp",
     "note": "復元座標（要現地確認）",
     "temp": 29.8,
-    "fuketsu": true
+    "fuketsu": true,
+    "label": "N-03"
    },
    "geometry": {
     "type": "Point",
@@ -83,7 +86,8 @@
     "type": "temp",
     "note": "復元座標（要現地確認）",
     "temp": 29.8,
-    "fuketsu": false
+    "fuketsu": false,
+    "label": "N-04"
    },
    "geometry": {
     "type": "Point",
@@ -100,7 +104,8 @@
     "type": "temp",
     "note": "復元座標（要現地確認）",
     "temp": 32.2,
-    "fuketsu": false
+    "fuketsu": false,
+    "label": "N-05"
    },
    "geometry": {
     "type": "Point",
@@ -117,7 +122,8 @@
     "type": "temp",
     "note": "復元座標（要現地確認）",
     "temp": 29.5,
-    "fuketsu": false
+    "fuketsu": false,
+    "label": "N-06"
    },
    "geometry": {
     "type": "Point",
@@ -134,7 +140,8 @@
     "type": "temp",
     "note": "復元座標（要現地確認）",
     "temp": 29.5,
-    "fuketsu": true
+    "fuketsu": true,
+    "label": "N-07"
    },
    "geometry": {
     "type": "Point",
@@ -151,7 +158,8 @@
     "type": "temp",
     "note": "復元座標（要現地確認）",
     "temp": 30.9,
-    "fuketsu": false
+    "fuketsu": false,
+    "label": "N-08"
    },
    "geometry": {
     "type": "Point",
@@ -168,7 +176,8 @@
     "type": "temp",
     "note": "復元座標（要現地確認）",
     "temp": 31.0,
-    "fuketsu": false
+    "fuketsu": false,
+    "label": "N-09"
    },
    "geometry": {
     "type": "Point",
@@ -185,7 +194,8 @@
     "type": "temp",
     "note": "復元座標（要現地確認）",
     "temp": 26.0,
-    "fuketsu": true
+    "fuketsu": true,
+    "label": "S-01"
    },
    "geometry": {
     "type": "Point",
@@ -202,7 +212,8 @@
     "type": "temp",
     "note": "復元座標（要現地確認）",
     "temp": 25.0,
-    "fuketsu": true
+    "fuketsu": true,
+    "label": "S-02"
    },
    "geometry": {
     "type": "Point",
@@ -219,7 +230,8 @@
     "type": "temp",
     "note": "復元座標（要現地確認）",
     "temp": 33.0,
-    "fuketsu": false
+    "fuketsu": false,
+    "label": "S-03"
    },
    "geometry": {
     "type": "Point",
@@ -236,7 +248,8 @@
     "type": "temp",
     "note": "復元座標（要現地確認）",
     "temp": 30.0,
-    "fuketsu": false
+    "fuketsu": false,
+    "label": "S-04"
    },
    "geometry": {
     "type": "Point",
@@ -253,7 +266,8 @@
     "type": "temp",
     "note": "復元座標（要現地確認）",
     "temp": 21.0,
-    "fuketsu": true
+    "fuketsu": true,
+    "label": "S-05"
    },
    "geometry": {
     "type": "Point",
@@ -270,7 +284,8 @@
     "type": "temp",
     "note": "復元座標（要現地確認）",
     "temp": 29.0,
-    "fuketsu": false
+    "fuketsu": false,
+    "label": "S-06"
    },
    "geometry": {
     "type": "Point",
@@ -287,7 +302,8 @@
     "type": "temp",
     "note": "復元座標（要現地確認）",
     "temp": 33.0,
-    "fuketsu": false
+    "fuketsu": false,
+    "label": "S-07"
    },
    "geometry": {
     "type": "Point",
@@ -304,7 +320,8 @@
     "type": "temp",
     "note": "復元座標（要現地確認）",
     "temp": 30.0,
-    "fuketsu": false
+    "fuketsu": false,
+    "label": "S-08"
    },
    "geometry": {
     "type": "Point",
@@ -321,7 +338,8 @@
     "type": "temp",
     "note": "復元座標（要現地確認）",
     "temp": 32.0,
-    "fuketsu": false
+    "fuketsu": false,
+    "label": "S-09"
    },
    "geometry": {
     "type": "Point",
@@ -338,7 +356,8 @@
     "type": "temp",
     "note": "復元座標（要現地確認）",
     "temp": 22.0,
-    "fuketsu": true
+    "fuketsu": true,
+    "label": "S-10"
    },
    "geometry": {
     "type": "Point",
@@ -355,7 +374,8 @@
     "type": "temp",
     "note": "復元座標（要現地確認）",
     "temp": 29.5,
-    "fuketsu": false
+    "fuketsu": false,
+    "label": "S-11"
    },
    "geometry": {
     "type": "Point",
@@ -370,7 +390,7 @@
    "properties": {
     "id": "ヒヤシ1",
     "type": "hiyashi",
-    "note": "復元座標（要現地確認）"
+    "note": "聞き取り（要現地確認）"
    },
    "geometry": {
     "type": "Point",
@@ -385,7 +405,7 @@
    "properties": {
     "id": "ヒヤシ2",
     "type": "hiyashi",
-    "note": "復元座標（要現地確認）"
+    "note": "聞き取り（要現地確認）"
    },
    "geometry": {
     "type": "Point",
@@ -400,7 +420,7 @@
    "properties": {
     "id": "ヒヤシ3",
     "type": "hiyashi",
-    "note": "復元座標（要現地確認）"
+    "note": "聞き取り（要現地確認）"
    },
    "geometry": {
     "type": "Point",
@@ -415,7 +435,7 @@
    "properties": {
     "id": "ヒヤシ4",
     "type": "hiyashi",
-    "note": "復元座標（要現地確認）"
+    "note": "聞き取り（要現地確認）"
    },
    "geometry": {
     "type": "Point",
@@ -430,7 +450,7 @@
    "properties": {
     "id": "ヒヤシ5",
     "type": "hiyashi",
-    "note": "復元座標（要現地確認）"
+    "note": "聞き取り（要現地確認）"
    },
    "geometry": {
     "type": "Point",
@@ -445,7 +465,7 @@
    "properties": {
     "id": "ヒヤシ6",
     "type": "hiyashi",
-    "note": "復元座標（要現地確認）"
+    "note": "聞き取り（要現地確認）"
    },
    "geometry": {
     "type": "Point",
@@ -460,7 +480,7 @@
    "properties": {
     "id": "ヒヤシ7",
     "type": "hiyashi",
-    "note": "復元座標（要現地確認）"
+    "note": "聞き取り（要現地確認）"
    },
    "geometry": {
     "type": "Point",
@@ -475,7 +495,7 @@
    "properties": {
     "id": "ヒヤシ8",
     "type": "hiyashi",
-    "note": "復元座標（要現地確認）"
+    "note": "聞き取り（要現地確認）"
    },
    "geometry": {
     "type": "Point",
@@ -490,7 +510,7 @@
    "properties": {
     "id": "ヒヤシ9",
     "type": "hiyashi",
-    "note": "復元座標（要現地確認）"
+    "note": "聞き取り（要現地確認）"
    },
    "geometry": {
     "type": "Point",
@@ -505,7 +525,7 @@
    "properties": {
     "id": "ヒヤシ10",
     "type": "hiyashi",
-    "note": "復元座標（要現地確認）"
+    "note": "聞き取り（要現地確認）"
    },
    "geometry": {
     "type": "Point",
@@ -519,10 +539,11 @@
    "type": "Feature",
    "properties": {
     "id": "厳島神社奥の風穴",
-    "type": "star",
-    "note": "復元座標（要現地確認）",
+    "type": "hiyashi",
+    "note": "冷気の出口（観光地として知られる）",
     "temp": 15.0,
-    "fuketsu": true
+    "fuketsu": true,
+    "label": ""
    },
    "geometry": {
     "type": "Point",
