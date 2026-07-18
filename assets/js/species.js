@@ -10,11 +10,14 @@
   var tax=modal.querySelector('.sp-detail__tax');
   var dl=modal.querySelector('.sp-detail__dl');
 
-  var ZC={ 'ゴツゴツゾーン':'z-gotsu','チャプチャプゾーン':'z-chap','ブクブクゾーン':'z-buku' };
+  var ZC={ 'ゴツゴツゾーン':'z-gotsu','チャプチャプゾーン':'z-chap','ブクブクゾーン':'z-buku',
+           'サラサラゾーン':'z-sara','カタカタゾーン':'z-kata','シャバシャバゾーン':'z-shaba','ボコボコゾーン':'z-boko' };
 
   function open(card){
     var d=card.dataset;
-    img.src=d.img; img.alt=d.jp;
+    var phBox=modal.querySelector('.sp-detail__ph');
+    if(d.img){ img.src=d.img; img.alt=d.jp; phBox.style.display=''; }
+    else{ img.removeAttribute('src'); phBox.style.display='none'; }
     tags.innerHTML=(d.zones||'').split('・').filter(Boolean).map(function(z){
       return '<span class="sp__zone '+(ZC[z]||'')+'">'+z+'</span>';
     }).join('');

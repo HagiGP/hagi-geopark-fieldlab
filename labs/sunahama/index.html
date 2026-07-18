@@ -4,11 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>菊ヶ浜トワイライト砂浜ラボ｜萩ジオパーク・フィールドラボ</title>
-<meta name="description" content="菊ヶ浜トワイライト砂浜ラボのハブ。日暮れの浜の砂と生きものを記録する調査プログラム。成果物「菊ヶ浜ずかん」と、回ごとの調査報告を公開しています。">
+<meta name="description" content="阿武川の砂がつくる菊ヶ浜を調査するラボ。調査地・環境の分類（4ゾーン）・これまでに見つかった生きもの8種を、調査ごとに集約して掲載します。">
 <link rel="icon" href="../../assets/img/logo_hggp.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/css/style.css">
 </head>
 <body>
@@ -35,47 +36,98 @@
     <div class="wrap">
       <div class="lab-hero__tag">菊ヶ浜トワイライト砂浜ラボ</div>
       <h1 class="lab-hero__title">たそがれの浜に潜むいのち</h1>
-      <p class="lab-hero__lead">親しまれた海水浴場、菊ヶ浜。その砂がどうやってできて、どんな生きものがいるのかを、
-      日暮れの浜を歩きながら記録していくラボです。</p>
     </div>
   </div>
 </div>
 
-
-<!-- 成果物 -->
-<section class="lab-section">
+<!-- 調査の目的 -->
+<section class="lab-section" style="padding-bottom:0">
   <div class="wrap">
-    <div class="section-head"><span class="n">DELIVERABLE</span><h2>このラボの成果物</h2></div>
-    <a class="deliver-card reveal" href="zukan.html">
-      <div class="deliver-card__ph"><img src="../../assets/img/zukan/sunahama_sp_sunagani.jpg" alt="菊ヶ浜ずかん"></div>
-      <div class="deliver-card__body">
-        <div class="deliver-card__kicker">環境×生きもの ｜ 累積・常に最新</div>
-        <div class="deliver-card__title">菊ヶ浜ずかん</div>
-        <div class="status">
-          <div class="s"><b>8<span style="font-size:.9rem"> 種</span></b><span>現在の収録数</span></div>
-          <div class="s"><b>4<span style="font-size:.9rem"> ゾーン</span></b><span>砂浜の環境</span></div>
-          <div class="s"><b>2025.7.26</b><span>最終更新</span></div>
-        </div>
-        <span class="deliver-card__go">図鑑を見る ›</span>
-      </div>
-    </a>
+    <div class="section-head"><span class="n">MISSION</span><h2>調査の目的</h2></div>
+    <p class="sec-note lead">菊ヶ浜は地元の人に親しまれている海水浴場ですが、砂浜がどのようにできていて、どんな生き物がいるのかは、実はよくわかっていません。変わりつづける砂浜の今のようすを調べて記録し、これからの変化を見ていくための土台とします。<span class="src">調査レポート #01 より</span></p>
   </div>
 </section>
 
-<!-- 調査報告一覧 -->
+<!-- 調査地 -->
 <section class="lab-section">
   <div class="wrap">
-    <div class="section-head"><span class="n">REPORTS</span><h2>調査報告</h2></div>
+    <div class="section-head"><span class="n">FIELD</span><h2>調査地</h2></div>
+    <p class="sec-note">菊ヶ浜は、阿武川が日本海にそそぐ場所にあり、阿武川が大雨のたびに山から運んできた砂がたまってできた砂浜です。</p>
+
+    <div class="chartmap reveal" data-center="131.38890,34.41600" data-zoom="15.6"></div>
+    <div class="chartmap__note">
+      <span>菊ヶ浜（山口県萩市堀内）／ 34.416N 131.389E</span>
+      <span><b>出典</b> 地理院タイル（ベクトル）を加工して作成</span>
+    </div>
+
+    <figure class="figure reveal" style="margin:18px auto 0;max-width:300px">
+      <img src="../../assets/img/zukan/sunahama_survey_area.jpg" alt="菊ヶ浜の調査範囲（撮影：伊達千絵）" data-zoom>
+    </figure>
+  </div>
+</section>
+
+<div class="wrap"><div class="rivets"><i></i><i></i><i></i></div></div>
+
+<!-- 環境の分類 -->
+<section class="lab-section">
+  <div class="wrap">
+    <div class="section-head"><span class="n">ZONES</span><h2>環境の分類</h2></div>
+    <p class="sec-note">裸足で砂浜を歩き、地形や砂の状態（感触・温度・もよう）を観察し、4つのゾーンに分けて名づけました。</p>
+
+    <figure class="wire-fig reveal" style="margin:0 0 18px">
+      <img src="../../assets/img/diagram/sunahama_section.png" alt="砂浜の断面と4つのゾーン（陸から海へ）">
+    </figure>
+
+    <div class="zones reveal" style="--zc:4">
+      <div class="zone z-sara"><h4>サラサラゾーン</h4><div class="z-sub">波の来ない、砂が乾いた上の方</div><img src="../../assets/img/zukan/sunahama_sand_sarasara.jpg" alt="サラサラゾーン" data-zoom><ul><li>砂がかわいている（波は来ない）</li><li>あつい・ごみが多い</li></ul></div>
+      <div class="zone z-kata"><h4>カタカタゾーン</h4><div class="z-sub">砂が乾いて固くなった「前浜」の一部</div><img src="../../assets/img/zukan/sunahama_sand_katakata.jpg" alt="カタカタゾーン" data-zoom><ul><li>砂がしめっている</li><li>つめたい・貝がらがある</li></ul></div>
+      <div class="zone z-shaba"><h4>シャバシャバゾーン</h4><div class="z-sub">波が寄せては返す波打ちぎわ</div><img src="../../assets/img/zukan/sunahama_sand_shabashaba.jpg" alt="シャバシャバゾーン" data-zoom><ul><li>波が行き来する</li><li>すなが動いている</li></ul></div>
+      <div class="zone z-boko"><h4>ボコボコゾーン</h4><div class="z-sub">水中の砂底が凹凸になった「外浜」の一部</div><img src="../../assets/img/zukan/sunahama_sand_bokoboko.jpg" alt="ボコボコゾーン" data-zoom><ul><li>ずっと水の中</li><li>すなが波のようなもようをしている</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="rivets"><i></i><i></i><i></i></div></div>
+
+<!-- これまでに見つかった生き物 -->
+<section class="lab-section">
+  <div class="wrap">
+    <div class="section-head"><span class="n">SPECIES</span><h2>これまでに見つかった生き物<span class="head-count">8種 ／ 2025.7.26</span></h2></div>
+    <p class="sec-note">生き物の気配が多い3つのゾーンで採集して記録しました。第1回は計8種25個体（カタカタ 1種／シャバシャバ 1種／ボコボコ 6種）。カードをタップすると、くわしい情報が見られます。</p>
+
+    <div class="zonefilter reveal" data-target="#specieslist">
+      <button data-zone="all" aria-pressed="true">すべて</button>
+      <button data-zone="kata">カタカタゾーン</button>
+      <button data-zone="shaba">シャバシャバゾーン</button>
+      <button data-zone="boko">ボコボコゾーン</button>
+    </div>
+
+    <div class="zukan reveal" id="specieslist">
+      <article class="sp" data-zone="kata" tabindex="0" role="button" data-jp="スナガニ" data-kanji="砂蟹" data-sci="Ocypode stimpsoni" data-tax="節足動物門：軟甲綱：十脚目：スナガニ科" data-size="甲幅 約13〜16mm" data-env="砂の表面" data-zones="カタカタゾーン" data-first="第1回（2025.7.26）" data-img="../../assets/img/zukan/sunahama_sp_sunagani.jpg"><div class="sp__ph"><img src="../../assets/img/zukan/sunahama_sp_sunagani.jpg" alt="スナガニ" loading="lazy"></div><div class="sp__body"><div class="sp__tags"><span class="sp__zone z-kata">カタカタゾーン</span></div><div class="sp__jp">スナガニ<span class="sp__kanji">砂蟹</span></div><div class="sp__sci">Ocypode stimpsoni</div></div></article>
+      <article class="sp" data-zone="shaba" tabindex="0" role="button" data-jp="ナミノコガイ" data-kanji="波の子貝" data-sci="Donax cuneatus" data-tax="軟体動物門：二枚貝綱：マルスダレガイ目：フジノハナガイ科" data-size="殻長 25mm" data-env="波打ちぎわの砂の中" data-zones="シャバシャバゾーン" data-first="第1回（2025.7.26）" data-img="../../assets/img/zukan/sunahama_sp_naminokogai.jpg"><div class="sp__ph"><img src="../../assets/img/zukan/sunahama_sp_naminokogai.jpg" alt="ナミノコガイ" loading="lazy"></div><div class="sp__body"><div class="sp__tags"><span class="sp__zone z-shaba">シャバシャバゾーン</span></div><div class="sp__jp">ナミノコガイ<span class="sp__kanji">波の子貝</span></div><div class="sp__sci">Donax cuneatus</div></div></article>
+      <article class="sp" data-zone="boko" tabindex="0" role="button" data-jp="キンセンガニ" data-kanji="金線蟹" data-sci="Matuta victor" data-tax="節足動物門：軟甲綱：十脚目：キンセンガニ科" data-size="甲幅 33〜42mm" data-env="水底の砂の中" data-zones="ボコボコゾーン" data-first="第1回（2025.7.26）" data-img="../../assets/img/zukan/sunahama_sp_kinsengani.jpg"><div class="sp__ph"><img src="../../assets/img/zukan/sunahama_sp_kinsengani.jpg" alt="キンセンガニ" loading="lazy"></div><div class="sp__body"><div class="sp__tags"><span class="sp__zone z-boko">ボコボコゾーン</span></div><div class="sp__jp">キンセンガニ<span class="sp__kanji">金線蟹</span></div><div class="sp__sci">Matuta victor</div></div></article>
+      <article class="sp" data-zone="boko" tabindex="0" role="button" data-jp="コタマガイ" data-kanji="小玉貝" data-sci="Macridiscus melanaegis" data-tax="軟体動物門：二枚貝綱：マルスダレガイ目：マルスダレガイ科" data-size="殻長 28mm" data-env="水深約10cmの砂の表面" data-zones="ボコボコゾーン" data-first="第1回（2025.7.26）" data-img="../../assets/img/zukan/sunahama_sp_kotamagai.jpg"><div class="sp__ph"><img src="../../assets/img/zukan/sunahama_sp_kotamagai.jpg" alt="コタマガイ" loading="lazy"></div><div class="sp__body"><div class="sp__tags"><span class="sp__zone z-boko">ボコボコゾーン</span></div><div class="sp__jp">コタマガイ<span class="sp__kanji">小玉貝</span></div><div class="sp__sci">Macridiscus melanaegis</div></div></article>
+      <article class="sp" data-zone="boko" tabindex="0" role="button" data-jp="コウイカ類の一種" data-kanji="甲烏賊類の一種" data-sci="Acanthosepion sp." data-tax="軟体動物門：頭足綱：コウイカ目：コウイカ科" data-size="外套長 30mm" data-env="水底の砂の中" data-zones="ボコボコゾーン" data-first="第1回（2025.7.26）" data-img="../../assets/img/zukan/sunahama_sp_kouika.jpg"><div class="sp__ph"><img src="../../assets/img/zukan/sunahama_sp_kouika.jpg" alt="コウイカ類の一種" loading="lazy"></div><div class="sp__body"><div class="sp__tags"><span class="sp__zone z-boko">ボコボコゾーン</span></div><div class="sp__jp">コウイカ類の一種<span class="sp__kanji">甲烏賊類の一種</span></div><div class="sp__sci">Acanthosepion sp.</div></div></article>
+      <article class="sp" data-zone="boko" tabindex="0" role="button" data-jp="ユビナガホンヤドカリ" data-kanji="指長本宿借" data-sci="Pagurus minutus" data-tax="節足動物門：軟甲綱：十脚目：ホンヤドカリ科" data-size="甲幅 約3〜7mm" data-env="水底の砂の表面" data-zones="ボコボコゾーン" data-first="第1回（2025.7.26）" data-img="../../assets/img/zukan/sunahama_sp_yubinaga.jpg"><div class="sp__ph"><img src="../../assets/img/zukan/sunahama_sp_yubinaga.jpg" alt="ユビナガホンヤドカリ" loading="lazy"></div><div class="sp__body"><div class="sp__tags"><span class="sp__zone z-boko">ボコボコゾーン</span></div><div class="sp__jp">ユビナガホンヤドカリ<span class="sp__kanji">指長本宿借</span></div><div class="sp__sci">Pagurus minutus</div></div></article>
+      <article class="sp" data-zone="boko" tabindex="0" role="button" data-jp="種不明の魚類の稚魚" data-kanji="" data-sci="" data-tax="" data-size="全長 約20mm" data-env="水深約15〜20cmの水中" data-zones="ボコボコゾーン" data-first="第1回（2025.7.26）" data-img="../../assets/img/zukan/sunahama_sp_chigyo.jpg"><div class="sp__ph"><img src="../../assets/img/zukan/sunahama_sp_chigyo.jpg" alt="種不明の魚類の稚魚" loading="lazy"></div><div class="sp__body"><div class="sp__tags"><span class="sp__zone z-boko">ボコボコゾーン</span></div><div class="sp__jp">種不明の魚類の稚魚</div></div></article>
+      <article class="sp" data-zone="boko" tabindex="0" role="button" data-jp="アンドンクラゲ" data-kanji="行灯海月" data-sci="Carybdea brevipedalia" data-tax="刺胞動物門：箱虫綱：アンドンクラゲ目：アンドンクラゲ科" data-size="傘の幅 約15mm" data-env="水底から離れた水中" data-zones="ボコボコゾーン" data-first="第1回（2025.7.26）" data-img=""><div class="sp__ph noimg">写真なし</div><div class="sp__body"><div class="sp__tags"><span class="sp__zone z-boko">ボコボコゾーン</span></div><div class="sp__jp">アンドンクラゲ<span class="sp__kanji">行灯海月</span></div><div class="sp__sci">Carybdea brevipedalia</div></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- 調査の記録 -->
+<section class="lab-section">
+  <div class="wrap">
+    <div class="section-head"><span class="n">REPORTS</span><h2>調査の記録</h2></div>
     <div class="report-list reveal">
       <a class="report-item" href="report-01.html">
         <div class="report-item__no">#01</div>
         <div class="report-item__body">
-          <div class="report-item__t">第1回 調査レポート</div>
-          <div class="report-item__d">2025年7月26日（日）／ 菊ヶ浜 ／ 4ゾーンの環境調査・8種25個体を採集</div>
+          <div class="report-item__t">第1回</div>
+          <div class="report-item__d">2025.7.26 ／ 菊ヶ浜 ／ 8種25個体</div>
         </div>
         <div class="report-item__go">›</div>
       </a>
-      <div class="report-upcoming">第2回以降の調査報告は、実施ごとにここへ追加されます。</div>
     </div>
     <p style="margin-top:28px"><a class="backlink" href="../../index.html#labs">‹ 3つのラボにもどる</a></p>
   </div>
@@ -88,6 +140,24 @@
   </div>
 </footer>
 
+<div class="sp-detail" id="spDetail" hidden>
+  <div class="sp-detail__box">
+    <button class="sp-detail__x" aria-label="閉じる">&times;</button>
+    <div class="sp-detail__ph"><img alt=""></div>
+    <div class="sp-detail__info">
+      <div class="sp-detail__tags"></div>
+      <div class="sp-detail__jp"></div>
+      <div class="sp-detail__sci"></div>
+      <div class="sp-detail__tax"></div>
+      <dl class="sp-detail__dl"></dl>
+    </div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="../../assets/js/chartmap.js"></script>
+<script src="../../assets/js/filter.js"></script>
+<script src="../../assets/js/species.js"></script>
 <script src="../../assets/js/main.js"></script>
 </body>
 </html>

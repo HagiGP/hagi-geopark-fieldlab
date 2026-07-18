@@ -727,3 +727,15 @@ table.data tr.cold td{ color:#1c6f8c; font-weight:700; }
 .sec-note{ color:var(--fg); max-width:64ch; margin:0 auto 18px; font-size:.98rem; line-height:1.9; text-align:center; }
 .sec-note.lead{ font-size:1.04rem; color:#f0ead9; }
 .sec-note .src{ display:block; margin-top:6px; font-size:.74rem; color:var(--fg-dim); font-family:var(--mono); letter-spacing:.04em; }
+
+/* 砂浜ラボ ゾーン色（カード＝タグで統一）。乾→湿→波打ち→水中 */
+.zone.z-sara{ background:linear-gradient(160deg,#c9a13a,#a7822a); }
+.zone.z-kata{ background:linear-gradient(160deg,#b0762e,#8f5e22); }
+.zone.z-shaba{ background:linear-gradient(160deg,#3f9aa8,#2f7c88); }
+.zone.z-boko{ background:linear-gradient(160deg,#3f6fa8,#2f5686); }
+.sp__zone.z-sara{ background:#c9a13a; } .sp__zone.z-kata{ background:#b0762e; }
+.sp__zone.z-shaba{ background:#3f9aa8; } .sp__zone.z-boko{ background:#3f6fa8; }
+.zonefilter button[data-zone="sara"][aria-pressed="true"]{ background:#c9a13a; border-color:#c9a13a; }
+.zonefilter button[data-zone="kata"][aria-pressed="true"]{ background:#b0762e; border-color:#b0762e; }
+.zonefilter button[data-zone="shaba"][aria-pressed="true"]{ background:#3f9aa8; border-color:#3f9aa8; }
+.zonefilter button[data-zone="boko"][aria-pressed="true"]{ background:#3f6fa8; border-color:#3f6fa8; }
