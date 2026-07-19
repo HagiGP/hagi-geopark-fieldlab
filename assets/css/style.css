@@ -176,7 +176,7 @@ h1,h2,h3,h4{ font-family:var(--serif); font-weight:700; line-height:1.4; }
 .lab-card:hover .lab-card__ph img{ transform:scale(1.06); }
 .lab-card__body{ padding:18px 20px 22px; }
 .lab-card__tag{ font-size:.68rem; letter-spacing:.2em; color:var(--brass); }
-.lab-card__title{ font-size:1.22rem; color:var(--fg); margin:6px 0 6px; }
+.lab-card__title{ font-family:var(--serif); font-weight:700; font-size:1.5rem; color:var(--fg); margin:0 0 8px; line-height:1.35; }
 .lab-card__hook{ font-size:.9rem; color:var(--fg-dim); margin:0 0 14px; min-height:2.6em; }
 .lab-card__meta{ display:flex; flex-wrap:wrap; gap:8px; font-size:.72rem; color:var(--fg-dim); }
 .lab-card__meta b{ color:var(--teal-glow); font-weight:600; }
@@ -794,3 +794,42 @@ table.data tr.cold td{ color:#1c6f8c; font-weight:700; }
 .finding .fl{ font-family:var(--mono); font-size:.72rem; color:var(--fg-dim); letter-spacing:.04em;
   text-align:center; margin:5px 0 12px; }
 .finding p{ margin:0; font-size:.86rem; line-height:1.8; color:var(--fg); }
+
+/* =========================================================
+   統合生き物ずかん：場所チップ＋3軸フィルタ
+   ========================================================= */
+/* カード面の場所チップ（ゾーンチップと区別） */
+.sp__place{ display:inline-block; font-size:.6rem; font-weight:700; padding:2px 9px; border-radius:20px; letter-spacing:.02em; }
+.sp__place.p-kasa{ background:#6b4423; color:#f2ddbe; }
+.sp__place.p-kiku{ background:#39657f; color:#e6f1f6; }
+
+/* 3軸フィルタ */
+.zukanfilter{ display:flex; flex-direction:column; gap:10px; margin:0 0 26px; }
+.zf-row{ display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
+.zf-row[hidden]{ display:none; }
+.zf-label{ font-family:var(--mono); font-size:.7rem; color:var(--fg-dim); letter-spacing:.08em; min-width:3.6em; }
+.zukanfilter button{ font-family:var(--mono); font-size:.78rem; letter-spacing:.04em;
+  background:var(--panel); color:var(--fg-dim); border:1px solid var(--line);
+  border-radius:22px; padding:7px 15px; cursor:pointer; transition:.2s; }
+.zukanfilter button:hover{ color:var(--fg); }
+.zukanfilter button[hidden]{ display:none; }
+.zukanfilter button[aria-pressed="true"]{ color:#0c1613; font-weight:700; background:var(--brass); border-color:var(--brass); }
+.zukanfilter button[data-val="gotsu"][aria-pressed="true"]{ background:#c08a2e; border-color:#c08a2e; }
+.zukanfilter button[data-val="chap"][aria-pressed="true"]{ background:#2f8d78; border-color:#2f8d78; }
+.zukanfilter button[data-val="buku"][aria-pressed="true"]{ background:#3f7fa8; border-color:#3f7fa8; }
+.zukanfilter button[data-val="sara"][aria-pressed="true"]{ background:#c9a13a; border-color:#c9a13a; }
+.zukanfilter button[data-val="kata"][aria-pressed="true"]{ background:#b0762e; border-color:#b0762e; }
+.zukanfilter button[data-val="shaba"][aria-pressed="true"]{ background:#3f9aa8; border-color:#3f9aa8; }
+.zukanfilter button[data-val="boko"][aria-pressed="true"]{ background:#3f6fa8; border-color:#3f6fa8; }
+.zf-foot{ display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; margin-top:2px; }
+.zf-hint{ font-size:.74rem; color:var(--fg-dim); }
+.zf-count{ font-family:var(--mono); font-size:.74rem; color:var(--brass); }
+
+/* トップ：活動意義セクション */
+.vision-lead{ font-family:var(--sans); font-weight:900; font-size:clamp(1.6rem,5.2vw,2.6rem);
+  color:var(--fg); line-height:1.4; margin:14px 0 0; }
+.vision-lead::after{ content:""; display:block; width:54px; height:3px; background:var(--brass);
+  margin:20px auto 0; border-radius:2px; }
+.vision-body{ margin-top:26px; }
+.vision-body p{ color:var(--fg); font-size:1.03rem; line-height:2.05; margin:0 0 18px; }
+.vision-body p:last-child{ margin-bottom:0; }
