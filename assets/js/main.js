@@ -106,3 +106,20 @@
     svg.addEventListener('pointerleave', hide);
   })();
 })();
+
+/* 特別調査員カード → これまでの調査員リスト（トップページのみ） */
+(function () {
+  var trigger = document.getElementById('roleStar');
+  var modal = document.getElementById('rosterModal');
+  if (!trigger || !modal) return;
+  function open() { modal.hidden = false; document.body.style.overflow = 'hidden'; }
+  function close() { modal.hidden = true; document.body.style.overflow = ''; }
+  trigger.addEventListener('click', open);
+  trigger.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
+  });
+  modal.addEventListener('click', function (e) {
+    if (e.target === modal || e.target.classList.contains('roster-modal__x')) close();
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !modal.hidden) close(); });
+})();
