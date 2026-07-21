@@ -773,10 +773,10 @@ table.data tr.cold td{ color:#1c6f8c; font-weight:700; }
 .area-pair{ display:grid; grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr); gap:22px;
   align-items:start; max-width:900px; margin:0 auto 10px; }
 @media (max-width:720px){ .area-pair{ grid-template-columns:1fr; gap:14px; } }
-/* ロガー：地図とグラフを横並び（地図はしっかり見える幅・高さ、8地点を自動フィット） */
-.area-pair--logger{ grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); }
+/* ロガー：折れ線グラフは横幅が要るのでグラフを広く（65%）、地図は35%。
+   高さは chartmap--tall（4/5）のままでグラフパネルと揃う。8地点の収まりは chartmap.js の fitBounds が担保。 */
+.area-pair--logger{ grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr); }
 @media (max-width:720px){ .area-pair--logger{ grid-template-columns:1fr; } }
-.area-pair--logger .chartmap{ aspect-ratio:3/4; }
 .area-pair .chartmap{ margin:0; max-width:100%; }
 .tempbars-fig{ margin:0; }
 .tempbars-fig svg{ width:100%; height:auto; display:block; }
