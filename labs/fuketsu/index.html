@@ -107,7 +107,7 @@
 <!-- 外気温マップ＋棒グラフ -->
 <section class="lab-section">
   <div class="wrap">
-    <div class="section-head"><span class="n">HEAT</span><h2>外気温の分布</h2></div>
+    <div class="section-head"><span class="n">HEAT</span><h2>外気温の測定</h2></div>
     <p class="sec-note">20地点の外気温を、青いほど冷たく、橙いほどあたたかく色分けしました。南側では、風穴のある地点だけがはっきりと冷たくなっているのがわかります。調査時の風は南東（約2.3m/s・越ヶ浜の推定）で、冷気は北西へ流れます。最寄りのアメダス萩の観測にもとづく推計です。北側・南側それぞれ、色分けした地図とグラフを並べました。</p>
 
     <div class="date-tabs reveal" id="heat-dates"></div>
@@ -149,11 +149,13 @@
     <p class="sec-note">もっとも冷たい風穴の中では、どれくらいの温度がつづいているのでしょうか。冷気の出口に温度ロガーを置き、10分ごとに記録しています。下は正式設置前の試運転の記録です。正式なロガー8地点の連続観測は、2026年7月6日から始まっています。</p>
 
     <h3 class="area-head reveal">ロガーの設置場所</h3>
-    <div class="chartmap chartmap--tall reveal" data-center="131.40892,34.44888" data-zoom="16.5" data-only="logger" data-points="../../data/fuketsu-points.geojson"></div>
-    <div class="map-legend reveal"><span><i style="background:#c30d23"></i>温度ロガー設置点（8地点）</span></div>
-    <div class="chartmap__note"><span>正式ロガー8地点（Log-08はLog-09の湿度計を併設）／ GPS実測座標</span><span><b>出典</b> 地理院タイル（ベクトル）を加工して作成</span></div>
-
-        <div class="console-dark reveal">
+    <div class="area-pair area-pair--logger">
+      <div class="logger-side">
+        <div class="chartmap chartmap--tall reveal" data-center="131.40892,34.44888" data-zoom="15.8" data-only="logger" data-points="../../data/fuketsu-points.geojson"></div>
+        <div class="map-legend reveal"><span><i style="background:#c30d23"></i>温度ロガー設置点（8地点）</span></div>
+        <div class="chartmap__note"><span>正式ロガー8地点（Log-08はLog-09の湿度計を併設）／ GPS実測座標</span><span><b>出典</b> 地理院タイル（ベクトル）を加工して作成</span></div>
+      </div>
+      <div class="console-dark reveal">
       <div class="console-head">
         <span class="tag">SOURCE // 源流</span>
         <span class="status"><span class="led red"></span> 試運転記録 ／ 3 UNITS</span>
@@ -179,6 +181,7 @@
         <span><i style="background:#6fe6d6"></i>Log-09</span>
       </div>
       <p class="panel-sub" style="color:#8a9088;margin-top:12px">試運転記録（10分間隔・表示は1時間毎）。Log-08・09は山本倉庫の同一地点で、Log-09は湿度も測定します。正式運用は2026年7月6日から8地点。</p>
+      </div>
     </div>
   </div>
 </section>

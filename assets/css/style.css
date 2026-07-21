@@ -773,6 +773,9 @@ table.data tr.cold td{ color:#1c6f8c; font-weight:700; }
 .area-pair{ display:grid; grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr); gap:22px;
   align-items:start; max-width:900px; margin:0 auto 10px; }
 @media (max-width:720px){ .area-pair{ grid-template-columns:1fr; gap:14px; } }
+/* ロガー：地図を細く・グラフを広く */
+.area-pair--logger{ grid-template-columns:minmax(0,.5fr) minmax(0,1.5fr); }
+@media (max-width:720px){ .area-pair--logger{ grid-template-columns:1fr; } }
 .area-pair .chartmap{ margin:0; max-width:100%; }
 .tempbars-fig{ margin:0; }
 .tempbars-fig svg{ width:100%; height:auto; display:block; }
