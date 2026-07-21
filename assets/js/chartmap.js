@@ -143,20 +143,6 @@
     requestAnimationFrame(()=>map.resize());
     if(window.ResizeObserver){ new ResizeObserver(()=>map.resize()).observe(mapDiv); }
     el._map=map;
-
-    // ロガー地図：8地点すべてが枠に収まるよう自動フィット（縮尺の推定ではなく実測範囲に合わせる）
-    if(el.dataset.only==='logger' && el.dataset.points){
-      fetch(el.dataset.points).then(r=>r.json()).then(gj=>{
-        const b=new maplibregl.LngLatBounds();
-        (gj.features||[]).forEach(f=>{ if(f.properties&&f.properties.type==='logger') b.extend(f.geometry.coordinates); });
-        if(b.isEmpty()) return;
-        // 上はラベル（地点名）が点の上に出るので厚めに。全8点が枠内に必ず収まる
-        const fit=()=>map.fitBounds(b,{padding:{top:52,bottom:30,left:34,right:34},maxZoom:16.5,duration:0});
-        map.loaded()?fit():map.on('load',fit);
-        map.on('resize',fit);
-        map.once('idle',fit);
-      }).catch(()=>{});
-    }
   }
 
   // 「調査地」マップの四角枠に、外気温マップの初期表示範囲（矩形）を流し込む
