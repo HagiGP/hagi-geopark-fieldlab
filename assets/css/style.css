@@ -100,9 +100,11 @@ a:hover{ color:var(--brass); }
   box-shadow:0 3px 0 rgba(215,167,68,.16);
 }
 .nav__in{ display:flex; align-items:center; gap:16px; height:60px; }
-.nav__brand{ display:flex; align-items:center; gap:10px; font-family:var(--serif); font-weight:700; color:var(--fg); letter-spacing:.04em; }
-.nav__brand img{ height:30px; width:auto; }
-.nav__brand small{ display:block; font-size:.62rem; letter-spacing:.22em; color:var(--brass); font-family:var(--sans); }
+.nav__brand{ display:flex; align-items:center; gap:10px; font-family:var(--serif); font-weight:700; color:var(--fg);
+  letter-spacing:.03em; font-size:clamp(.9rem,3vw,1.06rem); line-height:1.25; }
+.nav__brand img{ height:30px; width:auto; flex:none; }
+.nav__brand small{ display:block; font-size:.6rem; letter-spacing:.2em; color:var(--brass); font-family:var(--sans); }
+@media (max-width:420px){ .nav__brand small{ display:none; } }
 .nav__links{ margin-left:auto; display:flex; gap:22px; align-items:center; }
 .nav__links a{ color:var(--fg-dim); font-size:.9rem; font-weight:500; letter-spacing:.03em; }
 .nav__links a:hover{ color:var(--brass-hi); }
@@ -588,7 +590,7 @@ table.data tr.cold td{ color:#1c6f8c; font-weight:700; }
 .telemetry svg{ width:100%; height:auto; display:block; }
 .tele-grid line{ stroke:rgba(111,230,214,.14); stroke-width:1; }
 .tele-axis{ stroke:rgba(215,167,68,.5); stroke-width:1.4; }
-.tele-lab{ fill:var(--fg-dim); font-family:"Share Tech Mono",monospace; font-size:9px; }
+.tele-lab{ fill:var(--fg-dim); font-family:"Share Tech Mono",monospace; font-size:15px; }
 .tele-line{ fill:none; stroke-width:1.8; filter:drop-shadow(0 0 4px currentColor); }
 .tele-watermark{ fill:rgba(255,90,77,.9); font-family:"Share Tech Mono",monospace; font-size:12px; letter-spacing:.3em; }
 .tele-legend{ display:flex; flex-wrap:wrap; gap:6px 16px; margin-top:12px; font-family:var(--mono); font-size:.7rem; color:var(--fg-dim); }
@@ -709,6 +711,8 @@ table.data tr.cold td{ color:#1c6f8c; font-weight:700; }
 
 /* 海図マップ：4:3 に固定し、横に広がりすぎないよう中央寄せ */
 .chartmap{ max-width:720px; margin-inline:auto; aspect-ratio:4/3; }
+/* エリア地図：縦長め（外気温マップの北/南範囲用） */
+.chartmap--tall{ max-width:560px; aspect-ratio:4/5; }
 .chartmap__canvas{ position:absolute; inset:0; width:100%; height:100%; }
 
 /* 調査地の写真配置：空中写真＝左、満潮＝右上、干潮＝右下 */
@@ -749,6 +753,29 @@ table.data tr.cold td{ color:#1c6f8c; font-weight:700; }
 .map-legend span{ display:inline-flex; align-items:center; gap:7px; }
 .map-legend i{ width:13px; height:13px; border-radius:50%; border:1.5px solid #0c1613; display:inline-block; }
 .map-legend i.soft{ border:0; filter:blur(2px); opacity:.75; }
+
+/* 調査日タブ（外気温の分布：日ごとに観測情報＋グラフを切替） */
+.date-tabs{ display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:8px; margin:18px 0 6px; }
+.date-tabs__lab{ font-family:var(--mono); font-size:.66rem; letter-spacing:.18em; color:var(--brass); margin-right:2px; }
+.date-tab{ font-family:var(--mono); font-size:.82rem; letter-spacing:.03em; color:var(--fg-dim);
+  background:rgba(215,167,68,.06); border:1px solid var(--brass-dim); border-radius:20px;
+  padding:6px 16px; cursor:pointer; transition:color .2s, background .2s, border-color .2s, box-shadow .2s; }
+.date-tab:hover{ color:var(--brass-hi); border-color:var(--brass); }
+.date-tab.is-active{ color:#1a2620; font-weight:700; border-color:var(--brass-hi);
+  background:linear-gradient(180deg,var(--brass-hi),var(--brass)); box-shadow:0 0 14px rgba(244,207,107,.3); }
+
+/* エリア見出し（北側／南側） */
+.area-head{ font-family:var(--serif); font-weight:700; color:var(--brass-hi); font-size:1.05rem;
+  text-align:center; letter-spacing:.04em; margin:30px 0 12px; }
+
+/* エリアごとに 地図｜グラフ を横並び（スマホは縦積み） */
+.area-block{ margin-top:22px; }
+.area-pair{ display:grid; grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr); gap:22px;
+  align-items:start; max-width:900px; margin:0 auto 10px; }
+@media (max-width:720px){ .area-pair{ grid-template-columns:1fr; gap:14px; } }
+.area-pair .chartmap{ margin:0; max-width:100%; }
+.tempbars-fig{ margin:0; }
+.tempbars-fig svg{ width:100%; height:auto; display:block; }
 
 /* データから作図した温度棒グラフ */
 .tempbars{ display:grid; gap:18px; grid-template-columns:1fr 1fr; margin-top:24px; }
@@ -837,22 +864,76 @@ table.data tr.cold td{ color:#1c6f8c; font-weight:700; }
 /* トップ：各ラボが問うていること（調査レポートの社会的意義を前に出す） */
 .why-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
 @media (max-width:820px){ .why-grid{ grid-template-columns:1fr; max-width:520px; margin-inline:auto; } }
+/* ラボカード：金の勲章プレート（成果カードの計器トーンとは完全別言語） */
 .why-card{
-  display:flex; flex-direction:column; overflow:hidden;
-  background:linear-gradient(180deg,#1c3a30,#152a23); border:1px solid var(--line);
-  border-left:3px solid var(--teal); border-radius:12px; padding:0;
-  color:var(--fg); transition:transform .25s, border-color .25s;
+  position:relative; display:flex; flex-direction:column; overflow:hidden; isolation:isolate;
+  border:6px solid transparent; border-radius:20px; color:var(--fg);
+  background:
+    repeating-linear-gradient(115deg, rgba(215,167,68,.05) 0 2px, transparent 2px 7px) padding-box,
+    radial-gradient(130% 90% at 50% -10%, rgba(244,207,107,.14), transparent 55%) padding-box,
+    linear-gradient(180deg,#1f4034,#0c1c16) padding-box,
+    linear-gradient(135deg,#fce7a0,#c8992f 22%,#7a5f28 48%,#c8992f 74%,#fce7a0) border-box;
+  box-shadow:0 26px 54px rgba(0,0,0,.58), 0 0 0 1px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,244,205,.18);
+  transition:transform .3s ease, box-shadow .3s ease;
 }
-.why-card__ph{ aspect-ratio:16/10; overflow:hidden; flex:none; }
-.why-card__ph img{ width:100%; height:100%; object-fit:cover; transition:transform .4s ease; }
-.why-card:hover .why-card__ph img{ transform:scale(1.05); }
-.why-card__body{ display:flex; flex-direction:column; flex:1; padding:20px 24px 20px; }
-.why-card:hover{ transform:translateY(-4px); border-color:var(--brass-dim); border-left-color:var(--teal-glow); }
-.why-card__tag{ font-family:var(--mono); font-size:.66rem; letter-spacing:.16em; color:var(--teal-glow); }
-.why-card__lab{ font-family:var(--serif); font-weight:700; font-size:1.24rem; color:var(--brass-hi); margin:6px 0 12px; line-height:1.35; }
-.why-card p{ margin:0; font-size:.9rem; line-height:1.95; color:var(--fg); text-align:left; }
+/* 彫金の二重枠＋角のダイヤ飾り */
+.why-card__frame{ position:absolute; inset:6px; z-index:4; pointer-events:none; border-radius:11px;
+  border:1px solid rgba(252,231,160,.42);
+  box-shadow:inset 0 0 0 3px rgba(8,18,14,.55), inset 0 0 22px rgba(0,0,0,.45); }
+.why-card__frame::before, .why-card__frame::after{ content:""; position:absolute; width:11px; height:11px;
+  background:linear-gradient(135deg,#fff2c4,var(--brass)); transform:rotate(45deg);
+  box-shadow:0 0 9px rgba(244,207,107,.7); }
+.why-card__frame::before{ top:-6px; left:-6px; }
+.why-card__frame::after{ bottom:-6px; right:-6px; }
+/* 画像：ヒーロー扱い＋スクリム＋光沢スイープ */
+.why-card__ph{ position:relative; aspect-ratio:16/11; overflow:hidden; flex:none;
+  border-bottom:5px solid var(--brass); }
+.why-card__ph img{ width:100%; height:100%; object-fit:cover; filter:saturate(1.06) contrast(1.03);
+  transition:transform .6s ease; }
+.why-card__ph::after{ content:""; position:absolute; inset:0; pointer-events:none; z-index:1;
+  background:linear-gradient(180deg, rgba(8,16,12,.18) 0%, rgba(8,16,12,0) 32%, rgba(8,16,12,.78) 100%); }
+.why-card__ph::before{ content:""; position:absolute; top:0; left:-70%; width:55%; height:100%; z-index:2;
+  background:linear-gradient(105deg, transparent, rgba(255,255,255,.32), transparent);
+  transform:skewX(-18deg); transition:left .75s ease; pointer-events:none; }
+.why-card:hover .why-card__ph::before{ left:130%; }
+.why-card:hover .why-card__ph img{ transform:scale(1.08); }
+/* 金リボン（旧タグ） */
+.why-card__ribbon{ position:absolute; top:16px; right:-4px; z-index:3;
+  font-family:var(--mono); font-size:.68rem; letter-spacing:.16em; font-weight:700; color:#231c0a;
+  background:linear-gradient(180deg,#fff2c4,var(--brass-hi) 45%,var(--brass));
+  padding:6px 14px 6px 18px; box-shadow:0 5px 12px rgba(0,0,0,.5);
+  border:1px solid rgba(255,244,205,.7); border-right:none;
+  clip-path:polygon(10px 0, 100% 0, 100% 100%, 10px 100%, 0 50%); }
+/* エンブレム：同心金リングの勲章メダリオン */
+.why-card__emblem{ position:absolute; left:22px; bottom:-34px; z-index:5;
+  width:94px; height:94px; border-radius:50%; overflow:hidden; background:var(--ink);
+  border:2px solid var(--brass-hi);
+  box-shadow:0 0 0 4px #0c1c16, 0 0 0 6px var(--brass), 0 0 0 9px rgba(215,167,68,.4),
+    0 8px 20px rgba(0,0,0,.6), 0 0 24px rgba(244,207,107,.3);
+  transition:transform .35s ease; }
+.why-card:hover .why-card__emblem{ transform:translateY(-4px) scale(1.05) rotate(-2deg); }
+.why-card__emblem img{ width:100%; height:100%; object-fit:cover; }
+.why-card__body{ position:relative; z-index:1; display:flex; flex-direction:column; flex:1; padding:46px 28px 28px; }
+/* 見出し：金箔グラデ文字（背景クリップ） */
+.why-card__lab{ font-family:var(--serif); font-weight:900; font-size:1.62rem; line-height:1.3; margin:4px 0 0;
+  letter-spacing:.02em;
+  background:linear-gradient(180deg,#fff6d6,#f4cf6b 46%,#c8992f);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  filter:drop-shadow(0 1px 0 rgba(0,0,0,.55)) drop-shadow(0 0 14px rgba(244,207,107,.25)); }
+/* 飾り罫（フルーロン） */
+.why-card__rule{ display:block; position:relative; height:16px; margin:13px 0 13px; }
+.why-card__rule::before{ content:""; position:absolute; top:50%; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, rgba(215,167,68,.55), transparent); }
+.why-card__rule::after{ content:"❖"; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  color:var(--brass-hi); font-size:.82rem; padding:0 10px; background:#15302644;
+  text-shadow:0 0 10px rgba(244,207,107,.7); }
+.why-card p{ margin:0; font-size:.92rem; line-height:1.95; color:var(--fg); text-align:left; }
 .why-card b{ color:var(--teal-glow); }
-.why-card__go{ margin-top:auto; padding-top:16px; font-family:var(--mono); font-size:.78rem; letter-spacing:.06em; color:var(--brass-hi); }
+.why-card__go{ margin-top:auto; padding-top:20px; font-family:var(--mono); font-size:.8rem;
+  letter-spacing:.08em; color:var(--brass-hi); }
+.why-card:hover{ transform:translateY(-9px);
+  box-shadow:0 0 40px rgba(244,207,107,.3), 0 34px 64px rgba(0,0,0,.62), 0 0 0 1px rgba(0,0,0,.45); }
+.why-card:hover .why-card__go{ text-shadow:0 0 13px rgba(244,207,107,.55); }
 
 /* 調査メンバー：特別調査員カード（タップで名簿）と名簿モーダル */
 .role.is-star{ cursor:pointer; transition:transform .2s, border-color .2s; }

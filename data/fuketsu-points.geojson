@@ -552,6 +552,46 @@
      34.449961
     ]
    }
+  },
+  {
+   "type": "Feature",
+   "properties": { "id": "Log-01", "type": "logger", "label": "Log-01", "note": "GPS実測（旧・椙本さん宅）" },
+   "geometry": { "type": "Point", "coordinates": [131.410378, 34.450900] }
+  },
+  {
+   "type": "Feature",
+   "properties": { "id": "Log-02", "type": "logger", "label": "Log-02", "note": "GPS実測" },
+   "geometry": { "type": "Point", "coordinates": [131.409348, 34.451011] }
+  },
+  {
+   "type": "Feature",
+   "properties": { "id": "Log-03", "type": "logger", "label": "Log-03", "note": "GPS実測" },
+   "geometry": { "type": "Point", "coordinates": [131.409413, 34.450215] }
+  },
+  {
+   "type": "Feature",
+   "properties": { "id": "Log-04", "type": "logger", "label": "Log-04", "note": "GPS実測" },
+   "geometry": { "type": "Point", "coordinates": [131.407455, 34.449710] }
+  },
+  {
+   "type": "Feature",
+   "properties": { "id": "Log-05", "type": "logger", "label": "Log-05", "note": "GPS実測" },
+   "geometry": { "type": "Point", "coordinates": [131.408104, 34.448967] }
+  },
+  {
+   "type": "Feature",
+   "properties": { "id": "Log-06", "type": "logger", "label": "Log-06", "note": "GPS実測" },
+   "geometry": { "type": "Point", "coordinates": [131.408753, 34.448113] }
+  },
+  {
+   "type": "Feature",
+   "properties": { "id": "Log-07", "type": "logger", "label": "Log-07", "note": "GPS実測" },
+   "geometry": { "type": "Point", "coordinates": [131.408018, 34.447189] }
+  },
+  {
+   "type": "Feature",
+   "properties": { "id": "Log-08", "type": "logger", "label": "Log-08・09", "note": "GPS実測（旧・山本さん倉庫）。Log-08と同一地点にLog-09（温度＋湿度計）を併設" },
+   "geometry": { "type": "Point", "coordinates": [131.408093, 34.446742] }
   }
  ]
 }

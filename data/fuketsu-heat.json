@@ -1,0 +1,44 @@
+{
+  "note": "外気温の分布：調査日ごとのデータ。日を追加するときは days に1件足すだけ（観測情報 obs ＋ 北側 north ＋ 南側 south）。地図は基本据え置きのため、地図の色分けは fuketsu-points.geojson 側の temp を使う。",
+  "days": [
+    {
+      "date": "2025-08-09",
+      "label": "2025.8.9",
+      "obs": {
+        "datetime": "2025.8.9（日）9:30–11:30",
+        "weather": "くもり",
+        "temp": "26.7℃ → 29.5℃",
+        "windDir": "南東",
+        "windSpeed": "2.3m/s",
+        "windFlow": "北西へ流れる",
+        "windDeg": 325,
+        "amedasLabel": "参考｜アメダス萩（約6km・観測）",
+        "amedas": "南〜南東 2.2–2.9 m/s"
+      },
+      "north": [
+        { "id": "N-01", "temp": 27.5, "fuketsu": true },
+        { "id": "N-02", "temp": 30.5, "fuketsu": false },
+        { "id": "N-03", "temp": 29.8, "fuketsu": true },
+        { "id": "N-04", "temp": 29.8, "fuketsu": false },
+        { "id": "N-05", "temp": 32.2, "fuketsu": false },
+        { "id": "N-06", "temp": 29.5, "fuketsu": false },
+        { "id": "N-07", "temp": 29.5, "fuketsu": true },
+        { "id": "N-08", "temp": 30.9, "fuketsu": false },
+        { "id": "N-09", "temp": 31.0, "fuketsu": false }
+      ],
+      "south": [
+        { "id": "S-01", "temp": 26.0, "fuketsu": true },
+        { "id": "S-02", "temp": 25.0, "fuketsu": true },
+        { "id": "S-03", "temp": 33.0, "fuketsu": false },
+        { "id": "S-04", "temp": 30.0, "fuketsu": false },
+        { "id": "S-05", "temp": 21.0, "fuketsu": true },
+        { "id": "S-06", "temp": 29.0, "fuketsu": false },
+        { "id": "S-07", "temp": 33.0, "fuketsu": false },
+        { "id": "S-08", "temp": 30.0, "fuketsu": false },
+        { "id": "S-09", "temp": 32.0, "fuketsu": false },
+        { "id": "S-10", "temp": 22.0, "fuketsu": true },
+        { "id": "S-11", "temp": 29.5, "fuketsu": false }
+      ]
+    }
+  ]
+}

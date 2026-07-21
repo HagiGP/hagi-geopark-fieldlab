@@ -56,14 +56,29 @@
       const tempDot={ id:'pt-temp', type:'circle', source:'pts', filter:['==',['get','type'],'temp'], paint:{
         'circle-radius':2.7, 'circle-color':PIN.temp,
         'circle-stroke-color':'#0c1613','circle-stroke-width':1.2 } };
-      if(el.dataset.only==='frameOfHeat'){
+      // data-filter="N"|"S" のとき、id の頭文字がその地区の地点だけに絞る
+      const area=el.dataset.filter;
+      if(area){
+        const areaExpr=['==',['slice',['get','id'],0,1],area];
+        tempDot.filter=['all',tempDot.filter,areaExpr];
+        labelLayer.filter=['all',labelLayer.filter,areaExpr];
+      }
+      if(el.dataset.only==='logger'){
+        // ロガー位置マップ：ベース地図＋赤いロガー点＋地点名だけを表示
+        s.layers.push({ id:'pt-logger', type:'circle', source:'pts', filter:['==',['get','type'],'logger'], paint:{
+          'circle-radius':6, 'circle-color':PIN.logger,
+          'circle-stroke-color':'#f4ecd6','circle-stroke-width':2 } });
+        labelLayer.filter=['==',['get','type'],'logger'];
+        labelLayer.layout['text-size']=12;
+        s.layers.push(labelLayer);
+      } else if(el.dataset.only==='frameOfHeat'){
         // 調査地マップ：外気温マップの初期表示範囲を四角枠で示す（範囲は init で外気温マップの実寸から設定）
         s.sources.vframe={ type:'geojson', data:{ type:'FeatureCollection', features:[] } };
         s.layers.push({ id:'pt-vframe', type:'line', source:'vframe',
           paint:{ 'line-color':'#b5641e', 'line-width':2.2, 'line-dasharray':[3,2], 'line-opacity':0.95 } });
       } else if(el.dataset.mode==='heat'){
         // 温度を持つ地点を、小さめ・輪郭を軽くぼかし・透明度高めで描く。隣り合う色がにじんでつながる
-        s.layers.push({ id:'pt-heat', type:'circle', source:'pts', filter:['has','temp'], paint:{
+        s.layers.push({ id:'pt-heat', type:'circle', source:'pts', filter:area?['all',['has','temp'],['==',['slice',['get','id'],0,1],area]]:['has','temp'], paint:{
           'circle-radius':['interpolate',['linear'],['zoom'],14,11,17,24],
           'circle-color':HEAT,
           'circle-blur':0.6,
