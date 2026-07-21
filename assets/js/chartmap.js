@@ -145,20 +145,24 @@
     el._map=map;
   }
 
-  // 「調査地」マップの四角枠に、外気温マップの初期表示範囲（矩形）を流し込む
+  // 「調査地」マップの四角枠に、外気温マップの表示範囲（矩形）を流し込む。
+  // 外気温マップは北側・南側の2枚に分かれているので、両方の範囲を合わせた矩形にする。
   function linkHeatFrame(){
-    const heatEl=document.querySelector('.chartmap[data-mode="heat"]');
+    const heatEls=[...document.querySelectorAll('.chartmap[data-mode="heat"]')];
     const fieldEl=document.querySelector('.chartmap[data-only="frameOfHeat"]');
-    if(!heatEl||!fieldEl||!heatEl._map||!fieldEl._map) return;
+    if(!heatEls.length||!fieldEl||!fieldEl._map) return;
     const apply=()=>{
       const src=fieldEl._map.getSource('vframe'); if(!src) return;
-      const b=heatEl._map.getBounds();
-      const W=b.getWest(),E=b.getEast(),S=b.getSouth(),N=b.getNorth();
+      let W=Infinity,E=-Infinity,S=Infinity,N=-Infinity,any=false;
+      heatEls.forEach(el=>{ if(!el._map) return; const b=el._map.getBounds();
+        W=Math.min(W,b.getWest()); E=Math.max(E,b.getEast());
+        S=Math.min(S,b.getSouth()); N=Math.max(N,b.getNorth()); any=true; });
+      if(!any) return;
       src.setData({ type:'Feature', properties:{}, geometry:{ type:'Polygon',
         coordinates:[[[W,N],[E,N],[E,S],[W,S],[W,N]]] } });
     };
-    requestAnimationFrame(()=>{ heatEl._map.resize(); fieldEl._map.resize(); apply(); });
-    heatEl._map.once('idle', apply);
+    requestAnimationFrame(()=>{ heatEls.forEach(el=>el._map&&el._map.resize()); fieldEl._map.resize(); apply(); });
+    heatEls.forEach(el=>el._map&&el._map.once('idle', apply));
   }
 
   function boot(){ document.querySelectorAll('.chartmap').forEach(init); linkHeatFrame(); }
