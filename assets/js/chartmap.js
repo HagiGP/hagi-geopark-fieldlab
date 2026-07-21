@@ -145,24 +145,25 @@
     el._map=map;
   }
 
-  // 「調査地」マップの四角枠に、外気温マップの表示範囲（矩形）を流し込む。
-  // 外気温マップは北側・南側の2枚に分かれているので、両方の範囲を合わせた矩形にする。
+  // 「調査地」マップの破線枠。全調査地点（温度計・ヒヤシ・ロガー）の座標範囲＋余白から直接引く。
+  // これにより Log-01 など端の地点も必ず枠内に収まる（地図の表示範囲推定に依存しない）。
   function linkHeatFrame(){
-    const heatEls=[...document.querySelectorAll('.chartmap[data-mode="heat"]')];
     const fieldEl=document.querySelector('.chartmap[data-only="frameOfHeat"]');
-    if(!heatEls.length||!fieldEl||!fieldEl._map) return;
-    const apply=()=>{
-      const src=fieldEl._map.getSource('vframe'); if(!src) return;
+    if(!fieldEl||!fieldEl._map||!fieldEl.dataset.points) return;
+    fetch(fieldEl.dataset.points).then(r=>r.json()).then(gj=>{
       let W=Infinity,E=-Infinity,S=Infinity,N=-Infinity,any=false;
-      heatEls.forEach(el=>{ if(!el._map) return; const b=el._map.getBounds();
-        W=Math.min(W,b.getWest()); E=Math.max(E,b.getEast());
-        S=Math.min(S,b.getSouth()); N=Math.max(N,b.getNorth()); any=true; });
+      (gj.features||[]).forEach(f=>{ const g=f.geometry; if(!g||g.type!=='Point') return;
+        const x=g.coordinates[0],y=g.coordinates[1];
+        W=Math.min(W,x);E=Math.max(E,x);S=Math.min(S,y);N=Math.max(N,y);any=true; });
       if(!any) return;
-      src.setData({ type:'Feature', properties:{}, geometry:{ type:'Polygon',
-        coordinates:[[[W,N],[E,N],[E,S],[W,S],[W,N]]] } });
-    };
-    requestAnimationFrame(()=>{ heatEls.forEach(el=>el._map&&el._map.resize()); fieldEl._map.resize(); apply(); });
-    heatEls.forEach(el=>el._map&&el._map.once('idle', apply));
+      const padX=(E-W)*0.14+0.0004, padY=(N-S)*0.14+0.0004;
+      W-=padX;E+=padX;S-=padY;N+=padY;
+      const apply=()=>{ const src=fieldEl._map.getSource('vframe'); if(!src) return;
+        src.setData({ type:'Feature', properties:{}, geometry:{ type:'Polygon',
+          coordinates:[[[W,N],[E,N],[E,S],[W,S],[W,N]]] } }); };
+      fieldEl._map.loaded()?apply():fieldEl._map.once('load',apply);
+      fieldEl._map.once('idle',apply);
+    }).catch(()=>{});
   }
 
   function boot(){ document.querySelectorAll('.chartmap').forEach(init); linkHeatFrame(); }
