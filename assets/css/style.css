@@ -777,6 +777,7 @@ table.data tr.cold td{ color:#1c6f8c; font-weight:700; }
    高さは chartmap--tall（4/5）のままでグラフパネルと揃う。8地点の収まりは chartmap.js の fitBounds が担保。 */
 .area-pair--logger{ grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr); }
 @media (max-width:720px){ .area-pair--logger{ grid-template-columns:1fr; } }
+.area-pair--logger .chartmap{ aspect-ratio:2/3; }
 .area-pair .chartmap{ margin:0; max-width:100%; }
 .tempbars-fig{ margin:0; }
 .tempbars-fig svg{ width:100%; height:auto; display:block; }
