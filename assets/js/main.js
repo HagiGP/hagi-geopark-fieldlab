@@ -123,3 +123,25 @@
   });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !modal.hidden) close(); });
 })();
+
+/* ラボカードの横スライダー（トップページのみ） */
+(function () {
+  var slider = document.querySelector('.why-slider');
+  if (!slider) return;
+  var track = slider.querySelector('.why-grid');
+  var prev = slider.querySelector('.why-slider__btn--prev');
+  var next = slider.querySelector('.why-slider__btn--next');
+  function step() {
+    var card = track.querySelector('.why-card');
+    return card ? card.getBoundingClientRect().width + 22 : 340;
+  }
+  function update() {
+    prev.disabled = track.scrollLeft <= 4;
+    next.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 4;
+  }
+  prev.addEventListener('click', function () { track.scrollBy({ left: -step(), behavior: 'smooth' }); });
+  next.addEventListener('click', function () { track.scrollBy({ left: step(), behavior: 'smooth' }); });
+  track.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();

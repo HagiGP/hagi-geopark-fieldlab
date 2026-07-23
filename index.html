@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style.css?v=7">
 </head>
 <body>
 
@@ -65,7 +65,9 @@
     <div class="kicker"><span>WHAT WE ASK // 各ラボが問うていること</span></div>
   </div>
   <div class="wrap" style="margin-top:30px">
-    <div class="why-grid">
+    <div class="why-slider">
+      <button class="why-slider__btn why-slider__btn--prev" type="button" aria-label="前のラボへ">‹</button>
+      <div class="why-grid">
 
       <a class="why-card reveal" href="labs/fuketsu/">
         <span class="why-card__frame" aria-hidden="true"></span>
@@ -103,6 +105,30 @@
         </div>
       </a>
 
+      <div class="why-card why-card--soon reveal">
+        <span class="why-card__frame" aria-hidden="true"></span>
+        <div class="why-card__ph why-card__ph--soon"><span class="soon-mark">COMING SOON</span><span class="why-card__ribbon why-card__ribbon--soon">準備中</span></div>
+        <div class="why-card__body">
+          <div class="why-card__lab">弥富・河川ラボ（仮称）</div>
+          <span class="why-card__rule" aria-hidden="true"></span>
+          <p>今年、新たに始まるラボです。調査がスタートしたら、ここで活動の様子と成果を公開していきます。</p>
+          <span class="why-card__go why-card__go--soon">準備中</span>
+        </div>
+      </div>
+
+      <div class="why-card why-card--soon reveal">
+        <span class="why-card__frame" aria-hidden="true"></span>
+        <div class="why-card__ph why-card__ph--soon"><span class="soon-mark">COMING SOON</span><span class="why-card__ribbon why-card__ribbon--soon">準備中</span></div>
+        <div class="why-card__body">
+          <div class="why-card__lab">奈古・ウニラボ</div>
+          <span class="why-card__rule" aria-hidden="true"></span>
+          <p>今年、新たに始まるラボです。調査がスタートしたら、ここで活動の様子と成果を公開していきます。</p>
+          <span class="why-card__go why-card__go--soon">準備中</span>
+        </div>
+      </div>
+
+      </div>
+      <button class="why-slider__btn why-slider__btn--next" type="button" aria-label="次のラボへ">›</button>
     </div>
   </div>
 </section>
@@ -205,6 +231,6 @@
   </div>
 </div>
 
-<script src="assets/js/main.js"></script>
+<script src="assets/js/main.js?v=7"></script>
 </body>
 </html>

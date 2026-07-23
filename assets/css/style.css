@@ -869,8 +869,37 @@ table.data tr.cold td{ color:#1c6f8c; font-weight:700; }
 .vision-body p:last-child{ margin-bottom:0; }
 
 /* トップ：各ラボが問うていること（調査レポートの社会的意義を前に出す） */
-.why-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
-@media (max-width:820px){ .why-grid{ grid-template-columns:1fr; max-width:520px; margin-inline:auto; } }
+/* 5ラボ体制：横スライド（スワイプ＋左右ボタン） */
+.why-slider{ position:relative; }
+.why-grid{ display:flex; gap:22px; overflow-x:auto; scroll-snap-type:x proximity;
+  padding:6px 4px 18px; scrollbar-color:var(--brass-dim) rgba(255,255,255,.06); scrollbar-width:thin; }
+.why-grid::-webkit-scrollbar{ height:8px; }
+.why-grid::-webkit-scrollbar-track{ background:rgba(255,255,255,.06); border-radius:4px; }
+.why-grid::-webkit-scrollbar-thumb{ background:var(--brass-dim); border-radius:4px; }
+.why-grid > .why-card{ flex:0 0 min(330px,82vw); scroll-snap-align:start; }
+.why-slider__btn{ position:absolute; top:42%; z-index:6; width:44px; height:44px; border-radius:50%;
+  border:1px solid var(--brass); color:var(--brass-hi); background:rgba(10,20,16,.88);
+  font-size:1.5rem; line-height:1; cursor:pointer; box-shadow:0 6px 18px rgba(0,0,0,.5);
+  transition:background .2s, box-shadow .2s; }
+.why-slider__btn:hover{ background:rgba(215,167,68,.22); box-shadow:0 0 16px rgba(244,207,107,.35); }
+.why-slider__btn--prev{ left:-10px; }
+.why-slider__btn--next{ right:-10px; }
+.why-slider__btn[disabled]{ opacity:.25; cursor:default; box-shadow:none; }
+@media (max-width:600px){ .why-slider__btn{ display:none; } }
+
+/* 準備中カード：リンクなし・銀のリボン・COMING SOONプレート */
+.why-card--soon{ cursor:default; }
+.why-card--soon:hover{ transform:none; box-shadow:0 26px 54px rgba(0,0,0,.58), 0 0 0 1px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,244,205,.18); }
+.why-card__ph--soon{ display:flex; align-items:center; justify-content:center;
+  background:
+    repeating-linear-gradient(135deg, rgba(233,227,209,.05) 0 10px, transparent 10px 22px),
+    radial-gradient(120% 100% at 50% 0%, #1d3a30, #0c1c16); }
+.soon-mark{ font-family:var(--mono); font-size:1rem; letter-spacing:.34em; color:var(--fg-dim);
+  border:1px solid rgba(183,177,153,.5); border-radius:6px; padding:10px 18px 10px 24px;
+  transform:rotate(-6deg); text-shadow:0 0 12px rgba(233,227,209,.25); }
+.why-card__ribbon--soon{ background:linear-gradient(180deg,#f2f0e8,#c9c4b2 45%,#9a957f); border-color:rgba(255,255,255,.7); }
+.why-card__go--soon{ color:var(--fg-dim); }
+.why-card__go--soon::before, .why-card__go--soon::after{ color:var(--fg-dim); }
 /* ラボカード：金の勲章プレート（成果カードの計器トーンとは完全別言語） */
 .why-card{
   position:relative; display:flex; flex-direction:column; overflow:hidden; isolation:isolate;
