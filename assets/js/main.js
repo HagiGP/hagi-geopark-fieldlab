@@ -181,6 +181,31 @@
     track.addEventListener(ev, function () { userHolding = false; pause(8000); }, { passive: true });
   });
 
+  /* マウスでもドラッグしてスワイプできるように（タッチはネイティブのまま） */
+  var dragging = false, dragMoved = false, dragX = 0, dragScroll = 0;
+  track.addEventListener('dragstart', function (e) { e.preventDefault(); });
+  track.addEventListener('pointerdown', function (e) {
+    if (e.pointerType !== 'mouse' || e.button !== 0) return;
+    dragging = true; dragMoved = false; dragX = e.clientX; dragScroll = track.scrollLeft;
+    track.classList.add('is-dragging');
+    track.style.scrollSnapType = 'none'; /* ドラッグ中はスナップを切ってカーソルに追従 */
+  });
+  window.addEventListener('pointermove', function (e) {
+    if (!dragging) return;
+    var dx = e.clientX - dragX;
+    if (Math.abs(dx) > 6) dragMoved = true;
+    track.scrollLeft = dragScroll - dx;
+  });
+  window.addEventListener('pointerup', function () {
+    if (!dragging) return;
+    dragging = false; track.classList.remove('is-dragging');
+    track.style.scrollSnapType = ''; /* 離したらスナップ復帰（近いカードに軽く吸着） */
+  });
+  /* ドラッグ直後のクリックでカードに飛ばないように */
+  track.addEventListener('click', function (e) {
+    if (dragMoved) { e.preventDefault(); e.stopPropagation(); dragMoved = false; }
+  }, true);
+
   var DWELL = 1800;  /* カード上で止まる時間 ms */
   var GLIDE = 850;   /* 次のカードへ滑る時間 ms */
   var phase = 'dwell', phaseStart = 0, from = 0;

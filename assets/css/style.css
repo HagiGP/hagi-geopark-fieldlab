@@ -877,6 +877,9 @@ table.data tr.cold td{ color:#1c6f8c; font-weight:700; }
 .why-grid::-webkit-scrollbar-track{ background:rgba(255,255,255,.06); border-radius:4px; }
 .why-grid::-webkit-scrollbar-thumb{ background:var(--brass-dim); border-radius:4px; }
 .why-grid > .why-card{ flex:0 0 min(330px,82vw); scroll-snap-align:start; }
+.why-grid{ cursor:grab; }
+.why-grid.is-dragging{ cursor:grabbing; user-select:none; }
+.why-grid img{ -webkit-user-drag:none; }
 .why-slider__btn{ position:absolute; top:42%; z-index:6; width:44px; height:44px; border-radius:50%;
   border:1px solid var(--brass); color:var(--brass-hi); background:rgba(10,20,16,.88);
   font-size:1.5rem; line-height:1; cursor:pointer; box-shadow:0 6px 18px rgba(0,0,0,.5);
