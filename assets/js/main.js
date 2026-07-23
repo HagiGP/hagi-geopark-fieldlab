@@ -139,9 +139,39 @@
     prev.disabled = track.scrollLeft <= 4;
     next.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 4;
   }
-  prev.addEventListener('click', function () { track.scrollBy({ left: -step(), behavior: 'smooth' }); });
-  next.addEventListener('click', function () { track.scrollBy({ left: step(), behavior: 'smooth' }); });
+  prev.addEventListener('click', function () { pause(4000); track.scrollBy({ left: -step(), behavior: 'smooth' }); });
+  next.addEventListener('click', function () { pause(4000); track.scrollBy({ left: step(), behavior: 'smooth' }); });
   track.addEventListener('scroll', update, { passive: true });
   window.addEventListener('resize', update);
   update();
+
+  /* 自動スライド：ゆっくり流れて「続きがある」ことを見せる。
+     端で折り返し。触れている間と操作直後は止まる。reduced-motion では無効 */
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) return;
+  var pos = null, dir = 1, pausedUntil = 0, userHolding = false;
+  function pause(ms) { pausedUntil = Date.now() + (ms || 3000); pos = null; track.style.scrollSnapType = ''; }
+  ['pointerenter', 'touchstart', 'pointerdown', 'wheel'].forEach(function (ev) {
+    track.addEventListener(ev, function () { userHolding = (ev === 'pointerdown' || ev === 'touchstart'); pause(3000); }, { passive: true });
+  });
+  ['pointerleave', 'touchend', 'pointerup'].forEach(function (ev) {
+    track.addEventListener(ev, function () { userHolding = false; pause(3000); }, { passive: true });
+  });
+  var SPEED = 0.35; /* px/フレーム ≒ 21px/秒 */
+  function drift() {
+    if (!userHolding && Date.now() > pausedUntil && document.visibilityState === 'visible') {
+      var max = track.scrollWidth - track.clientWidth;
+      if (max > 8) {
+        /* 自動で流れている間はスナップを外す（毎フレームのスクロールと干渉させない） */
+        if (track.style.scrollSnapType !== 'none') track.style.scrollSnapType = 'none';
+        if (pos === null) pos = track.scrollLeft;
+        pos += SPEED * dir;
+        if (pos >= max) { pos = max; dir = -1; pausedUntil = Date.now() + 1600; }
+        if (pos <= 0) { pos = 0; dir = 1; pausedUntil = Date.now() + 1600; }
+        track.scrollLeft = pos;
+      }
+    }
+    requestAnimationFrame(drift);
+  }
+  requestAnimationFrame(drift);
 })();
