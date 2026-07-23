@@ -145,33 +145,60 @@
   window.addEventListener('resize', update);
   update();
 
-  /* 自動スライド：ゆっくり流れて「続きがある」ことを見せる。
-     端で折り返し。触れている間と操作直後は止まる。reduced-motion では無効 */
+  /* 自動スライド：一方向に無限ループ。
+     「少し止まって、すっと次のカードへ」の緩急つき送り。
+     触れている間と操作直後は止まる。reduced-motion では無効 */
   var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduced) return;
-  var pos = null, dir = 1, pausedUntil = 0, userHolding = false;
-  function pause(ms) { pausedUntil = Date.now() + (ms || 3000); pos = null; track.style.scrollSnapType = ''; }
+
+  /* 継ぎ目なくループさせるため、カード一式を複製して後ろに足す */
+  var originals = Array.prototype.slice.call(track.children);
+  originals.forEach(function (c) {
+    var k = c.cloneNode(true);
+    k.classList.remove('reveal');
+    k.setAttribute('aria-hidden', 'true');
+    k.tabIndex = -1;
+    var links = k.querySelectorAll('a');
+    for (var i = 0; i < links.length; i++) links[i].tabIndex = -1;
+    track.appendChild(k);
+  });
+  var loopW = 0;
+  function measureLoop() {
+    var firstClone = track.children[originals.length];
+    loopW = firstClone.offsetLeft - originals[0].offsetLeft;
+  }
+  measureLoop();
+  window.addEventListener('resize', measureLoop);
+
+  var pausedUntil = 0, userHolding = false;
+  function pause(ms) { pausedUntil = Date.now() + (ms || 3000); phase = 'dwell'; track.style.scrollSnapType = ''; }
   ['pointerenter', 'touchstart', 'pointerdown', 'wheel'].forEach(function (ev) {
     track.addEventListener(ev, function () { userHolding = (ev === 'pointerdown' || ev === 'touchstart'); pause(3000); }, { passive: true });
   });
   ['pointerleave', 'touchend', 'pointerup'].forEach(function (ev) {
     track.addEventListener(ev, function () { userHolding = false; pause(3000); }, { passive: true });
   });
-  var SPEED = 0.35; /* px/フレーム ≒ 21px/秒 */
-  function drift() {
-    if (!userHolding && Date.now() > pausedUntil && document.visibilityState === 'visible') {
-      var max = track.scrollWidth - track.clientWidth;
-      if (max > 8) {
-        /* 自動で流れている間はスナップを外す（毎フレームのスクロールと干渉させない） */
-        if (track.style.scrollSnapType !== 'none') track.style.scrollSnapType = 'none';
-        if (pos === null) pos = track.scrollLeft;
-        pos += SPEED * dir;
-        if (pos >= max) { pos = max; dir = -1; pausedUntil = Date.now() + 1600; }
-        if (pos <= 0) { pos = 0; dir = 1; pausedUntil = Date.now() + 1600; }
-        track.scrollLeft = pos;
+
+  var DWELL = 1800;  /* カード上で止まる時間 ms */
+  var GLIDE = 850;   /* 次のカードへ滑る時間 ms */
+  var phase = 'dwell', phaseStart = 0, from = 0;
+  function easeInOut(t) { return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+  function wrap() { if (loopW > 0 && track.scrollLeft >= loopW) track.scrollLeft -= loopW; }
+  function tick(now) {
+    if (userHolding || Date.now() < pausedUntil || document.visibilityState !== 'visible') {
+      phase = 'dwell'; phaseStart = now;           /* 再開時は「止まる」から */
+    } else if (loopW > 8) {
+      if (track.style.scrollSnapType !== 'none') track.style.scrollSnapType = 'none';
+      if (phase === 'dwell') {
+        wrap();
+        if (now - phaseStart >= DWELL) { phase = 'glide'; phaseStart = now; from = track.scrollLeft; }
+      } else {
+        var t = Math.min(1, (now - phaseStart) / GLIDE);
+        track.scrollLeft = from + step() * easeInOut(t);
+        if (t >= 1) { wrap(); phase = 'dwell'; phaseStart = now; }
       }
     }
-    requestAnimationFrame(drift);
+    requestAnimationFrame(tick);
   }
-  requestAnimationFrame(drift);
+  requestAnimationFrame(tick);
 })();
