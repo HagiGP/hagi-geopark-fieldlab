@@ -172,11 +172,13 @@
 
   var pausedUntil = 0, userHolding = false;
   function pause(ms) { pausedUntil = Date.now() + (ms || 3000); phase = 'dwell'; track.style.scrollSnapType = ''; }
-  ['pointerenter', 'touchstart', 'pointerdown', 'wheel'].forEach(function (ev) {
-    track.addEventListener(ev, function () { userHolding = (ev === 'pointerdown' || ev === 'touchstart'); pause(3000); }, { passive: true });
+  /* カーソルを乗せただけ・ページスクロールでは止めない。
+     クリック／タップ（スワイプ含む）したときだけ止まり、8秒後に再開 */
+  ['pointerdown', 'touchstart'].forEach(function (ev) {
+    track.addEventListener(ev, function () { userHolding = true; pause(8000); }, { passive: true });
   });
-  ['pointerleave', 'touchend', 'pointerup'].forEach(function (ev) {
-    track.addEventListener(ev, function () { userHolding = false; pause(3000); }, { passive: true });
+  ['pointerup', 'touchend', 'pointercancel'].forEach(function (ev) {
+    track.addEventListener(ev, function () { userHolding = false; pause(8000); }, { passive: true });
   });
 
   var DWELL = 1800;  /* カード上で止まる時間 ms */
