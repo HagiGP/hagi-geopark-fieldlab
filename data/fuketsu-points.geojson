@@ -570,13 +570,13 @@
   },
   {
    "type": "Feature",
-   "properties": { "id": "Log-04", "type": "logger", "label": "Log-04", "note": "GPS実測" },
-   "geometry": { "type": "Point", "coordinates": [131.407455, 34.449710] }
+   "properties": { "id": "Log-04", "type": "logger", "label": "Log-04", "note": "厳島神社奥の風穴と同地点（2026-07-24 位置補正）" },
+   "geometry": { "type": "Point", "coordinates": [131.407364, 34.449961] }
   },
   {
    "type": "Feature",
-   "properties": { "id": "Log-05", "type": "logger", "label": "Log-05", "note": "GPS実測" },
-   "geometry": { "type": "Point", "coordinates": [131.408104, 34.448967] }
+   "properties": { "id": "Log-05", "type": "logger", "label": "Log-05", "note": "ヒヤシ5と同地点（2026-07-24 位置補正）" },
+   "geometry": { "type": "Point", "coordinates": [131.408273, 34.448912] }
   },
   {
    "type": "Feature",

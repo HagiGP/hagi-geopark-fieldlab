@@ -32,9 +32,13 @@
       { id:'contour-index', type:'line', source:'gsi','source-layer':'contour',
         filter:["all",ft(7351,7353),["==",["get","altiFlag"],0]],
         paint:{'line-color':C.contour,'line-width':1.15,'line-opacity':0.95} },
+      // 道路は中心線（ftCode 2700番台）だけを描く。タイルには道路縁（2200番台）も
+      // 入っており、無フィルタだと高ズームで縁2本＋中心線1本の3本に見えてしまう
       { id:'road-case', type:'line', source:'gsi','source-layer':'road',
+        filter:["all",[">=",["get","ftCode"],2700],["<",["get","ftCode"],2800]],
         paint:{'line-color':C.roadLine,'line-width':['interpolate',['linear'],['zoom'],13,0.8,17,5.2]} },
       { id:'road-fill', type:'line', source:'gsi','source-layer':'road',
+        filter:["all",[">=",["get","ftCode"],2700],["<",["get","ftCode"],2800]],
         paint:{'line-color':C.road,'line-width':['interpolate',['linear'],['zoom'],13,0.3,17,3.4]} },
       { id:'bldg', type:'fill', source:'gsi','source-layer':'building',
         filter:["==",["geometry-type"],"Polygon"], paint:{'fill-color':C.bldg,'fill-outline-color':C.bldgLine} },
