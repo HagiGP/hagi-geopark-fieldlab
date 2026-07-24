@@ -22,22 +22,30 @@
   }
   const rgb = a => 'rgb('+a[0]+','+a[1]+','+a[2]+')';
 
-  // 棒グラフ（viewBox 470x300）。温度10→y258, 35→y52 の線形。
-  const yFor = t => 258 - (t-10)*8.24;
+  // 棒グラフ（viewBox 470x300）。y軸は下限10℃固定・上限はデータに合わせて5℃切り上げ
+  // （35℃を下回らない）。temp が null の地点は欠測として棒を描かない。
   function barsSVG(title, rows){
     const n = rows.length, W = 409, step = W/n, bw = step*0.56;
+    const temps = rows.map(r=>r.temp).filter(t=>t!=null);
+    const lo = 10, hi = Math.max(35, Math.ceil(Math.max.apply(null, temps)/5)*5);
+    const tick = (hi-lo) <= 25 ? 5 : 10;
+    const yFor = t => 258 - (t-lo)*(206/(hi-lo));
     let s = `<svg viewBox="0 0 470 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${title}の温度測定結果">`;
     s += `<rect x="0" y="0" width="470" height="300" rx="14" fill="#16261f"/>`;
     s += `<text x="235" y="30" text-anchor="middle" class="tbar-title">${title}</text>`;
-    [10,15,20,25,30,35].forEach(t=>{ const y=yFor(t).toFixed(1);
+    for(let t=lo; t<=hi; t+=tick){ const y=yFor(t).toFixed(1);
       s += `<line class="tbar-grid" x1="46" y1="${y}" x2="455" y2="${y}"/>`;
-      s += `<text class="tbar-lab" x="40" y="${(yFor(t)+4).toFixed(1)}" text-anchor="end">${t}</text>`; });
+      s += `<text class="tbar-lab" x="40" y="${(yFor(t)+4).toFixed(1)}" text-anchor="end">${t}</text>`; }
     s += `<line class="tbar-axis" x1="46" y1="52" x2="46" y2="258"/>`;
     s += `<line class="tbar-axis" x1="46" y1="258" x2="455" y2="258"/>`;
-    rows.forEach((r,i)=>{ const x=46 + i*step + (step-bw)/2, cx=x+bw/2,
-      y=yFor(r.temp), h=258-y;
-      s += `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${bw.toFixed(1)}" height="${h.toFixed(1)}" rx="2" fill="${heatColor(r.temp)}"/>`;
-      s += `<text class="tbar-val" x="${cx.toFixed(1)}" y="${(y-6).toFixed(1)}" text-anchor="middle">${r.temp.toFixed(1)}</text>`;
+    rows.forEach((r,i)=>{ const x=46 + i*step + (step-bw)/2, cx=x+bw/2;
+      if(r.temp==null){
+        s += `<text class="tbar-lab" x="${cx.toFixed(1)}" y="248" text-anchor="middle" font-size="9" opacity=".6" writing-mode="tb">欠測</text>`;
+      }else{
+        const y=yFor(r.temp), h=258-y;
+        s += `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${bw.toFixed(1)}" height="${h.toFixed(1)}" rx="2" fill="${heatColor(r.temp)}"/>`;
+        s += `<text class="tbar-val" x="${cx.toFixed(1)}" y="${(y-6).toFixed(1)}" text-anchor="middle">${r.temp.toFixed(1)}</text>`;
+      }
       s += `<text class="tbar-lab" x="${cx.toFixed(1)}" y="274" text-anchor="middle" font-size="10">${r.id}${r.fuketsu?'*':''}</text>`; });
     s += `</svg>`;
     return s;
@@ -63,15 +71,44 @@
     </dl>`;
   }
 
+  // 地図（data-mode=heat）の温度色をタブの調査日に合わせて差し替える。
+  // 選択日に値がない地点は temp を外す → ヒートの円だけ消え、点とラベルは残る（欠測表現）
+  let basePoints = null;
+  function updateMaps(d){
+    if(!basePoints) return;
+    const temps = {};
+    (d.north||[]).concat(d.south||[]).forEach(r=>{ temps[r.id] = r.temp; });
+    const patched = { type:'FeatureCollection', features: basePoints.features.map(f=>{
+      if(f.properties && f.properties.type === 'temp'){
+        const p = Object.assign({}, f.properties);
+        const t = temps[p.id];
+        if(t == null) delete p.temp; else p.temp = t;
+        return Object.assign({}, f, { properties: p });
+      }
+      return f;
+    }) };
+    document.querySelectorAll('.chartmap[data-mode="heat"]').forEach(el=>{
+      const map = el._map; if(!map) return;
+      const apply = ()=>{ const src = map.getSource('pts'); if(src) src.setData(patched); };
+      map.loaded() ? apply() : map.once('load', apply);
+    });
+    document.querySelectorAll('.heat-note-date').forEach(s=>{ s.textContent = d.label; });
+  }
+
   function render(days, i){
     const d = days[i];
     if(elObs) elObs.innerHTML = obsHTML(d.obs);
     if(elN) elN.innerHTML = barsSVG('明神池の北側地区', d.north);
     if(elS) elS.innerHTML = barsSVG('明神池の南側地区', d.south);
+    updateMaps(d);
     elTabs.querySelectorAll('.date-tab').forEach(b=>b.classList.toggle('is-active', +b.dataset.i===i));
   }
 
-  fetch('../../data/fuketsu-heat.json').then(r=>r.json()).then(data=>{
+  Promise.all([
+    fetch('../../data/fuketsu-heat.json').then(r=>r.json()),
+    fetch('../../data/fuketsu-points.geojson').then(r=>r.json()).catch(()=>null)
+  ]).then(([data, points])=>{
+    basePoints = points;
     const days = data.days || [];
     if(!days.length) return;
     let html = `<span class="date-tabs__lab">調査日</span>`;

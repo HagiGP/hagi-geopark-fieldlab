@@ -39,6 +39,45 @@
         { "id": "S-10", "temp": 22.0, "fuketsu": true },
         { "id": "S-11", "temp": 29.5, "fuketsu": false }
       ]
+    },
+    {
+      "date": "2026-07-24",
+      "label": "2026.7.24",
+      "obs": {
+        "datetime": "2026.7.24（金）10:20–12:00",
+        "weather": "晴れ",
+        "temp": "31.3℃ → 31.4℃",
+        "windDir": "北北西",
+        "windSpeed": "2.8m/s",
+        "windFlow": "南南東へ流れる",
+        "windDeg": 157,
+        "amedasLabel": "参考｜アメダス萩（約6km・観測）",
+        "amedas": "北〜北北西 2.2–3.6 m/s"
+      },
+      "north": [
+        { "id": "N-01", "temp": 21.5, "fuketsu": true },
+        { "id": "N-02", "temp": 32.0, "fuketsu": false },
+        { "id": "N-03", "temp": 30.0, "fuketsu": true },
+        { "id": "N-04", "temp": 32.0, "fuketsu": false },
+        { "id": "N-05", "temp": 34.0, "fuketsu": false },
+        { "id": "N-06", "temp": 32.0, "fuketsu": false },
+        { "id": "N-07", "temp": 26.0, "fuketsu": true },
+        { "id": "N-08", "temp": 31.5, "fuketsu": false },
+        { "id": "N-09", "temp": 32.5, "fuketsu": false }
+      ],
+      "south": [
+        { "id": "S-01", "temp": 24.0, "fuketsu": true },
+        { "id": "S-02", "temp": 31.0, "fuketsu": true },
+        { "id": "S-03", "temp": 37.0, "fuketsu": false },
+        { "id": "S-04", "temp": 46.0, "fuketsu": false },
+        { "id": "S-05", "temp": 24.0, "fuketsu": true },
+        { "id": "S-06", "temp": 32.0, "fuketsu": false },
+        { "id": "S-07", "temp": 43.0, "fuketsu": false },
+        { "id": "S-08", "temp": 43.0, "fuketsu": false },
+        { "id": "S-09", "temp": null, "fuketsu": false },
+        { "id": "S-10", "temp": 22.0, "fuketsu": true },
+        { "id": "S-11", "temp": 33.0, "fuketsu": false }
+      ]
     }
   ]
 }
