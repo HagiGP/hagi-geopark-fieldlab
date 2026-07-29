@@ -83,15 +83,15 @@
       "date": "2026-07-25",
       "label": "2026.7.25",
       "obs": {
-        "datetime": "2026.7.25（土）9:53–11:49",
+        "datetime": "2026.7.25（土）9:53–10:49",
         "weather": "晴れ",
-        "temp": "31.4℃ → 32.1℃",
+        "temp": "31.4℃ → 32.4℃",
         "windDir": "北〜北西",
-        "windSpeed": "2.8–3.6m/s",
+        "windSpeed": "2.8–2.9m/s",
         "windFlow": "南南東へ流れる",
         "windDeg": 158,
         "amedasLabel": "参考｜アメダス萩（約6km・観測）",
-        "amedas": "北〜北西 2.8–3.6 m/s"
+        "amedas": "北〜北西 2.8–2.9 m/s"
       },
       "north": [
         { "id": "N-01", "temp": 31.0, "fuketsu": true },
