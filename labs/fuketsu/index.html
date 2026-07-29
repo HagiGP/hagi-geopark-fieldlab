@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
 <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/css/style.css?v=6">
+<link rel="stylesheet" href="../../assets/css/style.css?v=7">
 </head>
 <body>
 
@@ -147,16 +147,17 @@
 <section class="lab-section" id="logger">
   <div class="wrap">
     <div class="section-head"><span class="n">LOGGER</span><h2>ヒヤシの温度の連続観測</h2></div>
-    <p class="sec-note">もっとも冷たい風穴の中では、どれくらいの温度がつづいているのでしょうか。冷気の出口に温度ロガーを置き、10分ごとに記録しています。2026年6月29日に先行4台、7月8日に全9台の設置が完了しました。下は全台がそろった7月8日以降の実測記録です。</p>
-
-    <h3 class="area-head reveal">ロガーの設置場所</h3>
-    <div class="area-pair area-pair--logger">
+    <div class="logger-intro">
+      <p class="sec-note">もっとも冷たい風穴の中では、どれくらいの温度がつづいているのでしょうか。冷気の出口に温度ロガーを置き、10分ごとに記録しています。2026年6月29日に先行4台、7月8日に全9台の設置が完了しました。下は全台がそろった7月8日以降の実測記録です。</p>
       <div class="logger-side">
-        <div class="chartmap chartmap--tall reveal" data-center="131.40892,34.44888" data-zoom="15.0" data-only="logger" data-points="../../data/fuketsu-points.geojson"></div>
+        <h3 class="area-head reveal">ロガーの設置場所</h3>
+        <div class="chartmap reveal" data-center="131.40892,34.44888" data-zoom="15.0" data-only="logger" data-points="../../data/fuketsu-points.geojson"></div>
         <div class="map-legend reveal"><span><i style="background:#c30d23"></i>温度ロガー設置点（8地点）</span></div>
         <div class="chartmap__note"><span>正式ロガー8地点（Log-08はLog-09の湿度計を併設）／ GPS実測座標</span><span><b>出典</b> 地理院タイル（ベクトル）を加工して作成</span></div>
       </div>
-      <div class="console-dark reveal">
+    </div>
+
+    <div class="console-dark reveal">
       <div class="console-head">
         <span class="tag">SOURCE // 源流</span>
         <span class="status"><span class="led red"></span> 本運用記録 ／ 9 UNITS</span>
@@ -170,7 +171,6 @@
       <div class="tele-legend"><span><i style="background:#e8e2cf"></i>アメダス萩</span><span><i style="background:#f4cf6b"></i>Log-01</span><span><i style="background:#e2b84a"></i>Log-02</span><span><i style="background:#ff8a3d"></i>Log-03</span><span><i style="background:#2f6fb0"></i>Log-04</span><span><i style="background:#66c6a0"></i>Log-05</span><span><i style="background:#d5651a"></i>Log-06</span><span><i style="background:#4aa6ff"></i>Log-07</span><span><i style="background:#56c9ad"></i>Log-08</span><span><i style="background:#6fe6d6"></i>Log-09</span></div>
       <p class="panel-sub" style="color:#8a9088;margin-top:12px">本運用の実測記録（10分間隔・表示は1時間毎）。Log-08・09は山本倉庫の同一地点で、Log-09は湿度も測定します。全9台の設置完了は2026年7月8日、直近の回収は2026年7月24日。外気温の破線はアメダス萩の時別値（出典：気象庁「過去の気象データ」）。</p>
       <!-- LOGGER-CHART:END -->
-      </div>
     </div>
   </div>
 </section>
