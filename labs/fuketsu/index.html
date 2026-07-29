@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
 <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/css/style.css?v=7">
+<link rel="stylesheet" href="../../assets/css/style.css?v=8">
 </head>
 <body>
 
@@ -111,7 +111,7 @@
     <div class="section-head"><span class="n">HEAT</span><h2>外気温の測定</h2></div>
     <p class="sec-note">20地点の外気温を、青いほど冷たく、橙いほどあたたかく色分けしました。南側では、風穴のある地点だけがはっきりと冷たくなっているのがわかります。調査時の風は南東（約2.3m/s・越ヶ浜の推定）で、冷気は北西へ流れます。最寄りのアメダス萩の観測にもとづく推計です。北側・南側それぞれ、色分けした地図とグラフを並べました。</p>
 
-    <div class="date-tabs reveal" id="heat-dates"></div>
+    <div class="date-tabs reveal js-heat-dates" id="heat-dates"></div>
     <div class="obspanel reveal" id="heat-obs"></div>
 
     <div class="heat-scale reveal">
@@ -130,6 +130,7 @@
 
     <div class="area-block reveal">
       <h3 class="area-head">南側エリア</h3>
+      <div class="date-tabs js-heat-dates"></div>
       <div class="area-pair">
         <div class="chartmap chartmap--tall" data-center="131.40850,34.44765" data-zoom="16.9" data-mode="heat" data-filter="S" data-points="../../data/fuketsu-points.geojson"></div>
         <figure class="tempbars-fig" id="heat-bars-south"></figure>
@@ -147,15 +148,7 @@
 <section class="lab-section" id="logger">
   <div class="wrap">
     <div class="section-head"><span class="n">LOGGER</span><h2>ヒヤシの温度の連続観測</h2></div>
-    <div class="logger-intro">
-      <p class="sec-note">もっとも冷たい風穴の中では、どれくらいの温度がつづいているのでしょうか。冷気の出口に温度ロガーを置き、10分ごとに記録しています。2026年6月29日に先行4台、7月8日に全9台の設置が完了しました。下は全台がそろった7月8日以降の実測記録です。</p>
-      <div class="logger-side">
-        <h3 class="area-head reveal">ロガーの設置場所</h3>
-        <div class="chartmap reveal" data-center="131.40892,34.44888" data-zoom="15.0" data-only="logger" data-points="../../data/fuketsu-points.geojson"></div>
-        <div class="map-legend reveal"><span><i style="background:#c30d23"></i>温度ロガー設置点（8地点）</span></div>
-        <div class="chartmap__note"><span>正式ロガー8地点（Log-08はLog-09の湿度計を併設）／ GPS実測座標</span><span><b>出典</b> 地理院タイル（ベクトル）を加工して作成</span></div>
-      </div>
-    </div>
+    <p class="sec-note">もっとも冷たい風穴の中では、どれくらいの温度がつづいているのでしょうか。冷気の出口に温度ロガーを置き、10分ごとに記録しています。2026年6月29日に先行4台、7月8日に全9台の設置が完了しました。下は全台がそろった7月8日以降の実測記録です。</p>
 
     <div class="console-dark reveal">
       <div class="console-head">
@@ -203,7 +196,7 @@
 
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 <script src="../../assets/js/chartmap.js?v=7"></script>
-<script src="../../assets/js/fuketsu-heat.js?v=7"></script>
-<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/fuketsu-heat.js?v=8"></script>
+<script src="../../assets/js/main.js?v=2"></script>
 </body>
 </html>

@@ -1,9 +1,8 @@
 /* 外気温の分布：調査日タブで「観測情報＋北/南の棒グラフ」を切り替える。
    地図（chartmap）は据え置き。データは data/fuketsu-heat.json。 */
 (function(){
-  const box = document.getElementById('heat-dates');
-  if(!box) return;
-  const elTabs = box;
+  const tabBoxes = [...document.querySelectorAll('.js-heat-dates')];
+  if(!tabBoxes.length) return;
   const elObs  = document.getElementById('heat-obs');
   const elN    = document.getElementById('heat-bars-north');
   const elS    = document.getElementById('heat-bars-south');
@@ -101,7 +100,7 @@
     if(elN) elN.innerHTML = barsSVG('明神池の北側地区', d.north);
     if(elS) elS.innerHTML = barsSVG('明神池の南側地区', d.south);
     updateMaps(d);
-    elTabs.querySelectorAll('.date-tab').forEach(b=>b.classList.toggle('is-active', +b.dataset.i===i));
+    tabBoxes.forEach(box=>box.querySelectorAll('.date-tab').forEach(b=>b.classList.toggle('is-active', +b.dataset.i===i)));
   }
 
   Promise.all([
@@ -113,8 +112,10 @@
     if(!days.length) return;
     let html = `<span class="date-tabs__lab">調査日</span>`;
     days.forEach((d,i)=>{ html += `<button type="button" class="date-tab" data-i="${i}">${d.label}</button>`; });
-    elTabs.innerHTML = html;
-    elTabs.addEventListener('click', e=>{ const b=e.target.closest('.date-tab'); if(!b) return; render(days, +b.dataset.i); });
+    tabBoxes.forEach(box=>{
+      box.innerHTML = html;
+      box.addEventListener('click', e=>{ const b=e.target.closest('.date-tab'); if(!b) return; render(days, +b.dataset.i); });
+    });
     render(days, days.length-1); // 既定は最新日
   }).catch(err=>console.warn('fuketsu-heat 読込失敗', err));
 })();
