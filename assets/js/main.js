@@ -74,11 +74,11 @@
       var r = svg.getBoundingClientRect();
       var ux = (clientX - r.left) / r.width * VB;
       if (ux < 48) ux = 48;
-      if (ux > 712) ux = 712;
+      if (ux > 640) ux = 640;
       cur.style.display = '';
       cross.setAttribute('x1', ux);
       cross.setAttribute('x2', ux);
-      var rows = '', best = null, bestd = 1e18;
+      var picked = [], best = null, bestd = 1e18;
       D.series.forEach(function (s, i) {
         var pts = s.pts, k = 0, kd = 1e18;
         for (var j = 0; j < pts.length; j++) {
@@ -90,8 +90,14 @@
           c.setAttribute('cx', p[0]); c.setAttribute('cy', p[1]);
           c.setAttribute('fill', s.color); c.style.display = '';
         }
-        rows += '<div class="r"><i style="background:' + s.color + '"></i><span>' + s.name + '</span><b>' + p[3].toFixed(1) + '℃</b></div>';
+        picked.push({ s: s, p: p });
         if (kd < bestd) { bestd = kd; best = p; }
+      });
+      // ポップアップは温度が高い順に並べる
+      picked.sort(function (a, b) { return b.p[3] - a.p[3]; });
+      var rows = '';
+      picked.forEach(function (e) {
+        rows += '<div class="r"><i style="background:' + e.s.color + '"></i><span>' + e.s.name + '</span><b>' + e.p[3].toFixed(1) + '℃</b></div>';
       });
       tip.innerHTML = '<div class="h">' + best[2] + '</div>' + rows;
       tip.hidden = false;
