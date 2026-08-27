@@ -26,12 +26,18 @@
     tax.textContent=d.tax||'';
     // 統合ずかんのカードには data-place-label がある（各ラボページには無い＝後方互換）
     var placeRow=d.placeLabel ? '<dt>場所</dt><dd>'+d.placeLabel+'</dd>' : '';
+    // data-count / data-rounds は複数回の調査を載せるラボだけが持つ（無いカードとの後方互換）
+    var countRow=d.count ? '<dt>採集数</dt><dd>'+d.count+'</dd>' : '';
+    var roundRow=d.rounds
+      ? '<dt>確認した回</dt><dd>'+d.rounds.split('・').join('／')+'</dd>'
+      : '<dt>初出</dt><dd>'+(d.first||'')+'</dd>';
     dl.innerHTML=
       placeRow+
       '<dt>サイズ</dt><dd>'+(d.size||'')+'</dd>'+
+      countRow+
       '<dt>環境</dt><dd>'+(d.env||'')+'</dd>'+
       '<dt>ゾーン</dt><dd>'+(d.zones||'').split('・').join('／')+'</dd>'+
-      '<dt>初出</dt><dd>'+(d.first||'')+'</dd>';
+      roundRow;
     modal.hidden=false;
     document.body.style.overflow='hidden';
   }
