@@ -972,14 +972,13 @@ table.data tr.cold td{ color:#1c6f8c; font-weight:700; }
   border:1px solid rgba(255,244,205,.7); border-right:none;
   clip-path:polygon(10px 0, 100% 0, 100% 100%, 10px 100%, 0 50%); }
 /* エンブレム：同心金リングの勲章メダリオン */
-.why-card__emblem{ position:absolute; left:22px; bottom:-34px; z-index:5;
-  width:94px; height:94px; border-radius:50%; overflow:hidden; background:var(--ink);
-  border:2px solid var(--brass-hi);
-  box-shadow:0 0 0 4px #0c1c16, 0 0 0 6px var(--brass), 0 0 0 9px rgba(215,167,68,.4),
-    0 8px 20px rgba(0,0,0,.6), 0 0 24px rgba(244,207,107,.3);
+/* エンブレムは台座つきのバッジ画像。丸く切らず、そのままの形で置く */
+.why-card__emblem{ position:absolute; left:16px; bottom:8px; z-index:5;
+  width:104px; height:104px;
+  filter:drop-shadow(0 8px 18px rgba(0,0,0,.65)) drop-shadow(0 0 16px rgba(244,207,107,.28));
   transition:transform .35s ease; }
 .why-card:hover .why-card__emblem{ transform:translateY(-4px) scale(1.05) rotate(-2deg); }
-.why-card__emblem img{ width:100%; height:100%; object-fit:cover; }
+.why-card__emblem img{ width:100%; height:100%; object-fit:contain; display:block; }
 .why-card__body{ position:relative; z-index:1; display:flex; flex-direction:column; flex:1; padding:46px 28px 28px; }
 /* 見出し：金箔グラデ文字（背景クリップ） */
 .why-card__lab{ font-family:var(--serif); font-weight:900; font-size:1.62rem; line-height:1.3; margin:4px 0 0;

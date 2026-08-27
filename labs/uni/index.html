@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>奈古・ウニラボ｜萩ジオパーク・フィールドラボ</title>
-<meta name="description" content="阿武町奈古の船溜まりでムラサキウニを1個体ずつ計測するラボ。調査地・ウニのからだ・計測のやり方・40個体の殻径と実入り（GSI）を、調査ごとに集約して掲載します。">
+<meta name="description" content="阿武町奈古の船溜まりでムラサキウニを1個体ずつ計測するラボ。調査地・ウニのからだ・計測のやり方・殻径と実入り（GSI）の計測結果を、調査ごとに集約して掲載します。">
 <link rel="icon" href="../../assets/img/logo_hggp.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
 <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/css/style.css?v=13">
+<link rel="stylesheet" href="../../assets/css/style.css?v=14">
 </head>
 <body>
 
@@ -129,28 +129,17 @@
 <!-- 計測の結果 -->
 <section class="lab-section js-uni-charts" id="data">
   <div class="wrap">
-    <div class="section-head"><span class="n">DATA</span><h2>40個体の計測結果</h2></div>
-    <p class="sec-note">2026年7月22日、200個体以上を採集し、そのうち40個体を1個体ずつ割って計測しました。点のひとつひとつが、調査員がその日に測った1個体です。点にふれると、その個体の数値が出ます。</p>
+    <div class="section-head"><span class="n">DATA</span><h2>計測の結果</h2></div>
+    <p class="sec-note">奈古のスロープでは、時期を変えて同じ場所で計測を続けています。点のひとつひとつが、調査員が測った1個体です。点にふれると、その個体の数値が出ます。</p>
 
-    <div class="findings findings--4 reveal">
-      <div class="finding"><b>200+</b><span class="fl">採集した個体数</span><p>スロープの水深0〜80cmの範囲から採集しました。</p></div>
-      <div class="finding"><b>40</b><span class="fl">計測した個体数</span><p>1個体ずつ殻を割り、生殖巣の重さまで測りました。</p></div>
-      <div class="finding"><b>46.3</b><span class="fl">殻径の平均（mm）</span><p>いちばん小さい個体は30mm、大きい個体は61mmでした。</p></div>
-      <div class="finding"><b>4.7</b><span class="fl">GSIの平均</span><p>1.2から11.7まで、10倍近い幅がありました。</p></div>
-    </div>
+    <div class="date-tabs reveal" id="uni-dates"></div>
+    <p class="sec-note" id="uni-note" style="margin-top:12px"></p>
 
-    <div class="sexkey reveal">
-      <span><i style="background:#56c9ad"></i>オス 17個体</span>
-      <span><i style="background:#f4cf6b"></i>メス 23個体</span>
-    </div>
+    <div class="findings findings--4 reveal" id="uni-stats"></div>
+    <div class="sexkey reveal" id="uni-key"></div>
+    <div class="datacharts reveal" id="uni-charts"></div>
 
-    <div class="datacharts reveal">
-      <figure><div id="uni-chart-size"></div><figcaption>殻径が大きい個体ほど、体重も大きくなりました。</figcaption></figure>
-      <figure><div id="uni-chart-spine"></div><figcaption>いっぽうで、殻径とトゲの長さには、ほとんど関係がありませんでした。</figcaption></figure>
-      <figure><div id="uni-chart-gsi"></div><figcaption>オスは1.2から10.1までまんべんなく散らばり、メスは5.0以下と10.0以上に分かれて、そのあいだが空いています。</figcaption></figure>
-      <figure><div id="uni-chart-cross"></div><figcaption>殻径が大きい個体ほど実入りがよい、という関係は見られませんでした。</figcaption></figure>
-    </div>
-    <p class="sec-note" style="margin-top:18px;font-size:.86rem;color:var(--fg-dim)">第1回 調査レポートの計測表（40個体）から作図しています。</p>
+    <p class="sec-note" style="margin-top:18px;font-size:.86rem;color:var(--fg-dim)">7月22日は第1回 調査レポートの計測表から、8月13日は追加調査の記録から作図しています。</p>
   </div>
 </section>
 
@@ -171,6 +160,13 @@
     <div class="panel reveal" style="max-width:760px;margin:24px auto 0">
       <div class="panel-title">この場所のウニは、やせきってはいない</div>
       <p style="margin:0">磯焼けが進んだ海のムラサキウニは、GSIが1〜2程度と低いという報告があります（水産庁「磯焼け対策ガイドライン」）。今回調査したサイズの個体にかぎれば、GSIの平均は4.7で、磯焼け状態で報告される値よりは高い数字でした。実入りはエサである海藻がどれぐらいあるかで変わるといわれているため、この場所は海藻がまったく無い状態ではない、ということかもしれません。</p>
+    </div>
+
+    <div class="panel reveal" style="max-width:760px;margin:24px auto 0">
+      <div class="panel-title">8月13日の追加調査で見えたこと</div>
+      <p style="margin:0 0 12px">第1回の申し送りをうけて、8月13日には<b>大きめの個体を選ばずに109個体を計測</b>しました。殻径19mmの個体まで入っています。</p>
+      <p style="margin:0 0 12px">雌雄を見分けられなかったのは27個体で、いずれも殻径39.5mm以下でした。<b>殻径25mmに満たない個体は、すべて雌雄を見分けられませんでした。</b></p>
+      <p style="margin:0">なお、GSIの平均は第1回の4.7に対して3.3ですが、これは<b>3週間で海が変わったのではなく、測り方がちがうため</b>です。実入りの少ない小さな個体が多く入ったぶん、平均が下がっています。同じ場所の変化を読みとるには、条件をそろえて測りつづける必要があります。</p>
     </div>
 
     <p class="sec-note" style="margin-top:26px">時期を変えて調査を続ければ、産卵がいつ始まり、いつ・何度のピークを迎え、いつ終わるのかが見えてきそうです。今がどんな状態かを記録しておかなければ、海がどう変わったのかを知ることはできません。ウニラボは、この場所で測りつづけます。</p>
@@ -204,8 +200,8 @@
 </footer>
 
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
-<script src="../../assets/js/chartmap.js?v=13"></script>
-<script src="../../assets/js/uni-charts.js?v=13"></script>
-<script src="../../assets/js/main.js?v=13"></script>
+<script src="../../assets/js/chartmap.js?v=14"></script>
+<script src="../../assets/js/uni-charts.js?v=14"></script>
+<script src="../../assets/js/main.js?v=14"></script>
 </body>
 </html>

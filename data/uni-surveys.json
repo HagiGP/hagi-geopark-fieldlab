@@ -1,0 +1,1358 @@
+{
+ "lab": "奈古・ウニラボ",
+ "species": "ムラサキウニ Heliocidaris crassispina",
+ "site": "奈古港船溜まりのスロープ（阿武町奈古）",
+ "surveys": [
+  {
+   "id": "s1",
+   "label": "2026.7.22",
+   "title": "第1回 調査（2026年7月22日）",
+   "measured": 40,
+   "note": "オープンラボの日に、参加者が1個体ずつ計測しました。採集しやすい深さに範囲を限り、作業しやすいように大きめの個体を選んでいます。",
+   "collected": "200個体以上",
+   "hasSpine": true,
+   "source": "第1回 調査レポート",
+   "rows": [
+    {
+     "no": 1,
+     "shell": 40.0,
+     "total": 112.0,
+     "spine": 36.0,
+     "weight": 26.1,
+     "gonad": 0.42,
+     "gsi": 1.6,
+     "sex": "F"
+    },
+    {
+     "no": 2,
+     "shell": 35.0,
+     "total": 87.0,
+     "spine": 26.0,
+     "weight": 17.1,
+     "gonad": 0.31,
+     "gsi": 1.8,
+     "sex": "F"
+    },
+    {
+     "no": 3,
+     "shell": 44.0,
+     "total": 145.0,
+     "spine": 50.5,
+     "weight": 40.0,
+     "gonad": 1.34,
+     "gsi": 3.4,
+     "sex": "F"
+    },
+    {
+     "no": 4,
+     "shell": 48.0,
+     "total": 135.0,
+     "spine": 43.5,
+     "weight": 62.8,
+     "gonad": 2.99,
+     "gsi": 4.8,
+     "sex": "M"
+    },
+    {
+     "no": 5,
+     "shell": 50.0,
+     "total": 113.0,
+     "spine": 31.5,
+     "weight": 53.9,
+     "gonad": 2.41,
+     "gsi": 4.5,
+     "sex": "F"
+    },
+    {
+     "no": 6,
+     "shell": 48.0,
+     "total": 126.0,
+     "spine": 39.0,
+     "weight": 55.1,
+     "gonad": 4.12,
+     "gsi": 7.5,
+     "sex": "M"
+    },
+    {
+     "no": 7,
+     "shell": 30.0,
+     "total": 92.0,
+     "spine": 31.0,
+     "weight": 14.4,
+     "gonad": 0.29,
+     "gsi": 2.0,
+     "sex": "F"
+    },
+    {
+     "no": 8,
+     "shell": 45.0,
+     "total": 106.0,
+     "spine": 30.5,
+     "weight": 42.9,
+     "gonad": 1.8,
+     "gsi": 4.2,
+     "sex": "M"
+    },
+    {
+     "no": 9,
+     "shell": 50.0,
+     "total": 130.0,
+     "spine": 40.0,
+     "weight": 62.7,
+     "gonad": 2.87,
+     "gsi": 4.6,
+     "sex": "M"
+    },
+    {
+     "no": 10,
+     "shell": 40.0,
+     "total": 113.0,
+     "spine": 36.5,
+     "weight": 48.9,
+     "gonad": 2.06,
+     "gsi": 4.2,
+     "sex": "F"
+    },
+    {
+     "no": 11,
+     "shell": 40.0,
+     "total": 110.0,
+     "spine": 35.0,
+     "weight": 35.1,
+     "gonad": 0.56,
+     "gsi": 1.6,
+     "sex": "F"
+    },
+    {
+     "no": 12,
+     "shell": 57.0,
+     "total": 125.0,
+     "spine": 34.0,
+     "weight": 72.4,
+     "gonad": 7.34,
+     "gsi": 10.1,
+     "sex": "M"
+    },
+    {
+     "no": 13,
+     "shell": 50.0,
+     "total": 125.0,
+     "spine": 37.5,
+     "weight": 69.9,
+     "gonad": 0.84,
+     "gsi": 1.2,
+     "sex": "F"
+    },
+    {
+     "no": 14,
+     "shell": 50.0,
+     "total": 130.0,
+     "spine": 40.0,
+     "weight": 77.0,
+     "gonad": 2.26,
+     "gsi": 2.9,
+     "sex": "F"
+    },
+    {
+     "no": 15,
+     "shell": 45.0,
+     "total": 120.0,
+     "spine": 37.5,
+     "weight": 50.5,
+     "gonad": 0.61,
+     "gsi": 1.2,
+     "sex": "M"
+    },
+    {
+     "no": 16,
+     "shell": 50.0,
+     "total": 130.0,
+     "spine": 40.0,
+     "weight": 50.0,
+     "gonad": 1.26,
+     "gsi": 2.5,
+     "sex": "F"
+    },
+    {
+     "no": 17,
+     "shell": 47.0,
+     "total": 140.0,
+     "spine": 46.5,
+     "weight": 55.8,
+     "gonad": 1.64,
+     "gsi": 2.9,
+     "sex": "M"
+    },
+    {
+     "no": 18,
+     "shell": 53.0,
+     "total": 105.0,
+     "spine": 26.0,
+     "weight": 60.9,
+     "gonad": 2.83,
+     "gsi": 4.6,
+     "sex": "F"
+    },
+    {
+     "no": 19,
+     "shell": 40.0,
+     "total": 120.0,
+     "spine": 40.0,
+     "weight": 37.9,
+     "gonad": 1.38,
+     "gsi": 3.6,
+     "sex": "F"
+    },
+    {
+     "no": 20,
+     "shell": 52.0,
+     "total": 150.0,
+     "spine": 49.0,
+     "weight": 60.0,
+     "gonad": 3.0,
+     "gsi": 5.0,
+     "sex": "F"
+    },
+    {
+     "no": 21,
+     "shell": 50.0,
+     "total": 135.0,
+     "spine": 42.5,
+     "weight": 66.0,
+     "gonad": 4.99,
+     "gsi": 7.6,
+     "sex": "M"
+    },
+    {
+     "no": 22,
+     "shell": 43.0,
+     "total": 115.0,
+     "spine": 36.0,
+     "weight": 44.2,
+     "gonad": 1.84,
+     "gsi": 4.2,
+     "sex": "F"
+    },
+    {
+     "no": 23,
+     "shell": 52.0,
+     "total": 135.0,
+     "spine": 41.5,
+     "weight": 58.8,
+     "gonad": 3.41,
+     "gsi": 5.8,
+     "sex": "M"
+    },
+    {
+     "no": 24,
+     "shell": 40.0,
+     "total": 110.0,
+     "spine": 35.0,
+     "weight": 35.2,
+     "gonad": 0.53,
+     "gsi": 1.5,
+     "sex": "F"
+    },
+    {
+     "no": 25,
+     "shell": 50.0,
+     "total": 115.0,
+     "spine": 32.5,
+     "weight": 56.9,
+     "gonad": 5.68,
+     "gsi": 10.0,
+     "sex": "F"
+    },
+    {
+     "no": 26,
+     "shell": 52.0,
+     "total": 135.0,
+     "spine": 41.5,
+     "weight": 50.1,
+     "gonad": 4.17,
+     "gsi": 8.3,
+     "sex": "M"
+    },
+    {
+     "no": 27,
+     "shell": 48.0,
+     "total": 115.0,
+     "spine": 33.5,
+     "weight": 56.1,
+     "gonad": 6.21,
+     "gsi": 11.1,
+     "sex": "F"
+    },
+    {
+     "no": 28,
+     "shell": 43.0,
+     "total": 130.0,
+     "spine": 43.5,
+     "weight": 44.3,
+     "gonad": 1.0,
+     "gsi": 2.3,
+     "sex": "F"
+    },
+    {
+     "no": 29,
+     "shell": 52.0,
+     "total": 120.0,
+     "spine": 34.0,
+     "weight": 60.3,
+     "gonad": 2.01,
+     "gsi": 3.3,
+     "sex": "F"
+    },
+    {
+     "no": 30,
+     "shell": 52.0,
+     "total": 125.0,
+     "spine": 36.5,
+     "weight": 65.3,
+     "gonad": 7.67,
+     "gsi": 11.7,
+     "sex": "F"
+    },
+    {
+     "no": 31,
+     "shell": 48.0,
+     "total": 100.0,
+     "spine": 26.0,
+     "weight": 48.4,
+     "gonad": 2.8,
+     "gsi": 5.8,
+     "sex": "M"
+    },
+    {
+     "no": 32,
+     "shell": 48.0,
+     "total": 122.0,
+     "spine": 37.0,
+     "weight": 50.6,
+     "gonad": 1.36,
+     "gsi": 2.7,
+     "sex": "M"
+    },
+    {
+     "no": 33,
+     "shell": 43.0,
+     "total": 100.0,
+     "spine": 28.5,
+     "weight": 40.9,
+     "gonad": 4.01,
+     "gsi": 9.8,
+     "sex": "M"
+    },
+    {
+     "no": 34,
+     "shell": 61.0,
+     "total": 130.0,
+     "spine": 34.5,
+     "weight": 78.8,
+     "gonad": 3.14,
+     "gsi": 4.0,
+     "sex": "M"
+    },
+    {
+     "no": 35,
+     "shell": 43.0,
+     "total": 120.0,
+     "spine": 38.5,
+     "weight": 48.9,
+     "gonad": 1.87,
+     "gsi": 3.8,
+     "sex": "F"
+    },
+    {
+     "no": 36,
+     "shell": 43.0,
+     "total": 130.0,
+     "spine": 43.5,
+     "weight": 50.3,
+     "gonad": 3.7,
+     "gsi": 7.4,
+     "sex": "M"
+    },
+    {
+     "no": 37,
+     "shell": 43.0,
+     "total": 110.0,
+     "spine": 33.5,
+     "weight": 40.9,
+     "gonad": 1.72,
+     "gsi": 4.2,
+     "sex": "F"
+    },
+    {
+     "no": 38,
+     "shell": 42.0,
+     "total": 100.0,
+     "spine": 29.0,
+     "weight": 37.1,
+     "gonad": 1.29,
+     "gsi": 3.5,
+     "sex": "F"
+    },
+    {
+     "no": 39,
+     "shell": 40.0,
+     "total": 110.0,
+     "spine": 35.0,
+     "weight": 30.2,
+     "gonad": 0.8,
+     "gsi": 2.6,
+     "sex": "M"
+    },
+    {
+     "no": 40,
+     "shell": 43.0,
+     "total": 110.0,
+     "spine": 33.5,
+     "weight": 34.3,
+     "gonad": 2.0,
+     "gsi": 5.8,
+     "sex": "M"
+    }
+   ],
+   "stats": [
+    {
+     "v": "200+",
+     "l": "採集した個体数",
+     "t": "スロープの水深0〜80cmの範囲から採集しました。"
+    },
+    {
+     "v": "40",
+     "l": "計測した個体数",
+     "t": "1個体ずつ殻を割り、生殖巣の重さまで測りました。"
+    },
+    {
+     "v": "46.3",
+     "l": "殻径の平均（mm）",
+     "t": "いちばん小さい個体は30mm、大きい個体は61mmでした。"
+    },
+    {
+     "v": "4.7",
+     "l": "GSIの平均",
+     "t": "1.2から11.7まで、10倍近い幅がありました。"
+    }
+   ],
+   "captions": {
+    "size": "殻径が大きい個体ほど、体重も大きくなりました。",
+    "spine": "いっぽうで、殻径とトゲの長さには、ほとんど関係がありませんでした。",
+    "gsi": "オスは1.2から10.1までまんべんなく散らばり、メスは5.0以下と10.0以上に分かれて、そのあいだが空いています。",
+    "cross": "殻径が大きい個体ほど実入りがよい、という関係は見られませんでした。"
+   }
+  },
+  {
+   "id": "s2",
+   "label": "2026.8.13",
+   "title": "追加調査（2026年8月13日）",
+   "measured": 109,
+   "note": "大きめの個体を選ばず、小さな個体もふくめて計測しました。殻径19mmの個体まで入っています。",
+   "collected": null,
+   "hasSpine": false,
+   "source": "追加調査の記録",
+   "rows": [
+    {
+     "no": 1,
+     "shell": 48.0,
+     "weight": 54.7,
+     "gonad": 2.7,
+     "gsi": 4.9,
+     "sex": "F"
+    },
+    {
+     "no": 2,
+     "shell": 49.6,
+     "weight": 42.0,
+     "gonad": 0.98,
+     "gsi": 2.3,
+     "sex": "F"
+    },
+    {
+     "no": 3,
+     "shell": 56.0,
+     "weight": 71.2,
+     "gonad": 3.47,
+     "gsi": 4.9,
+     "sex": "F"
+    },
+    {
+     "no": 4,
+     "shell": 52.0,
+     "weight": 57.2,
+     "gonad": 6.5,
+     "gsi": 11.4,
+     "sex": "F"
+    },
+    {
+     "no": 5,
+     "shell": 42.0,
+     "weight": 35.2,
+     "gonad": 1.0,
+     "gsi": 2.8,
+     "sex": "F"
+    },
+    {
+     "no": 6,
+     "shell": 49.0,
+     "weight": 47.5,
+     "gonad": 1.2,
+     "gsi": 2.5,
+     "sex": "F"
+    },
+    {
+     "no": 7,
+     "shell": 43.0,
+     "weight": 35.0,
+     "gonad": 2.0,
+     "gsi": 5.7,
+     "sex": "M"
+    },
+    {
+     "no": 8,
+     "shell": 50.0,
+     "weight": 36.5,
+     "gonad": 2.6,
+     "gsi": 7.1,
+     "sex": "M"
+    },
+    {
+     "no": 9,
+     "shell": 33.0,
+     "weight": 20.0,
+     "gonad": 0.52,
+     "gsi": 2.6,
+     "sex": "M"
+    },
+    {
+     "no": 10,
+     "shell": 53.0,
+     "weight": 55.0,
+     "gonad": 2.2,
+     "gsi": 4.0,
+     "sex": "F"
+    },
+    {
+     "no": 11,
+     "shell": 48.0,
+     "weight": 50.0,
+     "gonad": 2.3,
+     "gsi": 4.6,
+     "sex": "F"
+    },
+    {
+     "no": 12,
+     "shell": 49.0,
+     "weight": 33.0,
+     "gonad": 1.0,
+     "gsi": 3.0,
+     "sex": "F"
+    },
+    {
+     "no": 13,
+     "shell": 45.0,
+     "weight": 38.0,
+     "gonad": 0.8,
+     "gsi": 2.1,
+     "sex": "F"
+    },
+    {
+     "no": 14,
+     "shell": 47.0,
+     "weight": 34.0,
+     "gonad": 0.6,
+     "gsi": 1.8,
+     "sex": "F"
+    },
+    {
+     "no": 15,
+     "shell": 45.0,
+     "weight": 34.0,
+     "gonad": 1.2,
+     "gsi": 3.5,
+     "sex": "M"
+    },
+    {
+     "no": 16,
+     "shell": 42.0,
+     "weight": 33.0,
+     "gonad": 1.4,
+     "gsi": 4.2,
+     "sex": "F"
+    },
+    {
+     "no": 17,
+     "shell": 39.0,
+     "weight": 27.0,
+     "gonad": 0.52,
+     "gsi": 1.9,
+     "sex": "M"
+    },
+    {
+     "no": 18,
+     "shell": 37.0,
+     "weight": 27.0,
+     "gonad": 2.3,
+     "gsi": 8.5,
+     "sex": "M"
+    },
+    {
+     "no": 19,
+     "shell": 38.0,
+     "weight": 26.0,
+     "gonad": 2.86,
+     "gsi": 11.0,
+     "sex": "F"
+    },
+    {
+     "no": 20,
+     "shell": 31.0,
+     "weight": 25.0,
+     "gonad": 0.6,
+     "gsi": 2.4,
+     "sex": "F"
+    },
+    {
+     "no": 21,
+     "shell": 41.0,
+     "weight": 25.0,
+     "gonad": 1.8,
+     "gsi": 7.2,
+     "sex": "M"
+    },
+    {
+     "no": 22,
+     "shell": 39.0,
+     "weight": 23.0,
+     "gonad": 1.0,
+     "gsi": 4.3,
+     "sex": "F"
+    },
+    {
+     "no": 23,
+     "shell": 39.0,
+     "weight": 22.0,
+     "gonad": 1.1,
+     "gsi": 5.0,
+     "sex": "F"
+    },
+    {
+     "no": 24,
+     "shell": 39.0,
+     "weight": 19.0,
+     "gonad": 0.1,
+     "gsi": 0.5,
+     "sex": "M"
+    },
+    {
+     "no": 25,
+     "shell": 46.0,
+     "weight": 34.0,
+     "gonad": 2.15,
+     "gsi": 6.3,
+     "sex": "F"
+    },
+    {
+     "no": 26,
+     "shell": 39.0,
+     "weight": 23.0,
+     "gonad": 0.6,
+     "gsi": 2.6,
+     "sex": "M"
+    },
+    {
+     "no": 27,
+     "shell": 37.0,
+     "weight": 21.0,
+     "gonad": 0.53,
+     "gsi": 2.5,
+     "sex": "F"
+    },
+    {
+     "no": 28,
+     "shell": 35.0,
+     "weight": 21.0,
+     "gonad": 0.65,
+     "gsi": 3.1,
+     "sex": "F"
+    },
+    {
+     "no": 29,
+     "shell": 38.0,
+     "weight": 23.0,
+     "gonad": 1.3,
+     "gsi": 5.7,
+     "sex": "F"
+    },
+    {
+     "no": 30,
+     "shell": 37.0,
+     "weight": 18.0,
+     "gonad": 0.54,
+     "gsi": 3.0,
+     "sex": "M"
+    },
+    {
+     "no": 31,
+     "shell": 36.0,
+     "weight": 21.0,
+     "gonad": 0.8,
+     "gsi": 3.8,
+     "sex": "M"
+    },
+    {
+     "no": 32,
+     "shell": 37.0,
+     "weight": 18.0,
+     "gonad": 1.0,
+     "gsi": 5.6,
+     "sex": "M"
+    },
+    {
+     "no": 33,
+     "shell": 36.0,
+     "weight": 20.0,
+     "gonad": 1.4,
+     "gsi": 7.0,
+     "sex": "M"
+    },
+    {
+     "no": 34,
+     "shell": 34.0,
+     "weight": 15.0,
+     "gonad": 0.25,
+     "gsi": 1.7,
+     "sex": "F"
+    },
+    {
+     "no": 35,
+     "shell": 36.0,
+     "weight": 18.0,
+     "gonad": 0.48,
+     "gsi": 2.7,
+     "sex": "F"
+    },
+    {
+     "no": 36,
+     "shell": 37.0,
+     "weight": 21.0,
+     "gonad": 1.0,
+     "gsi": 4.8,
+     "sex": "F"
+    },
+    {
+     "no": 37,
+     "shell": 38.0,
+     "weight": 20.0,
+     "gonad": 0.7,
+     "gsi": 3.5,
+     "sex": "F"
+    },
+    {
+     "no": 38,
+     "shell": 39.0,
+     "weight": 22.0,
+     "gonad": 1.4,
+     "gsi": 6.4,
+     "sex": "M"
+    },
+    {
+     "no": 39,
+     "shell": 34.5,
+     "weight": 20.0,
+     "gonad": 1.0,
+     "gsi": 5.0,
+     "sex": "F"
+    },
+    {
+     "no": 40,
+     "shell": 35.0,
+     "weight": 20.0,
+     "gonad": 1.68,
+     "gsi": 8.4,
+     "sex": "M"
+    },
+    {
+     "no": 41,
+     "shell": 38.0,
+     "weight": 18.0,
+     "gonad": 0.88,
+     "gsi": 4.9,
+     "sex": "F"
+    },
+    {
+     "no": 42,
+     "shell": 28.0,
+     "weight": 9.0,
+     "gonad": 0.2,
+     "gsi": 2.2,
+     "sex": "M"
+    },
+    {
+     "no": 43,
+     "shell": 34.0,
+     "weight": 16.0,
+     "gonad": 0.1,
+     "gsi": 0.6,
+     "sex": "F"
+    },
+    {
+     "no": 44,
+     "shell": 32.0,
+     "weight": 16.0,
+     "gonad": 0.29,
+     "gsi": 1.8,
+     "sex": "M"
+    },
+    {
+     "no": 45,
+     "shell": 33.0,
+     "weight": 15.0,
+     "gonad": 0.25,
+     "gsi": 1.7,
+     "sex": "U"
+    },
+    {
+     "no": 46,
+     "shell": 34.0,
+     "weight": 17.0,
+     "gonad": 0.15,
+     "gsi": 0.9,
+     "sex": "U"
+    },
+    {
+     "no": 47,
+     "shell": 36.5,
+     "weight": 19.2,
+     "gonad": 0.12,
+     "gsi": 0.6,
+     "sex": "U"
+    },
+    {
+     "no": 48,
+     "shell": 35.0,
+     "weight": 16.3,
+     "gonad": 0.5,
+     "gsi": 3.1,
+     "sex": "M"
+    },
+    {
+     "no": 49,
+     "shell": 32.0,
+     "weight": 16.3,
+     "gonad": 1.4,
+     "gsi": 8.6,
+     "sex": "M"
+    },
+    {
+     "no": 50,
+     "shell": 38.0,
+     "weight": 18.6,
+     "gonad": 2.1,
+     "gsi": 11.3,
+     "sex": "F"
+    },
+    {
+     "no": 51,
+     "shell": 29.5,
+     "weight": 13.4,
+     "gonad": 0.4,
+     "gsi": 3.0,
+     "sex": "F"
+    },
+    {
+     "no": 52,
+     "shell": 32.0,
+     "weight": 16.2,
+     "gonad": 1.4,
+     "gsi": 8.6,
+     "sex": "M"
+    },
+    {
+     "no": 53,
+     "shell": 30.5,
+     "weight": 12.0,
+     "gonad": 0.25,
+     "gsi": 2.1,
+     "sex": "F"
+    },
+    {
+     "no": 54,
+     "shell": 30.5,
+     "weight": 12.7,
+     "gonad": 0.18,
+     "gsi": 1.4,
+     "sex": "F"
+    },
+    {
+     "no": 55,
+     "shell": 36.0,
+     "weight": 17.4,
+     "gonad": 0.5,
+     "gsi": 2.9,
+     "sex": "F"
+    },
+    {
+     "no": 56,
+     "shell": 32.0,
+     "weight": 13.2,
+     "gonad": 0.4,
+     "gsi": 3.0,
+     "sex": "M"
+    },
+    {
+     "no": 57,
+     "shell": 36.0,
+     "weight": 17.3,
+     "gonad": 1.2,
+     "gsi": 6.9,
+     "sex": "M"
+    },
+    {
+     "no": 58,
+     "shell": 29.5,
+     "weight": 10.7,
+     "gonad": 0.23,
+     "gsi": 2.1,
+     "sex": "F"
+    },
+    {
+     "no": 59,
+     "shell": 37.0,
+     "weight": 15.4,
+     "gonad": 1.0,
+     "gsi": 6.5,
+     "sex": "F"
+    },
+    {
+     "no": 60,
+     "shell": 40.5,
+     "weight": 22.1,
+     "gonad": 0.6,
+     "gsi": 2.7,
+     "sex": "F"
+    },
+    {
+     "no": 61,
+     "shell": 37.5,
+     "weight": 19.0,
+     "gonad": 0.6,
+     "gsi": 3.2,
+     "sex": "M"
+    },
+    {
+     "no": 62,
+     "shell": 36.0,
+     "weight": 14.7,
+     "gonad": 0.1,
+     "gsi": 0.7,
+     "sex": "U"
+    },
+    {
+     "no": 63,
+     "shell": 33.5,
+     "weight": 13.6,
+     "gonad": 0.04,
+     "gsi": 0.3,
+     "sex": "U"
+    },
+    {
+     "no": 64,
+     "shell": 34.0,
+     "weight": 15.2,
+     "gonad": 0.3,
+     "gsi": 2.0,
+     "sex": "F"
+    },
+    {
+     "no": 65,
+     "shell": 37.5,
+     "weight": 19.4,
+     "gonad": 1.3,
+     "gsi": 6.7,
+     "sex": "M"
+    },
+    {
+     "no": 66,
+     "shell": 31.0,
+     "weight": 10.9,
+     "gonad": 0.1,
+     "gsi": 0.9,
+     "sex": "U"
+    },
+    {
+     "no": 67,
+     "shell": 31.5,
+     "weight": 13.4,
+     "gonad": 0.07,
+     "gsi": 0.5,
+     "sex": "M"
+    },
+    {
+     "no": 68,
+     "shell": 32.5,
+     "weight": 17.4,
+     "gonad": 1.3,
+     "gsi": 7.5,
+     "sex": "M"
+    },
+    {
+     "no": 69,
+     "shell": 30.5,
+     "weight": 10.4,
+     "gonad": 0.2,
+     "gsi": 1.9,
+     "sex": "F"
+    },
+    {
+     "no": 70,
+     "shell": 28.0,
+     "weight": 10.0,
+     "gonad": 0.7,
+     "gsi": 7.0,
+     "sex": "M"
+    },
+    {
+     "no": 71,
+     "shell": 30.5,
+     "weight": 13.1,
+     "gonad": 0.2,
+     "gsi": 1.5,
+     "sex": "F"
+    },
+    {
+     "no": 72,
+     "shell": 39.0,
+     "weight": 19.3,
+     "gonad": 0.3,
+     "gsi": 1.6,
+     "sex": "F"
+    },
+    {
+     "no": 73,
+     "shell": 38.0,
+     "weight": 21.7,
+     "gonad": 0.5,
+     "gsi": 2.3,
+     "sex": "M"
+    },
+    {
+     "no": 74,
+     "shell": 29.5,
+     "weight": 9.5,
+     "gonad": 0.1,
+     "gsi": 1.1,
+     "sex": "F"
+    },
+    {
+     "no": 75,
+     "shell": 32.0,
+     "weight": 16.1,
+     "gonad": 0.1,
+     "gsi": 0.6,
+     "sex": "U"
+    },
+    {
+     "no": 76,
+     "shell": 30.0,
+     "weight": 12.1,
+     "gonad": 0.1,
+     "gsi": 0.8,
+     "sex": "U"
+    },
+    {
+     "no": 77,
+     "shell": 33.0,
+     "weight": 15.7,
+     "gonad": 0.5,
+     "gsi": 3.2,
+     "sex": "M"
+    },
+    {
+     "no": 78,
+     "shell": 31.5,
+     "weight": 14.4,
+     "gonad": 0.1,
+     "gsi": 0.7,
+     "sex": "U"
+    },
+    {
+     "no": 79,
+     "shell": 31.5,
+     "weight": 11.5,
+     "gonad": 0.8,
+     "gsi": 7.0,
+     "sex": "M"
+    },
+    {
+     "no": 80,
+     "shell": 25.5,
+     "weight": 6.7,
+     "gonad": 0.4,
+     "gsi": 6.0,
+     "sex": "M"
+    },
+    {
+     "no": 81,
+     "shell": 32.5,
+     "weight": 14.4,
+     "gonad": 1.1,
+     "gsi": 7.6,
+     "sex": "M"
+    },
+    {
+     "no": 82,
+     "shell": 39.5,
+     "weight": 7.1,
+     "gonad": 0.08,
+     "gsi": 1.1,
+     "sex": "U"
+    },
+    {
+     "no": 83,
+     "shell": 30.5,
+     "weight": 11.5,
+     "gonad": 0.16,
+     "gsi": 1.4,
+     "sex": "F"
+    },
+    {
+     "no": 84,
+     "shell": 34.5,
+     "weight": 17.7,
+     "gonad": 1.26,
+     "gsi": 7.1,
+     "sex": "M"
+    },
+    {
+     "no": 85,
+     "shell": 29.0,
+     "weight": 10.1,
+     "gonad": 0.33,
+     "gsi": 3.3,
+     "sex": "F"
+    },
+    {
+     "no": 86,
+     "shell": 25.5,
+     "weight": 6.4,
+     "gonad": 0.0,
+     "gsi": 0.0,
+     "sex": "U"
+    },
+    {
+     "no": 87,
+     "shell": 32.0,
+     "weight": 11.6,
+     "gonad": 0.1,
+     "gsi": 0.9,
+     "sex": "U"
+    },
+    {
+     "no": 88,
+     "shell": 19.0,
+     "weight": 3.0,
+     "gonad": 0.0,
+     "gsi": 0.0,
+     "sex": "U"
+    },
+    {
+     "no": 89,
+     "shell": 22.5,
+     "weight": 5.7,
+     "gonad": 0.0,
+     "gsi": 0.0,
+     "sex": "U"
+    },
+    {
+     "no": 90,
+     "shell": 23.0,
+     "weight": 6.6,
+     "gonad": 0.2,
+     "gsi": 3.0,
+     "sex": "U"
+    },
+    {
+     "no": 91,
+     "shell": 34.0,
+     "weight": 20.9,
+     "gonad": 1.0,
+     "gsi": 4.8,
+     "sex": "F"
+    },
+    {
+     "no": 92,
+     "shell": 19.0,
+     "weight": 4.7,
+     "gonad": 0.0,
+     "gsi": 0.0,
+     "sex": "U"
+    },
+    {
+     "no": 93,
+     "shell": 24.0,
+     "weight": 7.9,
+     "gonad": 0.08,
+     "gsi": 1.0,
+     "sex": "U"
+    },
+    {
+     "no": 94,
+     "shell": 26.0,
+     "weight": 11.5,
+     "gonad": 0.45,
+     "gsi": 3.9,
+     "sex": "M"
+    },
+    {
+     "no": 95,
+     "shell": 20.5,
+     "weight": 4.4,
+     "gonad": 0.0,
+     "gsi": 0.0,
+     "sex": "U"
+    },
+    {
+     "no": 96,
+     "shell": 30.0,
+     "weight": 13.0,
+     "gonad": 0.3,
+     "gsi": 2.3,
+     "sex": "M"
+    },
+    {
+     "no": 97,
+     "shell": 34.0,
+     "weight": 13.1,
+     "gonad": 0.33,
+     "gsi": 2.5,
+     "sex": "F"
+    },
+    {
+     "no": 98,
+     "shell": 26.0,
+     "weight": 9.5,
+     "gonad": 0.6,
+     "gsi": 6.3,
+     "sex": "F"
+    },
+    {
+     "no": 99,
+     "shell": 27.0,
+     "weight": 9.1,
+     "gonad": 0.0,
+     "gsi": 0.0,
+     "sex": "U"
+    },
+    {
+     "no": 100,
+     "shell": 24.0,
+     "weight": 8.3,
+     "gonad": 0.0,
+     "gsi": 0.0,
+     "sex": "U"
+    },
+    {
+     "no": 101,
+     "shell": 30.0,
+     "weight": 11.9,
+     "gonad": 0.23,
+     "gsi": 1.9,
+     "sex": "U"
+    },
+    {
+     "no": 102,
+     "shell": 31.0,
+     "weight": 14.7,
+     "gonad": 0.4,
+     "gsi": 2.7,
+     "sex": "F"
+    },
+    {
+     "no": 103,
+     "shell": 25.0,
+     "weight": 7.8,
+     "gonad": 0.0,
+     "gsi": 0.0,
+     "sex": "U"
+    },
+    {
+     "no": 104,
+     "shell": 19.0,
+     "weight": 5.5,
+     "gonad": 0.0,
+     "gsi": 0.0,
+     "sex": "U"
+    },
+    {
+     "no": 105,
+     "shell": 28.5,
+     "weight": 13.1,
+     "gonad": 0.2,
+     "gsi": 1.5,
+     "sex": "F"
+    },
+    {
+     "no": 106,
+     "shell": 21.0,
+     "weight": 6.1,
+     "gonad": 0.0,
+     "gsi": 0.0,
+     "sex": "U"
+    },
+    {
+     "no": 107,
+     "shell": 22.0,
+     "weight": 6.1,
+     "gonad": 0.09,
+     "gsi": 1.5,
+     "sex": "U"
+    },
+    {
+     "no": 108,
+     "shell": 23.0,
+     "weight": 7.0,
+     "gonad": 0.0,
+     "gsi": 0.0,
+     "sex": "U"
+    },
+    {
+     "no": 109,
+     "shell": 26.0,
+     "weight": 8.9,
+     "gonad": 0.0,
+     "gsi": 0.0,
+     "sex": "U"
+    }
+   ],
+   "stats": [
+    {
+     "v": "109",
+     "l": "計測した個体数",
+     "t": "大きめの個体を選ばず、小さな個体もふくめて測りました。"
+    },
+    {
+     "v": "34.4",
+     "l": "殻径の平均（mm）",
+     "t": "いちばん小さい個体は19mm、大きい個体は56mmでした。"
+    },
+    {
+     "v": "3.3",
+     "l": "GSIの平均",
+     "t": "0から11.4まで。第1回より低いのは、小さな個体が多く入っているためです。"
+    },
+    {
+     "v": "27",
+     "l": "雌雄不明の個体数",
+     "t": "生殖巣がほとんど無く、雌雄を見分けられませんでした。"
+    }
+   ],
+   "captions": {
+    "size": "小さな個体まで入れても、殻径と体重の関係は変わりませんでした。",
+    "gsi": "雌雄を見分けられなかった27個体は、GSIがほぼ0にかたまっています。オスは0.5〜8.6、メスは0.6〜11.4と、どちらも広く散らばりました。",
+    "cross": "殻径が25mmに満たない個体は、すべて雌雄を見分けられず、実入りもほとんどありませんでした。それより大きくなると、同じ殻径でも実入りには大きな幅が出ます。"
+   }
+  }
+ ]
+}
