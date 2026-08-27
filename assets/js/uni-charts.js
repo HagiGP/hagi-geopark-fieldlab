@@ -69,48 +69,55 @@
     return s + `</svg>`;
   }
 
-  // GSI の散らばりを雌雄別のレーンで見せる。
-  // 同じ値に個体が集中するレーン（雌雄不明のGSI=0など）でも、レーンからはみ出さないよう
-  // 積み上げの間隔と点の大きさを列の高さに合わせて縮める。
-  function strip(rows, title, xlab){
-    const LS = 86;                        // レーン名を出すぶん左を広くとる
-    const xp = (v, a) => LS + (v - a.lo) / (a.hi - a.lo) * (R - LS);
-    const ax = axisRange(rows.map(r=>r.gsi), .08);
+  // GSI（実入り）の分布を、雌雄で色を分けた積み上げ棒グラフで見せる。
+  // メスが「ほとんど空の個体」と「多く入った個体」に分かれることが、山の形で見える。
+  function histogram(rows, title, xlab){
+    const LH = 52, BIN = 1;
+    const hiV = Math.max.apply(null, rows.map(r=>r.gsi));
+    const nb = Math.max(1, Math.ceil((hiV + 1e-9) / BIN));
     const present = ORDER.filter(sx => rows.some(r=>r.sex===sx));
-    const top = 92, bottom = present.length > 2 ? 250 : 224;
-    const gap = present.length > 1 ? (bottom - top) / (present.length - 1) : 0;
-    const halfLane = present.length > 1 ? gap / 2 - 6 : 62;
+    // 積み上げの順番：メスを一番下に置き、山の形をそのまま読めるようにする
+    const stack = ['F','M','U'].filter(sx => present.includes(sx));
+    const bins = Array.from({length: nb}, (_, i) => {
+      const lo = i * BIN, hi = lo + BIN;
+      const inBin = r => (i === nb - 1) ? (r.gsi >= lo && r.gsi <= hi) : (r.gsi >= lo && r.gsi < hi);
+      const by = {}; stack.forEach(sx => { by[sx] = rows.filter(r => r.sex === sx && inBin(r)).length; });
+      return { lo, hi, by, total: Object.values(by).reduce((a,b)=>a+b, 0) };
+    });
+    const maxN = Math.max.apply(null, bins.map(b=>b.total));
+    const yStep = niceStep(Math.max(2, maxN), 5);
+    const yHi = Math.max(yStep, Math.ceil(maxN / yStep) * yStep);
+    const yFor = v => B - v / yHi * (B - T);
+    const step = (R - LH) / nb, bw = step * 0.78;
+
     let s = `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${esc(title)}">`;
     s += `<rect x="0" y="0" width="${W}" height="${H}" rx="14" fill="#16261f"/>`;
     s += `<text x="${W/2}" y="30" text-anchor="middle" class="tbar-title">${esc(title)}</text>`;
-    for(let v = ax.lo; v <= ax.hi + 1e-9; v += ax.step){
-      const x = xp(v, ax);
-      s += `<line class="tbar-grid" x1="${x.toFixed(1)}" y1="${T+10}" x2="${x.toFixed(1)}" y2="${B}"/>`;
-      s += `<text class="tbar-lab" x="${x.toFixed(1)}" y="${B+18}" text-anchor="middle">${fmt(v)}</text>`;
+    for(let v = 0; v <= yHi + 1e-9; v += yStep){
+      const y = yFor(v);
+      s += `<line class="tbar-grid" x1="${LH}" y1="${y.toFixed(1)}" x2="${R}" y2="${y.toFixed(1)}"/>`;
+      s += `<text class="tbar-lab" x="${LH-8}" y="${(y+4).toFixed(1)}" text-anchor="end">${v}</text>`;
     }
-    s += `<line class="tbar-axis" x1="${LS}" y1="${B}" x2="${R}" y2="${B}"/>`;
-    present.forEach((sex, li)=>{
-      const cy = present.length > 1 ? top + gap * li : (top + bottom) / 2;
-      const set = rows.filter(r=>r.sex===sex);
-      s += `<text class="tbar-lane" x="${LS-10}" y="${cy+4}" text-anchor="end">${SEX[sex].label} ${set.length}</text>`;
-      s += `<line class="tbar-lane-rule" x1="${LS}" y1="${cy}" x2="${R}" y2="${cy}"/>`;
-      const colW = 10, cols = {};
-      set.forEach(r=>{ const x = xp(r.gsi, ax); const c = Math.round(x / colW);
-        (cols[c] = cols[c] || []).push({ r, x }); });
-      const tallest = Math.max.apply(null, Object.keys(cols).map(c=>cols[c].length));
-      const steps = Math.max(1, Math.ceil((tallest - 1) / 2));
-      const pitch = Math.min(10.5, halfLane / steps);
-      const dot = Math.max(2.2, Math.min(4.8, pitch * 0.46));
-      Object.keys(cols).forEach(c=>{
-        cols[c].forEach((it, i)=>{
-          const dy = (i % 2 ? 1 : -1) * Math.ceil(i / 2) * pitch;
-          s += `<circle cx="${it.x.toFixed(1)}" cy="${(cy+dy).toFixed(1)}" r="${dot.toFixed(1)}"`
-            +  ` fill="${SEX[sex].color}" fill-opacity=".8" stroke="#16261f" stroke-width=".8">`
-            +  `<title>${esc(tip(it.r))}</title></circle>`;
-        });
+    s += `<line class="tbar-axis" x1="${LH}" y1="${T}" x2="${LH}" y2="${B}"/>`;
+    s += `<line class="tbar-axis" x1="${LH}" y1="${B}" x2="${R}" y2="${B}"/>`;
+    bins.forEach((b, i) => {
+      const x = LH + i * step + (step - bw) / 2;
+      let acc = 0;
+      stack.forEach(sx => {
+        const n = b.by[sx]; if(!n) return;
+        const y0 = yFor(acc + n), h = yFor(acc) - y0;
+        s += `<rect x="${x.toFixed(1)}" y="${y0.toFixed(1)}" width="${bw.toFixed(1)}" height="${h.toFixed(1)}"`
+          +  ` fill="${SEX[sx].color}" fill-opacity=".88" stroke="#16261f" stroke-width=".8">`
+          +  `<title>GSI ${b.lo}〜${b.hi}／${SEX[sx].label} ${n}個体</title></rect>`;
+        acc += n;
       });
+      if(b.total) s += `<text class="tbar-val" x="${(x+bw/2).toFixed(1)}" y="${(yFor(b.total)-5).toFixed(1)}" text-anchor="middle">${b.total}</text>`;
+      // 目盛りは区間の境目に打つ（2つおき）
+      if(i % 2 === 0) s += `<text class="tbar-lab" x="${(LH + i*step).toFixed(1)}" y="${B+18}" text-anchor="middle">${b.lo}</text>`;
     });
-    s += `<text class="tbar-unit" x="${(LS+R)/2}" y="${H-12}" text-anchor="middle">${esc(xlab)}</text>`;
+    s += `<text class="tbar-lab" x="${R}" y="${B+18}" text-anchor="middle">${bins[nb-1].hi}</text>`;
+    s += `<text class="tbar-unit" x="${(LH+R)/2}" y="${H-12}" text-anchor="middle">${esc(xlab)}</text>`;
+    s += `<text class="tbar-unit" x="14" y="${(T+B)/2}" text-anchor="middle" transform="rotate(-90 14 ${(T+B)/2})">個体数</text>`;
     return s + `</svg>`;
   }
 
@@ -130,7 +137,7 @@
     if(elCharts){
       const figs = [[scatter(rows, '殻径と体重', 'shell', 'weight', '殻径（mm）', '体重（g）'), cap.size]];
       if(sv.hasSpine) figs.push([scatter(rows, '殻径とトゲの長さ', 'shell', 'spine', '殻径（mm）', 'トゲの長さ（mm）'), cap.spine]);
-      figs.push([strip(rows, 'GSI（実入り）の散らばり', 'GSI'), cap.gsi]);
+      figs.push([histogram(rows, 'GSI（実入り）の分布', 'GSI'), cap.gsi]);
       figs.push([scatter(rows, '殻径と実入り（GSI）', 'shell', 'gsi', '殻径（mm）', 'GSI'), cap.cross]);
       elCharts.innerHTML = figs.map(([svg, c]) =>
         `<figure>${svg}<figcaption>${esc(c || '')}</figcaption></figure>`).join('');
