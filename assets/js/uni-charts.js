@@ -127,18 +127,24 @@
   const elKey    = document.getElementById('uni-key');
   const elCharts = document.getElementById('uni-charts');
 
+  let gsiMin = 0, gsiNote = '';
+
   function render(surveys, i){
     const sv = surveys[i], rows = sv.rows || [], cap = sv.captions || {};
+    // 実入り（GSI）の図だけ、誤差の大きい小さな個体をのぞいてそろえる
+    const gsiRows = rows.filter(r => r.shell >= gsiMin);
     if(elNote) elNote.textContent = sv.note || '';
     if(elStats) elStats.innerHTML = (sv.stats || []).map(s =>
       `<div class="finding"><b>${esc(s.v)}</b><span class="fl">${esc(s.l)}</span><p>${esc(s.t)}</p></div>`).join('');
     if(elKey) elKey.innerHTML = ORDER.filter(sx => rows.some(r=>r.sex===sx)).map(sx =>
       `<span><i style="background:${SEX[sx].color}"></i>${SEX[sx].label} ${rows.filter(r=>r.sex===sx).length}個体</span>`).join('');
+    const elGsiNote = document.getElementById('uni-gsi-note');
+    if(elGsiNote) elGsiNote.textContent = gsiNote;
     if(elCharts){
       const figs = [[scatter(rows, '殻径と体重', 'shell', 'weight', '殻径（mm）', '体重（g）'), cap.size]];
       if(sv.hasSpine) figs.push([scatter(rows, '殻径とトゲの長さ', 'shell', 'spine', '殻径（mm）', 'トゲの長さ（mm）'), cap.spine]);
-      figs.push([histogram(rows, 'GSI（実入り）の分布', 'GSI'), cap.gsi]);
-      figs.push([scatter(rows, '殻径と実入り（GSI）', 'shell', 'gsi', '殻径（mm）', 'GSI'), cap.cross]);
+      figs.push([histogram(gsiRows, 'GSI（実入り）の分布', 'GSI'), cap.gsi]);
+      figs.push([scatter(gsiRows, '殻径と実入り（GSI）', 'shell', 'gsi', '殻径（mm）', 'GSI'), cap.cross]);
       elCharts.innerHTML = figs.map(([svg, c]) =>
         `<figure>${svg}<figcaption>${esc(c || '')}</figcaption></figure>`).join('');
     }
@@ -148,6 +154,7 @@
   fetch('../../data/uni-surveys.json').then(r=>r.json()).then(d=>{
     const surveys = d.surveys || [];
     if(!surveys.length) return;
+    gsiMin = d.gsiMin || 0; gsiNote = d.gsiMinNote || '';
     if(elDates){
       elDates.innerHTML = `<span class="date-tabs__lab">調査日</span>` + surveys.map((s,i)=>
         `<button type="button" class="date-tab" data-i="${i}">${esc(s.label)}</button>`).join('');

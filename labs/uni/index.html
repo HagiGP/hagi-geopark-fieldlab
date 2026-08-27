@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
 <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/css/style.css?v=17">
+<link rel="stylesheet" href="../../assets/css/style.css?v=18">
 </head>
 <body>
 
@@ -139,7 +139,8 @@
     <div class="sexkey reveal" id="uni-key"></div>
     <div class="datacharts reveal" id="uni-charts"></div>
 
-    <p class="sec-note" style="margin-top:18px;font-size:.86rem;color:var(--fg-dim)">7月22日は第1回 調査レポートの計測表から、8月13日は追加調査の記録から作図しています。</p>
+    <p class="sec-note" id="uni-gsi-note" style="margin-top:18px;font-size:.88rem"></p>
+    <p class="sec-note" style="margin-top:10px;font-size:.86rem;color:var(--fg-dim)">7月22日は第1回 調査レポートの計測表から、8月13日は追加調査の記録から作図しています。</p>
   </div>
 </section>
 
@@ -166,7 +167,7 @@
       <div class="panel-title">8月13日の追加調査で見えたこと</div>
       <p style="margin:0 0 12px">第1回では、作業しやすいように大きめの個体を選んでいました。8月13日は<b>区画を決めて、その中にいた個体をすべて採集し、すべて記録</b>しました。人の目で選ぶと結果がゆがむためです。109個体のうち、殻径35mmに満たない個体が59個体を占めました。</p>
       <p style="margin:0 0 12px">雌雄を見分けられなかったのは27個体で、いずれも殻径39.5mm以下でした。<b>殻径25mmに満たない個体は、すべて雌雄を見分けられませんでした。</b></p>
-      <p style="margin:0">なお、GSIの平均は第1回の4.7に対して3.3ですが、これは<b>3週間で海が変わったのではなく、測り方がちがうため</b>です。実入りの少ない小さな個体が多く入ったぶん、平均が下がっています。同じ場所の変化を読みとるには、条件をそろえて測りつづける必要があります。</p>
+      <p style="margin:0">区画の全個体で平均すると、GSIは第1回の4.7に対して3.3でした。ただしこれは<b>海が変わったのではなく、実入りの少ない小さな個体が多く入ったため</b>です。<b>殻径35mm以上にそろえて計算し直すと、4.8と4.5でほとんど変わりません。</b>どこまでを測ったかを決めておくことが、回どうしを比べられる記録にします。</p>
     </div>
 
     <p class="sec-note" style="margin-top:22px;font-size:.92rem">2回の調査をふまえ、次回からは<b>採集と殻径の計測は区画内の全個体、殻を割って生殖巣を取り出す計測は殻径35mm以上</b>にしぼる予定です。小さな個体は割って測ると誤差が大きくなるためです。どこまでを測ったかを決めておくことが、回どうしを比べられる記録にします。</p>
@@ -202,8 +203,8 @@
 </footer>
 
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
-<script src="../../assets/js/chartmap.js?v=17"></script>
-<script src="../../assets/js/uni-charts.js?v=17"></script>
-<script src="../../assets/js/main.js?v=17"></script>
+<script src="../../assets/js/chartmap.js?v=18"></script>
+<script src="../../assets/js/uni-charts.js?v=18"></script>
+<script src="../../assets/js/main.js?v=18"></script>
 </body>
 </html>
