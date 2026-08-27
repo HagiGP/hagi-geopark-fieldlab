@@ -127,7 +127,7 @@
   const elKey    = document.getElementById('uni-key');
   const elCharts = document.getElementById('uni-charts');
 
-  let gsiMin = 0, gsiNote = '';
+  let gsiMin = 0, gsiNote = '', obsNote = '';
 
   function render(surveys, i){
     const sv = surveys[i], rows = sv.rows || [], cap = sv.captions || {};
@@ -140,6 +140,14 @@
       `<span><i style="background:${SEX[sx].color}"></i>${SEX[sx].label} ${rows.filter(r=>r.sex===sx).length}個体</span>`).join('');
     const elGsiNote = document.getElementById('uni-gsi-note');
     if(elGsiNote) elGsiNote.textContent = gsiNote;
+    // 調査当日の条件（気象庁の最寄り観測地点から引用）
+    const elObs = document.getElementById('uni-obs'), o = sv.obs;
+    if(elObs) elObs.innerHTML = o ? `<dl class="ob-dl">
+      <div><dt>調査日時</dt><dd>${esc(o.datetime)}</dd></div>
+      <div><dt>天気</dt><dd>${esc(o.weather)}</dd></div>
+      <div><dt>気温</dt><dd>${esc(o.temp)}</dd></div>
+      <div><dt>潮位</dt><dd>${esc(o.tide)}</dd></div>
+    </dl><p class="ob-src">${esc(obsNote)}</p>` : '';
     if(elCharts){
       const figs = [[scatter(rows, '殻径と体重', 'shell', 'weight', '殻径（mm）', '体重（g）'), cap.size]];
       if(sv.hasSpine) figs.push([scatter(rows, '殻径とトゲの長さ', 'shell', 'spine', '殻径（mm）', 'トゲの長さ（mm）'), cap.spine]);
@@ -154,7 +162,7 @@
   fetch('../../data/uni-surveys.json').then(r=>r.json()).then(d=>{
     const surveys = d.surveys || [];
     if(!surveys.length) return;
-    gsiMin = d.gsiMin || 0; gsiNote = d.gsiMinNote || '';
+    gsiMin = d.gsiMin || 0; gsiNote = d.gsiMinNote || ''; obsNote = d.obsNote || '';
     if(elDates){
       elDates.innerHTML = `<span class="date-tabs__lab">調査日</span>` + surveys.map((s,i)=>
         `<button type="button" class="date-tab" data-i="${i}">${esc(s.label)}</button>`).join('');

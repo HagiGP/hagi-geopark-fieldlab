@@ -811,6 +811,10 @@ table.data tr.cold td{ color:#1c6f8c; font-weight:700; }
 @media (max-width:900px){ .findings--4{ grid-template-columns:1fr 1fr; } }
 @media (max-width:460px){ .findings--4{ grid-template-columns:1fr; } }
 
+.obspanel .ob-src{ flex-basis:100%; margin:2px 0 0; font-size:.76rem; line-height:1.7; color:var(--fg-dim); }
+.obspanel--plain{ display:block; }
+.obspanel--plain .ob-dl{ justify-content:center; }
+
 /* ウニラボ：計測データの散布図・分布図 */
 .datacharts{ display:grid; gap:18px; grid-template-columns:1fr 1fr; margin-top:8px; }
 @media (max-width:760px){ .datacharts{ grid-template-columns:1fr; } }

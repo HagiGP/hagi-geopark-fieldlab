@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
 <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/css/style.css?v=18">
+<link rel="stylesheet" href="../../assets/css/style.css?v=19">
 </head>
 <body>
 
@@ -175,8 +175,16 @@
 <!-- 今年わかったこと -->
 <section class="lab-section" id="findings">
   <div class="wrap">
-    <div class="section-head"><span class="n">FINDINGS</span><h2>2026年の調査でわかったこと</h2></div>
-    <p class="sec-note">昨年とまったく同じ20地点を、同じやり方で測りました。1年前の記録があったからこそ、見えてきたことが2つあります。</p>
+    <div class="section-head"><span class="n">FINDINGS</span><h2>これまでの調査でわかったこと</h2></div>
+    <p class="sec-note lead">機械や電気に頼れば、涼はとれます。けれどもこの土地には、<b>電気を使わずに涼をとってきた仕組み</b>が今も残っています。それでいて風穴は、これまでほとんど記録されてきませんでした。2年分の調査でわかったことを並べます。</p>
+
+    <div class="findings reveal" style="margin-bottom:26px">
+      <div class="finding"><b>11〜18℃</b><span class="fl">外の空気との差</span><p>2026年7月8日から24日までの16日間、期間中の気温は平均29.2℃でした。これに対して風穴から出る冷気は、最も冷たい場所で平均11℃程度、最も温かい場所でも平均19℃程度。外の空気より11〜18℃低い状態が続いていました。</p></div>
+      <div class="finding"><b>11ヶ所</b><span class="fl">地図になかった場所</span><p>地元の方への聞き取りから、厳島神社の奥の風穴のほかに10ヶ所のヒヤシがあることがわかりました。どれもこれまで記録に残っていなかった場所です。集落の路地を歩いて、ひとつずつ位置を確かめました。</p></div>
+      <div class="finding"><b>10℃以上</b><span class="fl">路地の中で差が出る</span><p>明神池の南側では、風穴が近い地点が22〜28℃だったのに対して、そうでない場所は32〜39℃。同じ集落の路地の中で、10mほど離れるだけで10℃以上ちがう場所があります。</p></div>
+    </div>
+
+    <p class="sec-note">なかでも今年見えた2つは、1年前の記録があったからこそ気づけたことです。</p>
 
     <div class="panel reveal" style="max-width:820px;margin:0 auto">
       <div class="panel-title">① 変わるのは風穴ではなく、冷気と外の空気のまざり方</div>
@@ -196,7 +204,11 @@
       <p style="margin:0">家々の間を冷気が流れるこの町では、<b>人の暮らしの変化が、そのまま温度の変化になって現れる</b>ということです。1年前の記録と、今年みなさんと集めた記録があったからこそ気づけました。</p>
     </div>
 
-    <p class="sec-note" style="margin-top:24px">この調査の数字は、すでに世の中で役に立ちはじめています。風穴の倉庫では今、萩の6つの酒蔵の日本酒が電気を使わずに眠っており、その裏づけとなったのが、ここで集めた温度のデータです。</p>
+    <div class="panel reveal" style="max-width:820px;margin:26px auto 0">
+      <div class="panel-title">なぜ、測りつづけるのか</div>
+      <p style="margin:0 0 12px">風穴の場所も、その使い方も、知っているのは越ヶ浜で暮らしてきた方々です。<b>記録がないまま家が減っていけば、現象そのものも、それを使ってきた知恵も、一緒に消えていきます。</b>この2年で、聞き取りでしか知られていなかった場所が数字になり、地図の上に並びました。</p>
+      <p style="margin:0">そして、その数字はすでに世の中で使われはじめています。風穴の倉庫では今、萩の6つの酒蔵の日本酒が電気を使わずに眠っており、その裏づけとなったのが、ここで集めた温度のデータです。土地の仕組みを知り、暮らしや産業につなぎ直す。<b>エネルギーとの付き合い方</b>を考えるうえでの、小さな手がかりになるかもしれません。</p>
+    </div>
   </div>
 </section>
 
@@ -235,8 +247,8 @@
 </footer>
 
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
-<script src="../../assets/js/chartmap.js?v=18"></script>
-<script src="../../assets/js/fuketsu-heat.js?v=18"></script>
-<script src="../../assets/js/main.js?v=18"></script>
+<script src="../../assets/js/chartmap.js?v=19"></script>
+<script src="../../assets/js/fuketsu-heat.js?v=19"></script>
+<script src="../../assets/js/main.js?v=19"></script>
 </body>
 </html>
