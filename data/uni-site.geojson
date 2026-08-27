@@ -1,0 +1,10 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": { "type": "site", "id": "調査地", "label": "調査地" },
+   "geometry": { "type": "Point", "coordinates": [131.46625, 34.49616] }
+  }
+ ]
+}

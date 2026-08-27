@@ -791,6 +791,38 @@ table.data tr.cold td{ color:#1c6f8c; font-weight:700; }
 .tbar-val{ fill:var(--fg); font-family:"Share Tech Mono",monospace; font-size:11px; }
 .tbar-title{ fill:var(--fg); font-family:var(--sans); font-size:14px; font-weight:700; }
 
+/* 白地の図版を羊皮紙の台紙にのせる（キャプションも紙の文字色に） */
+.wire-fig--paper{ background:var(--paper); border-color:#cbb98d; }
+.wire-fig--paper figcaption{ background:var(--paper-2); color:var(--paper-sub); border-top:1px solid var(--paper-line); }
+.wire-fig--paper figcaption .src{ color:#8a7c5c; }
+
+/* 数値タイルを4枚並べる（スマホは2列） */
+.findings--4{ grid-template-columns:repeat(4,1fr); }
+@media (max-width:900px){ .findings--4{ grid-template-columns:1fr 1fr; } }
+@media (max-width:460px){ .findings--4{ grid-template-columns:1fr; } }
+
+/* ウニラボ：計測データの散布図・分布図 */
+.datacharts{ display:grid; gap:18px; grid-template-columns:1fr 1fr; margin-top:8px; }
+@media (max-width:760px){ .datacharts{ grid-template-columns:1fr; } }
+.datacharts figure{ margin:0; }
+.datacharts svg{ width:100%; height:auto; display:block; }
+.datacharts figcaption{ font-size:.82rem; color:var(--fg-dim); margin-top:9px; text-align:center; line-height:1.75; }
+.tbar-unit{ fill:var(--fg-dim); font-family:var(--sans); font-size:11px; }
+.tbar-lane{ fill:var(--fg); font-family:var(--sans); font-size:12px; font-weight:700; }
+.tbar-lane-rule{ stroke:rgba(215,167,68,.28); stroke-width:1; stroke-dasharray:3 4; }
+.sexkey{ display:flex; flex-wrap:wrap; justify-content:center; gap:8px 22px; margin:16px 0 4px;
+  font-size:.84rem; color:var(--fg-dim); }
+.sexkey span{ display:inline-flex; align-items:center; gap:7px; }
+.sexkey i{ width:13px; height:13px; border-radius:50%; display:inline-block; }
+
+/* 調査方法の手順（番号つき） */
+.steps{ counter-reset:step; max-width:720px; margin:0 auto; padding:0; list-style:none; }
+.steps li{ counter-increment:step; position:relative; padding:0 0 0 46px; margin:0 0 14px; }
+.steps li::before{ content:counter(step); position:absolute; left:0; top:2px;
+  width:30px; height:30px; border-radius:50%; display:grid; place-items:center;
+  font-family:var(--mono); font-size:.9rem; color:#1a2620;
+  background:linear-gradient(180deg,var(--brass-hi),var(--brass)); }
+
 /* 外気温カラースケール（青=冷 → 橙=暖） */
 .heat-scale{ max-width:440px; margin:12px auto 0; }
 .heat-scale__bar{ height:14px; border-radius:8px; border:1px solid var(--line);

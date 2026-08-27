@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>奈古・ウニラボ｜萩ジオパーク・フィールドラボ</title>
+<meta name="description" content="阿武町奈古の船溜まりでムラサキウニを1個体ずつ計測するラボ。調査地・ウニのからだ・計測のやり方・40個体の殻径と実入り（GSI）を、調査ごとに集約して掲載します。">
+<link rel="icon" href="../../assets/img/logo_hggp.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/css/style.css?v=13">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav__in">
+    <a class="nav__brand" href="../../index.html">
+      <img src="../../assets/img/logo_hggp.png" alt="萩ジオパーク">
+      <span>萩ジオパーク・フィールドラボ<small>HAGI GEOPARK FIELD LAB</small></span>
+    </a>
+    <button class="nav__toggle" aria-label="メニュー">≡</button>
+    <nav class="nav__links">
+      <a href="../../index.html#why-labs">ラボ一覧</a>
+      <a href="../fuketsu/">風穴ラボ</a>
+      <a href="../sunahama/">砂浜ラボ</a>
+      <a href="../yougan/">溶岩ラボ</a>
+      <a href="../uni/">ウニラボ</a>
+    </nav>
+  </div>
+</header>
+
+<div class="lab-hero">
+  <div class="lab-hero__ph"><img src="../../assets/img/zukan/uni_slope.jpg" alt="奈古港の船溜まりのスロープで調査する調査員たち"></div>
+  <div class="lab-hero__cap">
+    <div class="wrap">
+      <h1 class="lab-hero__title">奈古・ウニラボ</h1>
+      <p class="lab-hero__partners"><b>協力</b>福本商店・阿武町</p>
+    </div>
+  </div>
+</div>
+
+<!-- 調査の目的 -->
+<section class="lab-section" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="section-head"><span class="n">MISSION</span><h2>調査の目的</h2></div>
+    <p class="sec-note lead">ウニは、昔からこの地域で食べられてきたおいしい海の恵みです。いっぽうで、海藻が減る「磯焼け」の原因のひとつだといわれ、阿武町を含めて全国各地で駆除も行われています。しかし、どの時期にどれぐらいの大きさで、身の入り具合はどうかなど、奈古のウニの実際の生態は、ほとんど調べられていません。これからの海について考える手がかりにするため、産卵期であるといわれている夏に、ウニがどのような状態で生きているのかを確かめます。<span class="src">第1回 調査レポート より</span></p>
+  </div>
+</section>
+
+<!-- 調査地 -->
+<section class="lab-section" id="field">
+  <div class="wrap">
+    <div class="section-head"><span class="n">FIELD</span><h2>調査地</h2></div>
+    <p class="sec-note">調査地の奈古は、阿武町の日本海に面したまちです。今回は、ABUキャンプフィールドの隣に位置する船溜まり内のスロープを調査地としました。波の影響が少なく、まっすぐな構造物を基準に範囲を決められるため、これから同じ条件で測りつづけることができます。</p>
+
+    <div class="chartmap reveal" data-center="131.46625,34.49616" data-zoom="14.2" data-points="../../data/uni-site.geojson" data-only="site"></div>
+    <div class="chartmap__note">
+      <span>奈古港の船溜まり（山口県阿武郡阿武町奈古）／ 橙の点＝調査地</span>
+      <span><b>出典</b> 地理院タイル（ベクトル）を加工して作成</span>
+    </div>
+
+    <div class="two-col reveal" style="margin-top:20px;max-width:820px;margin-inline:auto">
+      <figure class="figure"><img src="../../assets/img/zukan/uni_scene01.jpg" alt="スロープの上から水中をのぞきこむ調査員たち" data-zoom><figcaption>スロープの上から、足元の海をのぞく</figcaption></figure>
+      <figure class="figure"><img src="../../assets/img/zukan/uni_survey.jpg" alt="ひざまでの深さの海に入ってウニを採集する調査員たち" data-zoom><figcaption>水深0〜80cmの範囲でウニを採集する</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="rivets"><i></i><i></i><i></i></div></div>
+
+<!-- ウニのからだ -->
+<section class="lab-section" id="body">
+  <div class="wrap">
+    <div class="section-head"><span class="n">ANATOMY</span><h2>ウニのからだ</h2></div>
+    <p class="sec-note">ウニのからだの外側は、かたい「殻（から）」と、そこから生えた「トゲ」でできています。この調査では、トゲをふくめた最大直径を<b>全径</b>、トゲをのぞいた殻の最大直径を<b>殻径</b>とし、その差の半分を<b>トゲの長さ（換算値）</b>としました。</p>
+
+    <div class="two-col reveal" style="max-width:900px;margin-inline:auto;align-items:center">
+      <figure class="wire-fig wire-fig--paper">
+        <img src="../../assets/img/diagram/uni_body.png" alt="全径と殻径のはかり方を示した図">
+        <figcaption>全径と殻径のはかり方<span class="src" style="display:block;margin-top:4px">第1回 調査レポート より</span></figcaption>
+      </figure>
+      <figure class="wire-fig wire-fig--paper">
+        <img src="../../assets/img/zukan/uni_gonad.png" alt="殻を割って中の生殖巣が見えているウニ">
+        <figcaption>「実」とよばれ食用になる部分が生殖巣<span class="src" style="display:block;margin-top:4px">第1回 調査レポート より</span></figcaption>
+      </figure>
+    </div>
+
+    <p class="sec-note" style="margin-top:22px">生殖巣は、見た目は同じでもオスは精子、メスは卵をつくる器官で、繁殖期が近づくと大きくなります。体重のうち生殖巣がどれぐらいの割合をしめるかを <b>GSI</b>（生殖腺重量指数）といい、GSIが大きいほど実が入っていることになります。</p>
+
+    <div class="panel reveal" style="max-width:520px;margin:8px auto 0;text-align:center">
+      <div class="panel-title">GSI の求め方</div>
+      <p style="font-size:1.05rem;margin:0">生殖巣の重さ ÷ 体重 × 100</p>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="rivets"><i></i><i></i><i></i></div></div>
+
+<!-- 調査のやり方 -->
+<section class="lab-section" id="method">
+  <div class="wrap">
+    <div class="section-head"><span class="n">METHOD</span><h2>調査のやり方</h2></div>
+    <p class="sec-note">ムラサキウニを採集し、殻径・全径・トゲの長さ・体重・生殖巣の重さ・雌雄を計測しました。</p>
+
+    <ol class="steps reveal">
+      <li>水深0〜80cmの範囲のムラサキウニを、磯兼（いそがね）などを用いて採集する。</li>
+      <li>全径と殻径を定規ではかる。</li>
+      <li>千枚通しで殻に穴をあけて中の水を出したのち、重さを電子天秤ではかる。</li>
+      <li>殻をわって生殖巣を取り出し、水気を取って、重さを電子天秤ではかる。</li>
+      <li>塩化カリウム（KCl）溶液をかけて雌雄を見分ける（オスは精子が出て白くにごる）。</li>
+    </ol>
+
+    <div class="two-col reveal" style="margin-top:26px;max-width:820px;margin-inline:auto">
+      <figure class="figure"><img src="../../assets/img/zukan/uni_measure.jpg" alt="白いトレーの上で千枚通しを使ってウニの殻に穴をあける手元" data-zoom><figcaption>殻に穴をあけて中の水を出してから重さをはかる</figcaption></figure>
+      <figure class="figure"><img src="../../assets/img/zukan/uni_micro.jpg" alt="顕微鏡をのぞきこむ子どもと大人" data-zoom><figcaption>顕微鏡でウニの受精と細胞分裂を観察する</figcaption></figure>
+    </div>
+
+    <div class="panel reveal" style="max-width:760px;margin:26px auto 0">
+      <div class="panel-title">ウニの識別について</div>
+      <p style="margin:0">現場には他種のウニも生息していました。全体的に黒紫色で、少し押しつぶされた球形の殻をもち、棘が比較的太く丈夫で、ガンガゼのように極端に細くてもろい棘をもたず、アカウニのような平たい殻に短い棘をもたない個体を、ムラサキウニと認識して採集しています。</p>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="rivets"><i></i><i></i><i></i></div></div>
+
+<!-- 計測の結果 -->
+<section class="lab-section js-uni-charts" id="data">
+  <div class="wrap">
+    <div class="section-head"><span class="n">DATA</span><h2>40個体の計測結果</h2></div>
+    <p class="sec-note">2026年7月22日、200個体以上を採集し、そのうち40個体を1個体ずつ割って計測しました。点のひとつひとつが、調査員がその日に測った1個体です。点にふれると、その個体の数値が出ます。</p>
+
+    <div class="findings findings--4 reveal">
+      <div class="finding"><b>200+</b><span class="fl">採集した個体数</span><p>スロープの水深0〜80cmの範囲から採集しました。</p></div>
+      <div class="finding"><b>40</b><span class="fl">計測した個体数</span><p>1個体ずつ殻を割り、生殖巣の重さまで測りました。</p></div>
+      <div class="finding"><b>46.3</b><span class="fl">殻径の平均（mm）</span><p>いちばん小さい個体は30mm、大きい個体は61mmでした。</p></div>
+      <div class="finding"><b>4.7</b><span class="fl">GSIの平均</span><p>1.2から11.7まで、10倍近い幅がありました。</p></div>
+    </div>
+
+    <div class="sexkey reveal">
+      <span><i style="background:#56c9ad"></i>オス 17個体</span>
+      <span><i style="background:#f4cf6b"></i>メス 23個体</span>
+    </div>
+
+    <div class="datacharts reveal">
+      <figure><div id="uni-chart-size"></div><figcaption>殻径が大きい個体ほど、体重も大きくなりました。</figcaption></figure>
+      <figure><div id="uni-chart-spine"></div><figcaption>いっぽうで、殻径とトゲの長さには、ほとんど関係がありませんでした。</figcaption></figure>
+      <figure><div id="uni-chart-gsi"></div><figcaption>オスは1.2から10.1までまんべんなく散らばり、メスは5.0以下と10.0以上に分かれて、そのあいだが空いています。</figcaption></figure>
+      <figure><div id="uni-chart-cross"></div><figcaption>殻径が大きい個体ほど実入りがよい、という関係は見られませんでした。</figcaption></figure>
+    </div>
+    <p class="sec-note" style="margin-top:18px;font-size:.86rem;color:var(--fg-dim)">第1回 調査レポートの計測表（40個体）から作図しています。</p>
+  </div>
+</section>
+
+<div class="wrap"><div class="rivets"><i></i><i></i><i></i></div></div>
+
+<!-- 考察 -->
+<section class="lab-section" id="findings">
+  <div class="wrap">
+    <div class="section-head"><span class="n">FINDINGS</span><h2>ここからわかったこと</h2></div>
+    <p class="sec-note">今回は、採集しやすい深さに調査範囲を限定し、作業しやすいように大きめの個体を選んで計測しました。そのため、この結果だけで奈古の海にいるウニ全体の状況を言い切ることはできません。そのうえで、今回の結果から言える範囲で考えると、次のようになります。</p>
+
+    <div class="findings reveal">
+      <div class="finding"><b>6歳未満</b><span class="fl">若い個体がほとんど</span><p>ムラサキウニはおおよそ3歳で40mm前後、4歳で45〜50mm、5歳で50mm台という報告があり、寿命は11年以上とされます（水産庁「磯焼け対策ガイドライン」）。この目安でいえば、今回のウニは5歳以下の若い個体が多いことになります。歳をとると別の場所へ移るのか、大きくなった個体はとられているのか、この場所では大きく育ちにくいのか。今回の調査だけではわかりません。</p></div>
+      <div class="finding"><b>外から<br>見えない</b><span class="fl">中の状態は分からない</span><p>殻の大きさから、トゲの長さも実入りも予測できませんでした。つまり、このウニが今どんな状態にあるかは、外から見ても分かりません。今回のように、ひとつひとつ割って測るしか方法がないということが分かりました。</p></div>
+      <div class="finding"><b>オス／メス</b><span class="fl">ばらつき方がちがう</span><p>オスはGSIが1.2から10.1までまんべんなく散らばっていたのに対して、メスはほとんど空の個体と、やや多く入った個体に分かれました。山口県でのウニの産卵時期は6〜7月ごろといわれ、7月22日はその終わりごろにあたります。メスの多くはすでに産卵を終えていて、まだ一部だけ残っていた、という見方ができます。</p></div>
+    </div>
+
+    <div class="panel reveal" style="max-width:760px;margin:24px auto 0">
+      <div class="panel-title">この場所のウニは、やせきってはいない</div>
+      <p style="margin:0">磯焼けが進んだ海のムラサキウニは、GSIが1〜2程度と低いという報告があります（水産庁「磯焼け対策ガイドライン」）。今回調査したサイズの個体にかぎれば、GSIの平均は4.7で、磯焼け状態で報告される値よりは高い数字でした。実入りはエサである海藻がどれぐらいあるかで変わるといわれているため、この場所は海藻がまったく無い状態ではない、ということかもしれません。</p>
+    </div>
+
+    <p class="sec-note" style="margin-top:26px">時期を変えて調査を続ければ、産卵がいつ始まり、いつ・何度のピークを迎え、いつ終わるのかが見えてきそうです。今がどんな状態かを記録しておかなければ、海がどう変わったのかを知ることはできません。ウニラボは、この場所で測りつづけます。</p>
+  </div>
+</section>
+
+<!-- 調査の記録 -->
+<section class="lab-section">
+  <div class="wrap">
+    <div class="section-head"><span class="n">REPORTS</span><h2>調査の記録</h2></div>
+    <div class="report-list reveal">
+      <a class="report-item" href="https://hagi-geopark.jp/wp-content/uploads/%E8%AA%BF%E6%9F%BB%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88_%E5%A5%88%E5%8F%A4%E3%82%A6%E3%83%8B%E3%83%A9%E3%83%9C260722v2.pdf" target="_blank" rel="noopener">
+        <div class="report-item__no">#01</div>
+        <div class="report-item__body">
+          <div class="report-item__t">第1回 調査レポート（PDF）</div>
+          <div class="report-item__d">2026.7.22 ／ 奈古港の船溜まり ／ ムラサキウニ40個体の計測</div>
+        </div>
+        <div class="report-item__go">›</div>
+      </a>
+      <div class="report-upcoming">第2回以降の調査記録は、実施ごとにここへ追加されます。</div>
+    </div>
+    <p style="margin-top:28px"><a class="backlink" href="../../index.html#why-labs">‹ ラボ一覧にもどる</a></p>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <div class="foot__brand"><img src="../../assets/img/logo_hggp.png" alt="萩ジオパーク"><div><b>萩ジオパーク・フィールドラボ</b><br><small>萩ジオパーク推進協議会</small></div></div>
+    <div><small>奈古・ウニラボ</small></div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="../../assets/js/chartmap.js?v=13"></script>
+<script src="../../assets/js/uni-charts.js?v=13"></script>
+<script src="../../assets/js/main.js?v=13"></script>
+</body>
+</html>

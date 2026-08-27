@@ -75,6 +75,16 @@
         labelLayer.filter=['==',['get','type'],'logger'];
         labelLayer.layout['text-size']=12;
         s.layers.push(labelLayer);
+      } else if(el.dataset.only==='site'){
+        // 調査地マップ：調査地の1点だけを橙の丸と地点名で示す
+        s.layers.push({ id:'pt-site', type:'circle', source:'pts', filter:['==',['get','type'],'site'], paint:{
+          'circle-radius':['interpolate',['linear'],['zoom'],12,6,17,13],
+          'circle-color':PIN.star,
+          'circle-stroke-color':'#f4ecd6','circle-stroke-width':2.2 } });
+        labelLayer.filter=['==',['get','type'],'site'];
+        labelLayer.layout['text-size']=13;
+        labelLayer.layout['text-offset']=[0,-1.3];
+        s.layers.push(labelLayer);
       } else if(el.dataset.only==='frameOfHeat'){
         // 調査地マップ：外気温マップの初期表示範囲を四角枠で示す（範囲は init で外気温マップの実寸から設定）
         s.sources.vframe={ type:'geojson', data:{ type:'FeatureCollection', features:[] } };
