@@ -739,6 +739,16 @@ table.data tr.cold td{ color:#1c6f8c; font-weight:700; }
 .zone.z-kata{ background:linear-gradient(160deg,#b0762e,#8f5e22); }
 .zone.z-shaba{ background:linear-gradient(160deg,#3f9aa8,#2f7c88); }
 .zone.z-boko{ background:linear-gradient(160deg,#3f6fa8,#2f5686); }
+/* 溶岩ラボ 第2回（別の入り江）のゾーン色。レポートの図の色に合わせている */
+.sp__zone.z-kara{ background:#a35a1e; } .sp__zone.z-jime{ background:#b04434; }
+.sp__zone.z-bicha{ background:#2f93c4; }
+.zone.z-kara{ background:linear-gradient(160deg,#a35a1e,#834717); }
+.zone.z-jime{ background:linear-gradient(160deg,#b04434,#8d3629); }
+.zone.z-bicha{ background:linear-gradient(160deg,#2f93c4,#2576a0); }
+/* 絞り込みバーの区切り見出し（第1回／第2回） */
+.zf-sep{ font-family:var(--mono); font-size:.66rem; letter-spacing:.16em; color:var(--brass);
+  margin:0 2px 0 10px; white-space:nowrap; }
+
 .sp__zone.z-sara{ background:#c9a13a; } .sp__zone.z-kata{ background:#b0762e; }
 .sp__zone.z-shaba{ background:#3f9aa8; } .sp__zone.z-boko{ background:#3f6fa8; }
 .zonefilter button[data-zone="sara"][aria-pressed="true"]{ background:#c9a13a; border-color:#c9a13a; }
